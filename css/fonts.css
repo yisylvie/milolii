@@ -1,0 +1,26 @@
+/* ysabeau-office-regular - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: "Ysabeau Office";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-regular.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-regular.ttf") format("truetype");
+}
+/* ysabeau-office-italic - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: "Ysabeau Office";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-italic.ttf") format("truetype");
+}
+/* ysabeau-office-700 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: "Ysabeau Office";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-700.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-700.ttf") format("truetype");
+}
+
+/*# sourceMappingURL=fonts.css.map */
