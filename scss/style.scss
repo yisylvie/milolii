@@ -1,0 +1,264 @@
+// to compile: 
+//      sass --watch sass:css
+//      automatically compiles anything in "sass" folder to "css" folder as changes are made
+
+//      sass <input.scss> [output.css]
+//      compile input.scss to output.css once
+
+//      sass sass:css
+//      compiles anything in "sass" folder to "css" folder
+
+@use "sass:math";
+@use "fonts";
+
+$translate500: translateX(-50%);
+$translate050: translateY(-50%);
+$translate5050: translate(-50%, -50%);
+
+$secondaryColor: #12488f;
+$youtube: #8f1212;
+
+$line: .06rem;
+$line-height: 1.25em;
+
+$border: black solid $line;
+
+@mixin centerFillWidth() {
+    width: -webkit-fill-available;
+    text-align: center;
+}
+
+// absolutely center vertically and horizontally
+@mixin absoluteCenter() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: $translate5050;
+}
+
+// https://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+@function strip-units($number) {
+    @return math.div($number, ($number * 0 + 1));
+}
+
+// take a relative em number convert it to its corresponding 
+// rem value given the font size of the element it belongs to
+// $number: the number to convert
+// $em the original font size
+@function rel-to-abs($number, $em) {
+    @return calc(strip-units($number) * $em);
+}
+
+:root{
+    // font-size: clamp(16px, 0.8px + 1.6vw, 20px);
+    font-size: clamp(16px, 10px + 1vw, 20px);
+    @media (width <= 600px) {
+        font-size: clamp(16px, 8px + 2vw, 20px);
+    }
+}
+
+body {
+    font-family: fonts.$ysabeau;
+    font-weight: normal;
+    font-style: normal;
+    line-height: $line-height;
+    margin: 0;
+    padding: 0;
+}
+
+#everything{
+    
+}
+
+h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+    // margin-block-end: 0.8em;
+}
+
+h1 {
+    line-height: $line-height;
+}
+
+h2 {
+    font-size: 1.3em;
+    margin-block-end: .5em;
+    font-family: fonts.$ysabeau;
+    font-weight: 500;
+}
+
+h3 {
+    font-weight: 600;
+    margin-block-end: .5em;
+}
+
+a {
+    color: $secondaryColor;
+    font-size: inherit;
+    text-decoration: underline $line $secondaryColor;
+}
+
+a:hover{
+    color:$secondaryColor;
+    text-decoration: none;
+}
+
+p {
+    margin-block-end: .5em;
+}
+
+p:last-of-type {
+    margin-block-end: 0;
+}
+
+.email {
+    text-decoration: underline $line;
+    font-weight: unset;
+    // color: $secondaryColor;
+    cursor: pointer;
+}
+
+.email:hover {
+    text-decoration: none;
+}
+
+img, video, iframe, svg {
+    // margin: auto;
+    // padding: auto;
+    // max-width: 100%;
+    display: block;
+    // padding-top: 1em;
+    // padding-bottom: 1em;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    padding: .5em 0;
+    font-weight: 500;
+
+    h1 {
+        font-weight: inherit;
+    }
+
+    img {
+        height: 1.3em;
+    }
+}
+
+header {
+    font-size: 3rem;
+    border-bottom: $border;
+}
+
+footer {
+    font-size: 1rem;
+    padding: 0 5%;
+    @media (width <= 850px) {
+        padding: 0 2.5%;
+        font-size: .9rem;
+    }
+    border-top: $border;
+}
+
+.top {
+    font-size: inherit;
+    position: relative;
+    padding: 1.7em 0;
+    @media (width <= 600px) {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5em;
+        align-items: center;
+    }
+    > div {
+        @media (width > 600px) {   
+            position: absolute;
+            top: 50%;
+            transform: $translate050;
+        }
+    }
+    .logo {
+        font-size: 2.3em;
+        @media (width <= 600px) {
+            border-bottom: $border;
+            width: fit-content;
+            padding: 0.5em 1em;
+        }
+    }
+    address {
+        margin: auto;
+        text-align: center;
+        width: fit-content;
+    }
+    .socials {
+        right: 0;
+        display: flex;
+        gap: 1.2em;
+        justify-content: center;
+        align-items: center;
+        a {
+            display: block;
+            color: black;
+        }
+        .facebook svg {
+            height: 50px;
+            width: auto;
+        }
+        .youtube svg {
+            height: 35px;
+            width: auto;
+        }
+        .facebook:hover {
+            color: $secondaryColor;
+        }
+        .youtube:hover {
+            color: $youtube;
+        }
+    }
+}
+
+.bottom {
+    font-size: inherit;
+    border-top: $border;
+    padding-top: 1em;
+    padding-bottom: 0.8em;
+    text-align: center;
+    small {
+        font-size: revert;
+    }
+}
+
+main {
+    > div {
+        > div {
+            // background-image: url(../images/background.jpg);
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+        }
+        section {
+            font-size: 1.6rem;
+            line-height: 1.25em;
+            padding: 1.6em 1.3em;
+            background: #ffffff;
+            border: $border;
+            width: fit-content;
+            position: absolute;
+            top: 50%;
+            left: 4%;
+            transform: translate(0%, -50%);
+        }
+    }
+
+    p {
+        width: 20em;
+    }
+}
