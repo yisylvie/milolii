@@ -1,0 +1,122 @@
+.copy {
+  cursor: pointer;
+  position: relative;
+}
+.copy.no-clipboard {
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+@keyframes pop {
+  0% {
+    font-size: 0;
+  }
+  100% {
+    font-size: 0.9em;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.copy svg {
+  height: 1em;
+  font-size: inherit;
+}
+.copy .tooltip::after,
+.copy .tooltip {
+  position: absolute;
+  left: 50%;
+}
+.copy .tooltip.hidden,
+.copy .tooltip.hidden span::after {
+  visibility: hidden;
+  animation: none;
+}
+.copy .tooltip {
+  font-size: 0.9em;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.copy .tooltip span {
+  background-color: #07254b;
+  color: white;
+  line-height: 1em;
+  font-weight: normal;
+  padding: 0.5em;
+  border-radius: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.copy .tooltip.bottom {
+  transform: translateX(-50%);
+  top: 100%;
+  padding-top: 0.6em;
+}
+.copy .tooltip.right {
+  top: 50%;
+  left: 100%;
+  padding-left: 0.6em;
+  transform: translateY(-50%);
+}
+.copy .tooltip.top {
+  bottom: 100%;
+  padding-bottom: 0.6em;
+  transform: translateX(-50%);
+}
+.copy .tooltip.left {
+  top: 50%;
+  transform: translate(-100%, -50%);
+  padding-right: 0.6em;
+  left: 0;
+}
+.copy .fade {
+  animation: fade 120ms cubic-bezier(1, 0.06, 0.983, 0.165);
+  opacity: 0;
+}
+.copy .pop {
+  animation: pop 120ms cubic-bezier(1, 0.06, 0.983, 0.165);
+}
+.copy .pop.fade {
+  animation: fade 120ms cubic-bezier(1, 0.06, 0.983, 0.165), pop 120ms cubic-bezier(1, 0.06, 0.983, 0.165);
+  animation-play-state: running, paused;
+}
+.copy .tooltip::after {
+  content: "";
+  display: block;
+  width: 0;
+  border-bottom: 0.3em solid transparent;
+  border-top: 0.3em solid transparent;
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+}
+.copy .bottom::after {
+  transform: translate(-50%, -100%);
+  top: 0.6em;
+  border-bottom-color: #07254b;
+}
+.copy .right::after {
+  transform: translate(-100%, -50%);
+  left: 0.6em;
+  top: 50%;
+  border-right-color: #07254b;
+}
+.copy .top::after {
+  transform: translateX(-50%);
+  top: calc(100% - 0.6em);
+  border-top-color: #07254b;
+}
+.copy .left::after {
+  transform: translateY(-50%);
+  left: calc(100% - 0.6em);
+  top: 50%;
+  border-left-color: #07254b;
+}
+
+/*# sourceMappingURL=tooltip.css.map */

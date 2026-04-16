@@ -10,44 +10,7 @@
 
 @use "sass:math";
 @use "fonts";
-
-$translate500: translateX(-50%);
-$translate050: translateY(-50%);
-$translate5050: translate(-50%, -50%);
-
-$secondaryColor: #12488f;
-$youtube: #8f1212;
-
-$line: .06rem;
-$line-height: 1.25em;
-
-$border: black solid $line;
-
-@mixin centerFillWidth() {
-    width: -webkit-fill-available;
-    text-align: center;
-}
-
-// absolutely center vertically and horizontally
-@mixin absoluteCenter() {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: $translate5050;
-}
-
-// https://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
-@function strip-units($number) {
-    @return math.div($number, ($number * 0 + 1));
-}
-
-// take a relative em number convert it to its corresponding 
-// rem value given the font size of the element it belongs to
-// $number: the number to convert
-// $em the original font size
-@function rel-to-abs($number, $em) {
-    @return calc(strip-units($number) * $em);
-}
+@use "global";
 
 :root{
     // font-size: clamp(16px, 0.8px + 1.6vw, 20px);
@@ -61,7 +24,6 @@ body {
     font-family: fonts.$ysabeau;
     font-weight: normal;
     font-style: normal;
-    line-height: $line-height;
     margin: 0;
     padding: 0;
 }
@@ -78,33 +40,38 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
     font-size: 1em;
     font-weight: normal;
     font-style: normal;
+    max-width: 30em;
+    line-height: global.$line-height;
     // margin-block-end: 0.8em;
 }
 
-h1 {
-    line-height: $line-height;
+h1, h2, h3, h4, h5, h6 {
+    @extend %headings;
+}
+
+%headings {
+    font-weight: bold;
+    text-wrap-style: balance;
 }
 
 h2 {
     font-size: 1.3em;
     margin-block-end: .5em;
     font-family: fonts.$ysabeau;
-    font-weight: 500;
 }
 
 h3 {
     font-weight: 600;
-    margin-block-end: .5em;
 }
 
 a {
-    color: $secondaryColor;
+    color: global.$secondaryColor;
     font-size: inherit;
-    text-decoration: underline $line $secondaryColor;
+    text-decoration: underline global.$line global.$secondaryColor;
 }
 
 a:hover{
-    color:$secondaryColor;
+    color: global.$secondaryColor;
     text-decoration: none;
 }
 
@@ -117,9 +84,9 @@ p:last-of-type {
 }
 
 .email {
-    text-decoration: underline $line;
+    text-decoration: underline global.$line;
     font-weight: unset;
-    // color: $secondaryColor;
+    // color: global.$secondaryColor;
     cursor: pointer;
 }
 
@@ -146,6 +113,7 @@ img, video, iframe, svg {
 
     h1 {
         font-weight: inherit;
+        font-size: inherit;
     }
 
     img {
@@ -155,7 +123,6 @@ img, video, iframe, svg {
 
 header {
     font-size: 3rem;
-    border-bottom: $border;
 }
 
 footer {
@@ -165,10 +132,10 @@ footer {
         padding: 0 2.5%;
         font-size: .9rem;
     }
-    border-top: $border;
+    border-top: global.$border;
 }
 
-.top {
+.footer-top {
     font-size: inherit;
     position: relative;
     padding: 1.7em 0;
@@ -182,13 +149,13 @@ footer {
         @media (width > 600px) {   
             position: absolute;
             top: 50%;
-            transform: $translate050;
+            transform: global.$translate050;
         }
     }
     .logo {
         font-size: 2.3em;
         @media (width <= 600px) {
-            border-bottom: $border;
+            border-bottom: global.$border;
             width: fit-content;
             padding: 0.5em 1em;
         }
@@ -197,6 +164,9 @@ footer {
         margin: auto;
         text-align: center;
         width: fit-content;
+        > * {
+            margin-block-end: .5em;
+        }
     }
     .socials {
         right: 0;
@@ -216,18 +186,22 @@ footer {
             height: 35px;
             width: auto;
         }
-        .facebook:hover {
-            color: $secondaryColor;
+        .facebook {
+            &:hover,&:focus {
+                color: global.$secondaryColor;
+            }
         }
-        .youtube:hover {
-            color: $youtube;
+        .youtube {
+            &:hover,&:focus {
+                color: global.$youtube;
+            }
         }
     }
 }
 
-.bottom {
+.footer-bottom {
     font-size: inherit;
-    border-top: $border;
+    border-top: global.$border;
     padding-top: 1em;
     padding-bottom: 0.8em;
     text-align: center;
@@ -237,28 +211,101 @@ footer {
 }
 
 main {
-    > div {
-        > div {
-            // background-image: url(../images/background.jpg);
-            background-size: cover;
-            height: 100vh;
+    $min-padding: 2.5%;
+    p {
+        margin-block-end: 1em;
+    }
+    .banner {
+        color: white;
+        &-1 {
+            background-color: #12488f;
             position: relative;
-        }
-        section {
-            font-size: 1.6rem;
-            line-height: 1.25em;
-            padding: 1.6em 1.3em;
-            background: #ffffff;
-            border: $border;
-            width: fit-content;
-            position: absolute;
-            top: 50%;
-            left: 4%;
-            transform: translate(0%, -50%);
+            height: 100vh;
+            section {
+                @include global.absoluteCenter();
+                width: max-content;
+                max-width: calc(100% - $min-padding * 2);
+            }
+            h2 {
+                font-size: 2.5rem;
+                text-align: center;
+                font-weight: 200;
+            }
+            p {
+                font-size: 1.1rem;
+                @media (width > 600px) {
+                    margin-inline-start: 2em;
+                }
+            }
         }
     }
-
-    p {
-        width: 20em;
+    .hero {
+        $padding: 2em;
+        height: calc(100vh - (global.rel-to-abs(1.3em + 1em, 3rem) + .06rem) - 10vh);
+        min-height: 20em;
+        padding: 0 $padding;
+        @media (width <= 600px) {
+            padding: $min-padding;
+        }
+        position: relative;
+        hgroup {
+            @include global.absoluteTopCenter();
+            width: clamp(50%, 30em, 95vw);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-block-end: .5em;
+        }
+        p {
+            font-size: 1.6rem;
+            font-weight: 200;
+        }
+        background-color: global.$tertiaryColor;
+    }
+    .side-section {
+        display: flex;
+        flex-direction: row-reverse;
+        @media (width <= 850px) {
+            flex-direction: column;
+        }
+        .content {
+            position: relative;
+            @media (width > 850px) {
+                width: max(50%, 30em);
+            }
+            > div {
+                margin: 4em 2em;
+                @media (600px <= width <= 850px) {
+                    margin: 4em;
+                }
+                @media (width <= 600px) {
+                    margin: 4em $min-padding;
+                }
+                width: 30em;
+                max-width: calc(100% - 4em);
+            }
+        }
+        .img {
+            background-color: global.$tertiaryColor;
+            width: stretch;
+            @media (width <= 850px) {
+                height: 70vh;
+            }
+        }
+        h3 {
+            font-size: 2rem;
+            margin-block-end: .3em;
+        }
+        p:last-of-type{
+            margin-block-end: 2em;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            border-left: 0.2em solid global.$secondaryColor;
+            padding: .3em 0 .3em .7em;
+            margin-block-end: .4em;
+        }
     }
 }

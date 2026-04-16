@@ -1,0 +1,56 @@
+@use "sass:math";
+
+$translate500: translateX(-50%);
+$translate050: translateY(-50%);
+$translate5050: translate(-50%, -50%);
+
+$secondaryColor: #12488f;
+$tertiaryColor: #07254b;
+$youtube: #8f1212;
+
+$line: .06rem;
+$line-height: 1.4em;
+
+$border: $tertiaryColor solid $line;
+
+$cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
+
+@mixin centerFillWidth() {
+    width: -webkit-fill-available;
+    text-align: center;
+}
+
+// absolutely center vertically
+@mixin absoluteTopCenter() {
+    position: absolute;
+    top: 50%;
+    transform: $translate050;
+}
+
+// absolutely center horizontally
+@mixin absoluteLeftCenter() {
+    position: absolute;
+    left: 50%;
+    transform: $translate500;
+}
+
+// absolutely center vertically and horizontally
+@mixin absoluteCenter() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: $translate5050;
+}
+
+// https://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+@function strip-units($number) {
+    @return math.div($number, ($number * 0 + 1));
+}
+
+// take a relative em number convert it to its corresponding 
+// rem value given the font size of the element it belongs to
+// $number: the number to convert
+// $em the original font size
+@function rel-to-abs($number, $em) {
+    @return calc(strip-units($number) * $em);
+}
