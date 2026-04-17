@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ysabeau-office-200 - latin_latin-ext */
 @font-face {
   font-display: swap;
@@ -121,9 +122,9 @@
 :root {
   font-size: clamp(16px, 10px + 1vw, 20px);
 }
-@media (width <= 600px) {
+@media (width <= 850px) {
   :root {
-    font-size: clamp(16px, 8px + 2vw, 20px);
+    font-size: clamp(16px, 10px + 2vw, 22px);
   }
 }
 
@@ -214,13 +215,18 @@ img, video, iframe, svg {
 header {
   font-size: 3rem;
 }
+@media (width <= 850px) {
+  header {
+    font-size: 2rem;
+  }
+}
 
 footer {
   font-size: 1rem;
   padding: 0 5%;
   border-top: #07254b solid 0.06rem;
 }
-@media (width <= 850px) {
+@media (width <= 900px) {
   footer {
     padding: 0 2.5%;
     font-size: 0.9rem;
@@ -232,7 +238,7 @@ footer {
   position: relative;
   padding: 1.7em 0;
 }
-@media (width <= 600px) {
+@media (width <= 850px) {
   .footer-top {
     display: flex;
     flex-direction: column;
@@ -240,7 +246,7 @@ footer {
     align-items: center;
   }
 }
-@media (width > 600px) {
+@media (width > 850px) {
   .footer-top > div {
     position: absolute;
     top: 50%;
@@ -250,7 +256,7 @@ footer {
 .footer-top .logo {
   font-size: 2.3em;
 }
-@media (width <= 600px) {
+@media (width <= 850px) {
   .footer-top .logo {
     border-bottom: #07254b solid 0.06rem;
     width: fit-content;
@@ -309,9 +315,9 @@ main .banner {
   color: white;
 }
 main .banner-1 {
-  background-color: #12488f;
   position: relative;
   height: 100vh;
+  background-size: cover;
 }
 main .banner-1 section {
   position: absolute;
@@ -319,7 +325,7 @@ main .banner-1 section {
   left: 50%;
   transform: translate(-50%, -50%);
   width: max-content;
-  max-width: 95%;
+  max-width: 94%;
 }
 main .banner-1 h2 {
   font-size: 2.5rem;
@@ -329,21 +335,34 @@ main .banner-1 h2 {
 main .banner-1 p {
   font-size: 1.1rem;
 }
-@media (width > 600px) {
+@media (width > 850px) {
   main .banner-1 p {
     margin-inline-start: 2em;
   }
 }
+main .banner-1-1 {
+  color: black;
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/boats on the water milolii.jpg");
+  background-position-x: right;
+}
+main .banner-1-2 {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5882352941), rgba(0, 0, 0, 0.5882352941)), url("../images/paʻa pono center trucks.jpeg");
+}
 main .hero {
+  background-image: url("../images/paʻa pono center mountain view.jpeg");
   height: calc(100vh - 6.96rem - 10vh);
   min-height: 20em;
   padding: 0 2em;
   position: relative;
+  background-size: cover;
+  background-position-y: center;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4392156863), rgba(0, 0, 0, 0.4392156863)), url("../images/paʻa pono center mountain view.jpeg");
+  position: relative;
   background-color: #07254b;
 }
-@media (width <= 600px) {
+@media (width <= 850px) {
   main .hero {
-    padding: 2.5%;
+    padding: 3%;
   }
 }
 main .hero hgroup {
@@ -364,7 +383,7 @@ main .side-section {
   display: flex;
   flex-direction: row-reverse;
 }
-@media (width <= 850px) {
+@media (width <= 900px) {
   main .side-section {
     flex-direction: column;
   }
@@ -372,7 +391,7 @@ main .side-section {
 main .side-section .content {
   position: relative;
 }
-@media (width > 850px) {
+@media (width > 900px) {
   main .side-section .content {
     width: max(50%, 30em);
   }
@@ -382,23 +401,27 @@ main .side-section .content > div {
   width: 30em;
   max-width: calc(100% - 4em);
 }
-@media (600px <= width <= 850px) {
+@media (850px <= width <= 900px) {
   main .side-section .content > div {
     margin: 4em;
   }
 }
-@media (width <= 600px) {
+@media (width <= 850px) {
   main .side-section .content > div {
-    margin: 4em 2.5%;
+    margin: 4em 3%;
   }
 }
 main .side-section .img {
   background-color: #07254b;
   width: stretch;
+  background-size: cover;
+  background-position-y: top;
+  background-position-x: center;
+  background-image: url("../images/paʻa pono center ocean view.jpeg");
 }
-@media (width <= 850px) {
+@media (width <= 900px) {
   main .side-section .img {
-    height: 70vh;
+    display: hidden;
   }
 }
 main .side-section h3 {
