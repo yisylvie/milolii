@@ -119,7 +119,7 @@
   src: url("../fonts/ysabeau-office-v4-latin_latin-ext-900italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-900italic.ttf") format("truetype");
 }
 :root {
-  font-size: 12pt;
+  font-size: 20.5pt;
   background-color: black;
 }
 
@@ -152,20 +152,21 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
 }
 
 h1 {
-  font-size: 25.5pt;
+  font-size: 52pt;
   margin-block-start: 0.5em;
-  margin-block-end: 0.8em;
+  margin-block-end: 0.9em;
   font-weight: 300;
 }
 
 h2 {
-  font-size: 23.3pt;
+  font-size: 47.3pt;
   font-weight: 100;
+  margin-block-end: 0.2em;
 }
 
 h3 {
   font-weight: 600;
-  font-size: 16pt;
+  font-size: 31pt;
 }
 
 strong {
@@ -176,18 +177,17 @@ strong {
 
 img, video, iframe, svg {
   display: block;
-  height: 1.6in;
   position: absolute;
   right: 0px;
-  bottom: 53%;
+  bottom: 42.8%;
   margin: auto;
-  height: 1.7in;
+  height: 2.9in;
 }
 
 .flyer {
-  padding: 0.125in;
-  width: 4.25in;
-  height: 5.5in;
+  padding: 0.25in;
+  width: 8.5in;
+  height: 11in;
   position: relative;
   box-sizing: border-box;
 }
@@ -197,45 +197,48 @@ img, video, iframe, svg {
 .flyer .circle-parent {
   overflow: hidden;
   position: absolute;
-  height: 4in;
-  width: 4in;
+  height: 8in;
+  width: 8in;
   left: -5pt;
   top: 0;
 }
 .flyer .circle {
   position: absolute;
   background: white;
-  height: 4in;
-  width: 4in;
+  height: 8in;
+  width: 8in;
   z-index: 0;
-  left: -5pt;
-  top: -17px;
+  left: 4pt;
+  top: -20px;
   border-end-end-radius: 100%;
 }
 .flyer footer {
   position: absolute;
-  width: calc(100% - 0.25in);
-  left: 0px;
-  bottom: 0.125in;
+  width: calc(100% - 0.5in);
+  left: 0;
+  bottom: 0.25in;
   background: white;
-  padding: 0.125in;
+  padding: 0.125in 0.25in;
 }
 .flyer footer .address {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: 11pt;
-  margin-bottom: 1em;
+  font-size: 16pt;
+  margin-bottom: 0.5em;
 }
 .flyer footer .address p {
-  padding: 0 5pt;
+  padding: 0 2.15em;
   border-right: 1pt solid black;
+  line-height: 1.4em;
 }
 .flyer footer .address p:last-of-type {
   border: none;
 }
 .flyer footer > p {
   margin-block-end: 1em;
+  width: 5.5in;
+  text-wrap-style: auto;
 }
 .flyer .footer-bottom {
   text-align: right;
@@ -243,7 +246,7 @@ img, video, iframe, svg {
 }
 
 .flyer {
-  --s: 55px;
+  --s: 100px;
   /* control the size*/
   --c1: #ffffff;
   --c2: #aeddec;

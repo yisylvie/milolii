@@ -13,7 +13,7 @@
 @use "global";
 
 :root{
-    font-size: 12pt;
+    font-size: 20.5pt;
     background-color: black;
 }
 
@@ -53,20 +53,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 25.5pt;
+    font-size: 52pt;
     margin-block-start: 0.5em;
-    margin-block-end: 0.8em;
+    margin-block-end: 0.9em;
     font-weight: 300;
 }
 
 h2 {
-    font-size: 23.3pt;
+    font-size: 47.3pt;
     font-weight: 100;
+    margin-block-end: 0.2em;
 }
 
 h3 {
     font-weight: 600;
-    font-size: 16pt;
+    font-size: 31pt;
 }
 
 strong {
@@ -77,19 +78,18 @@ strong {
 
 img, video, iframe, svg {
     display: block;
-    height: 1.6in;
     position: absolute;
     right: 0px;
-    bottom: 53%;
+    bottom: 42.8%;
     margin: auto;
-    height: 1.7in;
+    height: 2.9in;
 }
 
 .flyer {
-    $padding: math.div(.25in, 2);
+    $padding: .25in;
     padding: $padding;
-    width: calc(8.5in / 2);
-    height: calc(11in / 2);
+    width: 8.5in;
+    height: 11in;
     position: relative;
     box-sizing: border-box;
 
@@ -100,8 +100,8 @@ img, video, iframe, svg {
     .circle-parent {
         overflow: hidden;
         position: absolute;
-        height: 4in;
-        width: 4in;
+        height: 8in;
+        width: 8in;
         left: -5pt;
         top: 0;
     }
@@ -109,37 +109,41 @@ img, video, iframe, svg {
     .circle {
         position: absolute;
         background: white;
-        height: 4in;
-        width: 4in;
+        height: 8in;
+        width: 8in;
         z-index: 0;
-        left: -5pt;
-        top: -17px;
+        left: 4pt;
+        top: -20px;
         border-end-end-radius: 100%;
     }
     
     footer {
+        $fpadding: math.div($padding, 2);
         position: absolute;
         width: calc(100% - $padding * 2);
-        left: 0px;
+        left: 0;
         bottom: $padding;
         background: white;
-        padding: $padding;
+        padding: $fpadding $padding;
         .address {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            font-size: 11pt;
+            font-size: 16pt;
+            margin-bottom: 0.5em;
             p {
-                padding: 0 5pt;
+                padding: 0 2.15em;
                 border-right: 1pt solid black;
+                line-height: 1.4em;
             }
             p:last-of-type {
                 border: none;
             }
-            margin-bottom: 1em;
         }
         > p {
             margin-block-end: 1em;
+            width: 5.5in;
+            text-wrap-style: auto;
         }
     }
     
@@ -151,7 +155,7 @@ img, video, iframe, svg {
 
 // https://css-pattern.com/equal-sign/
 .flyer {
-    --s: 55px;
+    --s: 100px;
     /* control the size*/
     --c1: #ffffff;
     --c2: #aeddec;
