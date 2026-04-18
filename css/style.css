@@ -1,130 +1,10 @@
-/* ysabeau-office-200 - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 200;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-200.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-200.ttf") format("truetype");
-}
-/* ysabeau-office-200italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 200;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-200italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-200italic.ttf") format("truetype");
-}
-/* ysabeau-office-300 - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-300.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-300.ttf") format("truetype");
-}
-/* ysabeau-office-300italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 300;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-300italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-300italic.ttf") format("truetype");
-}
-/* ysabeau-office-regular - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-regular.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-regular.ttf") format("truetype");
-}
-/* ysabeau-office-italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 400;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-italic.ttf") format("truetype");
-}
-/* ysabeau-office-500italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 500;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-500italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-500italic.ttf") format("truetype");
-}
-/* ysabeau-office-600 - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-600.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-600.ttf") format("truetype");
-}
-/* ysabeau-office-600italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 600;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-600italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-600italic.ttf") format("truetype");
-}
-/* ysabeau-office-700 - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-700.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-700.ttf") format("truetype");
-}
-/* ysabeau-office-700italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 700;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-700italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-700italic.ttf") format("truetype");
-}
-/* ysabeau-office-800 - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 800;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-800.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-800.ttf") format("truetype");
-}
-/* ysabeau-office-800italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 800;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-800italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-800italic.ttf") format("truetype");
-}
-/* ysabeau-office-900 - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 900;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-900.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-900.ttf") format("truetype");
-}
-/* ysabeau-office-900italic - latin_latin-ext */
-@font-face {
-  font-display: swap;
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 900;
-  src: url("../fonts/ysabeau-office-v4-latin_latin-ext-900italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-900italic.ttf") format("truetype");
-}
 :root {
-  font-size: 12pt;
+  font-size: 11pt;
   background-color: black;
 }
 
 body {
-  font-family: "Ysabeau Office", Verdana, "sans-serif";
+  font-family: "Red Hat Text", sans-serif;
   font-weight: normal;
   font-style: normal;
   margin: 0;
@@ -138,7 +18,7 @@ body {
   flex-wrap: wrap;
 }
 
-h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
+h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, q {
   margin: 0;
   padding: 0;
   color: inherit;
@@ -147,15 +27,21 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
   font-weight: normal;
   font-style: normal;
   max-width: 30em;
-  line-height: 1.4em;
+  line-height: 1.2em;
   text-wrap-style: balance;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Vollkorn", serif;
 }
 
 h1 {
-  font-size: 25.5pt;
+  font-size: 36pt;
   margin-block-start: 0.5em;
-  margin-block-end: 0.8em;
-  font-weight: 300;
+  font-weight: 750;
+  margin-block-end: 0.1em;
+  color: #62204f;
 }
 
 h2 {
@@ -164,8 +50,33 @@ h2 {
 }
 
 h3 {
-  font-weight: 600;
-  font-size: 16pt;
+  font-weight: 100;
+  font-size: 17pt;
+  margin-block-end: 0.1em;
+  margin-block-start: 0.3em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+q {
+  text-align: center;
+  display: block;
+  font-size: 14.5pt;
+  margin-block-end: 0.1em;
+  font-family: "Vollkorn";
+}
+q::before {
+  display: none;
+}
+q::after {
+  display: none;
+}
+
+cite {
+  display: block;
+  text-align: right;
 }
 
 strong {
@@ -176,12 +87,6 @@ strong {
 
 img, video, iframe, svg {
   display: block;
-  height: 1.6in;
-  position: absolute;
-  right: 0px;
-  bottom: 53%;
-  margin: auto;
-  height: 1.7in;
 }
 
 .flyer {
@@ -194,28 +99,13 @@ img, video, iframe, svg {
 .flyer main {
   position: relative;
 }
-.flyer .circle-parent {
-  overflow: hidden;
-  position: absolute;
-  height: 4in;
-  width: 4in;
-  left: -5pt;
-  top: 0;
-}
-.flyer .circle {
-  position: absolute;
-  background: white;
-  height: 4in;
-  width: 4in;
-  z-index: 0;
-  left: -5pt;
-  top: -17px;
-  border-end-end-radius: 100%;
+.flyer main p {
+  margin: 0.3em 0;
 }
 .flyer footer {
   position: absolute;
   width: calc(100% - 0.25in);
-  left: 0px;
+  left: 0;
   bottom: 0.125in;
   background: white;
   padding: 0.125in;
@@ -224,7 +114,8 @@ img, video, iframe, svg {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: 11pt;
+  font-size: 9pt;
+  margin-bottom: 1em;
   margin-bottom: 1em;
 }
 .flyer footer .address p {
@@ -242,14 +133,36 @@ img, video, iframe, svg {
   font-size: 8pt;
 }
 
+table {
+  font-size: 10pt;
+  margin: auto;
+  text-align: center;
+  border-spacing: 4pt;
+  width: 100%;
+}
+table td, table th {
+  padding: calc(0.4rem - 2pt);
+  border: black 1pt solid;
+}
+table td {
+  vertical-align: baseline;
+  background: #ffeefa;
+}
+table tr:last-of-type td:first-of-type {
+  border-radius: 0 0 0 0.5rem;
+}
+table tr:last-of-type td:last-of-type {
+  border-radius: 0 0 0.5rem 0;
+}
+table th {
+  font-size: 1.3em;
+  background: #f5d5ec;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-family: "Vollkorn", serif;
+}
+
 .flyer {
-  --s: 55px;
-  /* control the size*/
-  --c1: #ffffff;
-  --c2: #aeddec;
-  --_g: #0000 8%, var(--c1) 0 17%, #0000 0 58%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0) 20.5%, var(--c1) 0 29.5%, rgba(0, 0, 0, 0) 0) 0 calc(var(--s) / 4), linear-gradient(45deg, var(--_g)) calc(var(--s) / 2) 0, linear-gradient(135deg, var(--_g), var(--c1) 0 67%, rgba(0, 0, 0, 0) 0), linear-gradient(45deg, var(--_g), var(--c1) 0 67%, rgba(0, 0, 0, 0) 0 83%, var(--c1) 0 92%, rgba(0, 0, 0, 0) 0), var(--c2);
-  background-size: var(--s) var(--s);
+  background: radial-gradient(125% 125% at -2% 101%, rgb(245, 87, 2) 10.5%, rgb(245, 120, 2) 16%, rgb(245, 140, 2) 17.5%, rgb(245, 170, 100) 25%, rgb(238, 174, 202) 40%, rgb(202, 179, 214) 65%, rgb(148, 201, 233) 100%);
 }
 
 /*# sourceMappingURL=style.css.map */

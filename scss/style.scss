@@ -13,12 +13,12 @@
 @use "global";
 
 :root{
-    font-size: 12pt;
+    font-size: 11pt;
     background-color: black;
 }
 
 body {
-    font-family: fonts.$ysabeau;
+    font-family: fonts.$redHat;
     font-weight: normal;
     font-style: normal;
     margin: 0;
@@ -32,7 +32,7 @@ body {
     flex-wrap: wrap;
 }
 
-h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
+h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, q {
     margin: 0;
     padding: 0;
     color: inherit;
@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
     max-width: 30em;
     line-height: global.$line-height;
     text-wrap-style: balance;
+    text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,13 +51,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %headings {
+    font-family: fonts.$volkorn;
 }
 
 h1 {
-    font-size: 25.5pt;
+    font-size: 36pt;
     margin-block-start: 0.5em;
-    margin-block-end: 0.8em;
-    font-weight: 300;
+    font-weight: 750;
+    margin-block-end: 0.1em;
+    color: #62204f;
 }
 
 h2 {
@@ -65,8 +68,33 @@ h2 {
 }
 
 h3 {
-    font-weight: 600;
-    font-size: 16pt;
+    font-weight: 100;
+    font-size: 17pt;
+    margin-block-end: 0.1em;
+    margin-block-start: 0.3em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+q {
+    text-align: center;
+    display: block;
+    font-size: 14.5pt;
+    margin-block-end: 0.1em;
+    font-family: 'Vollkorn';
+    &::before {
+        display: none;
+    }
+    &::after {
+        display: none;
+    }
+}
+
+cite {
+    display: block;
+    text-align: right;
 }
 
 strong {
@@ -77,12 +105,6 @@ strong {
 
 img, video, iframe, svg {
     display: block;
-    height: 1.6in;
-    position: absolute;
-    right: 0px;
-    bottom: 53%;
-    margin: auto;
-    height: 1.7in;
 }
 
 .flyer {
@@ -95,32 +117,15 @@ img, video, iframe, svg {
 
     main {
         position: relative;
-    }
-
-    .circle-parent {
-        overflow: hidden;
-        position: absolute;
-        height: 4in;
-        width: 4in;
-        left: -5pt;
-        top: 0;
-    }
-
-    .circle {
-        position: absolute;
-        background: white;
-        height: 4in;
-        width: 4in;
-        z-index: 0;
-        left: -5pt;
-        top: -17px;
-        border-end-end-radius: 100%;
+        p {
+            margin: 0.3em 0;
+        }
     }
     
     footer {
         position: absolute;
         width: calc(100% - $padding * 2);
-        left: 0px;
+        left: 0;
         bottom: $padding;
         background: white;
         padding: $padding;
@@ -128,7 +133,8 @@ img, video, iframe, svg {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            font-size: 11pt;
+            font-size: 9pt;
+            margin-bottom: 1em;
             p {
                 padding: 0 5pt;
                 border-right: 1pt solid black;
@@ -149,19 +155,46 @@ img, video, iframe, svg {
     }
 }
 
-// https://css-pattern.com/equal-sign/
-.flyer {
-    --s: 55px;
-    /* control the size*/
-    --c1: #ffffff;
-    --c2: #aeddec;
+table {
+    font-size: 10pt;
+    margin: auto;
+    text-align: center;
+    border-spacing: 4pt;
+    width: 100%;
+    $radius: .5rem;
+    $padding: calc(0.4rem - 2pt);
 
-    --_g: #0000 8%, var(--c1) 0 17%, #0000 0 58%;
-    background:
-        linear-gradient(135deg, #0000 20.5%, var(--c1) 0 29.5%, #0000 0) 0 calc(var(--s)/4),
-        linear-gradient(45deg, var(--_g)) calc(var(--s)/2) 0,
-        linear-gradient(135deg, var(--_g), var(--c1) 0 67%, #0000 0),
-        linear-gradient(45deg, var(--_g), var(--c1) 0 67%, #0000 0 83%, var(--c1) 0 92%, #0000 0),
-        var(--c2);
-    background-size: var(--s) var(--s);
+    td, th {
+        padding: $padding;
+        border: black 1pt solid;;
+    }
+    td {
+        vertical-align: baseline;
+        background: global.$tertiaryColor;
+    }
+    tr:last-of-type {
+        td:first-of-type{
+            border-radius: 0 0 0 $radius;
+        }
+        td:last-of-type {
+            border-radius: 0 0 $radius 0;
+        }
+    }
+    th {
+        font-size: 1.3em;
+        background: global.$secondaryColor;
+        border-radius: $radius $radius 0 0;
+        font-family: fonts.$volkorn;
+    }
+}
+
+.flyer {
+    background: radial-gradient(125% 125% at -2% 101%,
+            rgba(245, 87, 2, 1) 10.5%,
+            rgba(245, 120, 2, 1) 16%,
+            rgba(245, 140, 2, 1) 17.5%,
+            rgba(245, 170, 100, 1) 25%,
+            rgba(238, 174, 202, 1) 40%,
+            rgba(202, 179, 214, 1) 65%,
+            rgba(148, 201, 233, 1) 100%);
 }
