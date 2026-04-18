@@ -119,12 +119,8 @@
   src: url("../fonts/ysabeau-office-v4-latin_latin-ext-900italic.woff2") format("woff2"), url("../fonts/ysabeau-office-v4-latin_latin-ext-900italic.ttf") format("truetype");
 }
 :root {
-  font-size: clamp(16px, 10px + 1vw, 20px);
-}
-@media (width <= 600px) {
-  :root {
-    font-size: clamp(16px, 8px + 2vw, 20px);
-  }
+  font-size: 12pt;
+  background-color: black;
 }
 
 body {
@@ -132,7 +128,14 @@ body {
   font-weight: normal;
   font-style: normal;
   margin: 0;
-  padding: 0;
+  width: 8.5in;
+  height: 11in;
+  background-color: white;
+}
+
+#everything {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
@@ -145,276 +148,108 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
   font-style: normal;
   max-width: 30em;
   line-height: 1.4em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
   text-wrap-style: balance;
 }
 
+h1 {
+  font-size: 25.5pt;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.8em;
+  font-weight: 300;
+}
+
 h2 {
-  font-size: 1.3em;
-  margin-block-end: 0.5em;
-  font-family: "Ysabeau Office", Verdana, "sans-serif";
+  font-size: 23.3pt;
+  font-weight: 100;
 }
 
 h3 {
   font-weight: 600;
+  font-size: 16pt;
 }
 
-a {
-  color: #12488f;
-  font-size: inherit;
-  text-decoration: underline 0.06rem #12488f;
-}
-
-a:hover {
-  color: #12488f;
-  text-decoration: none;
-}
-
-p {
-  margin-block-end: 0.5em;
-}
-
-p:last-of-type {
-  margin-block-end: 0;
-}
-
-.email {
-  text-decoration: underline 0.06rem;
+strong {
+  text-decoration: underline;
+  font-style: normal;
   font-weight: unset;
-  cursor: pointer;
-}
-
-.email:hover {
-  text-decoration: none;
 }
 
 img, video, iframe, svg {
   display: block;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3em;
-  padding: 0.5em 0;
-  font-weight: 500;
-}
-.logo h1 {
-  font-weight: inherit;
-  font-size: inherit;
-}
-.logo img {
-  height: 1.3em;
-}
-
-header {
-  font-size: 3rem;
-}
-
-footer {
-  font-size: 1rem;
-  padding: 0 5%;
-  border-top: #07254b solid 0.06rem;
-}
-@media (width <= 850px) {
-  footer {
-    padding: 0 2.5%;
-    font-size: 0.9rem;
-  }
-}
-
-.footer-top {
-  font-size: inherit;
-  position: relative;
-  padding: 1.7em 0;
-}
-@media (width <= 600px) {
-  .footer-top {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5em;
-    align-items: center;
-  }
-}
-@media (width > 600px) {
-  .footer-top > div {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-.footer-top .logo {
-  font-size: 2.3em;
-}
-@media (width <= 600px) {
-  .footer-top .logo {
-    border-bottom: #07254b solid 0.06rem;
-    width: fit-content;
-    padding: 0.5em 1em;
-  }
-}
-.footer-top address {
+  height: 1.6in;
+  position: absolute;
+  right: 0px;
+  bottom: 53%;
   margin: auto;
-  text-align: center;
-  width: fit-content;
+  height: 1.7in;
 }
-.footer-top address > * {
-  margin-block-end: 0.5em;
+
+.flyer {
+  padding: 0.125in;
+  width: 4.25in;
+  height: 5.5in;
+  position: relative;
+  box-sizing: border-box;
 }
-.footer-top .socials {
-  right: 0;
+.flyer main {
+  position: relative;
+}
+.flyer .circle-parent {
+  overflow: hidden;
+  position: absolute;
+  height: 4in;
+  width: 4in;
+  left: -5pt;
+  top: 0;
+}
+.flyer .circle {
+  position: absolute;
+  background: white;
+  height: 4in;
+  width: 4in;
+  z-index: 0;
+  left: -5pt;
+  top: -17px;
+  border-end-end-radius: 100%;
+}
+.flyer footer {
+  position: absolute;
+  width: calc(100% - 0.25in);
+  left: 0px;
+  bottom: 0.125in;
+  background: white;
+  padding: 0.125in;
+}
+.flyer footer .address {
   display: flex;
-  gap: 1.2em;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  font-size: 11pt;
+  margin-bottom: 1em;
 }
-.footer-top .socials a {
-  display: block;
-  color: black;
+.flyer footer .address p {
+  padding: 0 5pt;
+  border-right: 1pt solid black;
 }
-.footer-top .socials .facebook svg {
-  height: 50px;
-  width: auto;
+.flyer footer .address p:last-of-type {
+  border: none;
 }
-.footer-top .socials .youtube svg {
-  height: 35px;
-  width: auto;
-}
-.footer-top .socials .facebook:hover, .footer-top .socials .facebook:focus {
-  color: #12488f;
-}
-.footer-top .socials .youtube:hover, .footer-top .socials .youtube:focus {
-  color: #8f1212;
-}
-
-.footer-bottom {
-  font-size: inherit;
-  border-top: #07254b solid 0.06rem;
-  padding-top: 1em;
-  padding-bottom: 0.8em;
-  text-align: center;
-}
-.footer-bottom small {
-  font-size: revert;
-}
-
-main p {
+.flyer footer > p {
   margin-block-end: 1em;
 }
-main .banner {
-  color: white;
+.flyer .footer-bottom {
+  text-align: right;
+  font-size: 8pt;
 }
-main .banner-1 {
-  background-color: #12488f;
-  position: relative;
-  height: 100vh;
-}
-main .banner-1 section {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: max-content;
-  max-width: 95%;
-}
-main .banner-1 h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  font-weight: 200;
-}
-main .banner-1 p {
-  font-size: 1.1rem;
-}
-@media (width > 600px) {
-  main .banner-1 p {
-    margin-inline-start: 2em;
-  }
-}
-main .hero {
-  height: calc(100vh - 6.96rem - 10vh);
-  min-height: 20em;
-  padding: 0 2em;
-  position: relative;
-  background-color: #07254b;
-}
-@media (width <= 600px) {
-  main .hero {
-    padding: 2.5%;
-  }
-}
-main .hero hgroup {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(50%, 30em, 95vw);
-}
-main .hero h1 {
-  font-size: 3rem;
-  margin-block-end: 0.5em;
-}
-main .hero p {
-  font-size: 1.6rem;
-  font-weight: 200;
-}
-main .side-section {
-  display: flex;
-  flex-direction: row-reverse;
-}
-@media (width <= 850px) {
-  main .side-section {
-    flex-direction: column;
-  }
-}
-main .side-section .content {
-  position: relative;
-}
-@media (width > 850px) {
-  main .side-section .content {
-    width: max(50%, 30em);
-  }
-}
-main .side-section .content > div {
-  margin: 4em 2em;
-  width: 30em;
-  max-width: calc(100% - 4em);
-}
-@media (600px <= width <= 850px) {
-  main .side-section .content > div {
-    margin: 4em;
-  }
-}
-@media (width <= 600px) {
-  main .side-section .content > div {
-    margin: 4em 2.5%;
-  }
-}
-main .side-section .img {
-  background-color: #07254b;
-  width: stretch;
-}
-@media (width <= 850px) {
-  main .side-section .img {
-    height: 70vh;
-  }
-}
-main .side-section h3 {
-  font-size: 2rem;
-  margin-block-end: 0.3em;
-}
-main .side-section p:last-of-type {
-  margin-block-end: 2em;
-}
-main .side-section ul {
-  list-style: none;
-}
-main .side-section li {
-  border-left: 0.2em solid #12488f;
-  padding: 0.3em 0 0.3em 0.7em;
-  margin-block-end: 0.4em;
+
+.flyer {
+  --s: 55px;
+  /* control the size*/
+  --c1: #ffffff;
+  --c2: #aeddec;
+  --_g: #0000 8%, var(--c1) 0 17%, #0000 0 58%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0) 20.5%, var(--c1) 0 29.5%, rgba(0, 0, 0, 0) 0) 0 calc(var(--s) / 4), linear-gradient(45deg, var(--_g)) calc(var(--s) / 2) 0, linear-gradient(135deg, var(--_g), var(--c1) 0 67%, rgba(0, 0, 0, 0) 0), linear-gradient(45deg, var(--_g), var(--c1) 0 67%, rgba(0, 0, 0, 0) 0 83%, var(--c1) 0 92%, rgba(0, 0, 0, 0) 0), var(--c2);
+  background-size: var(--s) var(--s);
 }
 
 /*# sourceMappingURL=style.css.map */
