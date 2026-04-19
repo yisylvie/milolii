@@ -54,9 +54,13 @@ h1, h2, h3, h4, h5, h6 {
     font-family: fonts.$volkorn;
 }
 
+strong {
+    font-weight: 600;
+}
+
 h1 {
-    font-size: 92pt;
-    margin-block-start: 0.3em;
+    font-size: 45pt;
+    margin-block-start: 0.7em;
     font-weight: 750;
     margin-block-end: 0.1em;
     color: #62204f;
@@ -72,10 +76,6 @@ h3 {
     font-size: 17pt;
     margin-block-end: 0.1em;
     margin-block-start: 0.3em;
-}
-
-ul {
-    list-style-type: none;
 }
 
 q {
@@ -97,12 +97,6 @@ cite {
     text-align: right;
 }
 
-strong {
-    text-decoration: underline;
-    font-style: normal;
-    font-weight: unset;
-}
-
 img, video, iframe, svg {
     display: block;
 }
@@ -118,7 +112,7 @@ img, video, iframe, svg {
     main {
         position: relative;
         p {
-            margin: 0.5em 0;
+            margin: 0.6em 0;
             line-height: 1.4em;
         }
     }
@@ -150,6 +144,11 @@ img, video, iframe, svg {
         > p {
             margin-block-end: 1em;
         }
+        strong {
+            text-decoration: underline;
+            font-style: normal;
+            font-weight: unset;
+        }
     }
     
     .footer-bottom {
@@ -158,12 +157,18 @@ img, video, iframe, svg {
     }
 }
 
+.sunday {
+    width: 40%;
+}
+
+.table-div {
+    display: flex;
+}
+
 table {
-    font-size: 19pt;
-    margin: auto;
+    font-size: 15.3pt;
     text-align: center;
     border-spacing: 4pt;
-    width: 90%;
     $padding: calc(0.4rem - 2pt);
     $radius: .4em;
 
@@ -175,19 +180,134 @@ table {
         vertical-align: baseline;
         background: global.$tertiaryColor;
     }
-    tr:last-of-type {
-        td:first-of-type{
-            border-radius: 0 0 0 $radius;
-        }
-        td:last-of-type {
-            border-radius: 0 0 $radius 0;
-        }
-    }
     th {
-        font-size: 1.3em;
+        font-size: 1.4em;
         background: global.$secondaryColor;
         border-radius: $radius $radius 0 0;
         font-family: fonts.$volkorn;
+        height: 0;
+    }
+    &.sunday {
+        tr:last-of-type {
+            td:first-of-type{
+                border-radius: 0 0 $radius $radius;
+            }
+        }
+        td {
+            vertical-align: revert;
+        }
+    }
+    
+    &.weekday {
+        tr:last-of-type {
+            td:first-of-type{
+                border-radius: 0 0 $radius 0;
+            }
+        }
+        td[rowspan="3"] {
+            border-radius: 0 0 0 $radius;
+        }
+    }
+}
+
+
+@mixin emojiList() {
+    system: cyclic;
+    suffix: " ";
+}
+
+@counter-style sun1 {
+    symbols: "🙏" "📍";
+    @include emojiList();
+}
+
+.sun1 {
+    list-style-type: sun1;
+}
+
+@counter-style sun2 {
+    symbols: "🧒" "📍";
+    @include emojiList();
+}
+
+.sun2 {
+    list-style-type: sun2;
+}
+
+@counter-style sun3 {
+    symbols: "🙌" "📍";
+    @include emojiList();
+}
+
+.sun3 {
+    list-style-type: sun3;
+}
+
+@counter-style tues {
+    symbols: "👥" "📍"; // unicode code point
+    @include emojiList();
+}
+
+.tues {
+    list-style-type: tues;
+}
+
+@counter-style wed1 {
+    symbols: "🧒" "📍"; // unicode code point
+    @include emojiList();
+}
+
+.wed1 {
+    list-style-type: wed1;
+}
+
+@counter-style wed2 {
+    symbols: "📖" "📍"; // unicode code point
+    @include emojiList();
+}
+
+.wed2 {
+    list-style-type: wed2;
+}
+
+@counter-style thurs1 {
+    symbols: "🧒" "📍"; // unicode code point
+    @include emojiList();
+}
+
+.thurs1 {
+    list-style-type: thurs1;
+}
+
+@counter-style thurs2 {
+    symbols: "👑" "📍"; // unicode code point
+    @include emojiList();
+}
+
+.thurs2 {
+    list-style-type: thurs2;
+}
+
+@counter-style thurs3 {
+    symbols: "🌸" "📍"; 
+    @include emojiList();
+}
+
+.thurs3 {
+    list-style-type: thurs3;
+}
+
+ul {
+    padding-inline-start: 1.3em;
+    li {
+        text-align: left;
+        padding-inline-start: 0.4em;
+        margin-block-end: .5em;
+        line-height: 1.25em;
+        text-wrap-style: auto;
+    }
+    li:last-of-type {
+        margin: 0;
     }
 }
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   font-size: 20pt;
   background-color: black;
@@ -36,9 +37,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Vollkorn", serif;
 }
 
+strong {
+  font-weight: 600;
+}
+
 h1 {
-  font-size: 92pt;
-  margin-block-start: 0.3em;
+  font-size: 45pt;
+  margin-block-start: 0.7em;
   font-weight: 750;
   margin-block-end: 0.1em;
   color: #62204f;
@@ -54,10 +59,6 @@ h3 {
   font-size: 17pt;
   margin-block-end: 0.1em;
   margin-block-start: 0.3em;
-}
-
-ul {
-  list-style-type: none;
 }
 
 q {
@@ -79,12 +80,6 @@ cite {
   text-align: right;
 }
 
-strong {
-  text-decoration: underline;
-  font-style: normal;
-  font-weight: unset;
-}
-
 img, video, iframe, svg {
   display: block;
 }
@@ -100,7 +95,7 @@ img, video, iframe, svg {
   position: relative;
 }
 .flyer main p {
-  margin: 0.5em 0;
+  margin: 0.6em 0;
   line-height: 1.4em;
 }
 .flyer footer {
@@ -130,17 +125,28 @@ img, video, iframe, svg {
 .flyer footer > p {
   margin-block-end: 1em;
 }
+.flyer footer strong {
+  text-decoration: underline;
+  font-style: normal;
+  font-weight: unset;
+}
 .flyer .footer-bottom {
   text-align: right;
   font-size: 8pt;
 }
 
+.sunday {
+  width: 40%;
+}
+
+.table-div {
+  display: flex;
+}
+
 table {
-  font-size: 19pt;
-  margin: auto;
+  font-size: 15.3pt;
   text-align: center;
   border-spacing: 4pt;
-  width: 90%;
 }
 table td, table th {
   padding: calc(0.4rem - 2pt);
@@ -150,17 +156,119 @@ table td {
   vertical-align: baseline;
   background: #ffeefa;
 }
-table tr:last-of-type td:first-of-type {
-  border-radius: 0 0 0 0.4em;
-}
-table tr:last-of-type td:last-of-type {
-  border-radius: 0 0 0.4em 0;
-}
 table th {
-  font-size: 1.3em;
+  font-size: 1.4em;
   background: #f5d5ec;
   border-radius: 0.4em 0.4em 0 0;
   font-family: "Vollkorn", serif;
+  height: 0;
+}
+table.sunday tr:last-of-type td:first-of-type {
+  border-radius: 0 0 0.4em 0.4em;
+}
+table.sunday td {
+  vertical-align: revert;
+}
+table.weekday tr:last-of-type td:first-of-type {
+  border-radius: 0 0 0.4em 0;
+}
+table.weekday td[rowspan="3"] {
+  border-radius: 0 0 0 0.4em;
+}
+
+@counter-style sun1 {
+  symbols: "🙏" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.sun1 {
+  list-style-type: sun1;
+}
+
+@counter-style sun2 {
+  symbols: "🧒" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.sun2 {
+  list-style-type: sun2;
+}
+
+@counter-style sun3 {
+  symbols: "🙌" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.sun3 {
+  list-style-type: sun3;
+}
+
+@counter-style tues {
+  symbols: "👥" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.tues {
+  list-style-type: tues;
+}
+
+@counter-style wed1 {
+  symbols: "🧒" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.wed1 {
+  list-style-type: wed1;
+}
+
+@counter-style wed2 {
+  symbols: "📖" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.wed2 {
+  list-style-type: wed2;
+}
+
+@counter-style thurs1 {
+  symbols: "🧒" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.thurs1 {
+  list-style-type: thurs1;
+}
+
+@counter-style thurs2 {
+  symbols: "👑" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.thurs2 {
+  list-style-type: thurs2;
+}
+
+@counter-style thurs3 {
+  symbols: "🌸" "📍";
+  system: cyclic;
+  suffix: " ";
+}
+.thurs3 {
+  list-style-type: thurs3;
+}
+
+ul {
+  padding-inline-start: 1.3em;
+}
+ul li {
+  text-align: left;
+  padding-inline-start: 0.4em;
+  margin-block-end: 0.5em;
+  line-height: 1.25em;
+  text-wrap-style: auto;
+}
+ul li:last-of-type {
+  margin: 0;
 }
 
 .flyer {
