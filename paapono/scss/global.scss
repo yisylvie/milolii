@@ -6,15 +6,19 @@ $translate5050: translate(-50%, -50%);
 
 $secondaryColor: #12488f;
 $tertiaryColor: #07254b;
-$youtube: #8f1212;
+$youtube: rgb(255, 0, 51);
+$facebook:#0866FF;
 
-$line: .06rem;
+$line: 2px;
+$rel-line: .06em;
 $line-height: 1.4em;
+$line-length: 60ch;
 
 $breakpoint1: 900px;
-$breakpoint2: 850px;
+$breakpoint2: 700px;
 
-$border: $tertiaryColor solid $line;
+$border: white solid $line;
+$border-radius: 0.15rem;
 
 $cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
 
@@ -45,6 +49,14 @@ $cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
     transform: $translate5050;
 }
 
+// get the true dimensions of an element
+// $padding: the padding of the element
+// $fullDim: the dimensions of the element incl padding
+// $width: offset width
+@function innerDim($padding: 0rem, $width: 0rem, $fullDim: 100%) {
+    @return calc($fullDim - calc($padding * 2) - $width);
+}
+
 // https://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
 @function strip-units($number) {
     @return math.div($number, ($number * 0 + 1));
@@ -56,4 +68,120 @@ $cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
 // $em the original font size
 @function rel-to-abs($number, $em) {
     @return calc(strip-units($number) * $em);
+}
+
+$min-padding: 3%;
+
+@mixin hero-img() {
+    .hero-img {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@mixin banner-left-text() {
+    .banner.left-text {
+        $padding: 2em;
+        padding: $padding;
+        background-position-y: center;
+        display: flex;
+        align-items: center;
+        @media (width <= $breakpoint2) {
+            padding: $min-padding $padding;
+        }
+        section {
+            width: clamp(50%, $line-length, innerDim($padding: $min-padding));
+        }
+    }
+}
+
+@mixin banner-center-text() {
+    .banner.center-text {
+        background-position-y: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        section {
+            width: max-content;
+            max-width: innerDim($padding: $min-padding);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p {
+            @media (width > $breakpoint2) {
+                margin-inline-start: 2em;
+            }
+        }
+        h2 {
+            text-align: center;
+            font-weight: 200;
+        }
+    }
+}
+
+@mixin side-section($left: true, $sticky: true) {
+    --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+    display: flex;
+    @if ($left) {
+        flex-direction: row-reverse;
+    }
+    @media (width <= $breakpoint1) {
+        flex-direction: column;
+        --padding: 4em;
+    }
+    p:last-of-type {
+        margin-block-end: 2em;
+    }
+    .content {
+        position: relative;
+        @media (width > $breakpoint1) {
+            max-width: 55%;
+        }
+        > div {
+            margin: var(--padding);
+            @media ($breakpoint2 < width <= $breakpoint1) {
+                margin: var(--padding);
+            }
+            @media (width <= $breakpoint2) {
+                margin: var(--padding) $min-padding;
+            }
+            width: $line-length;
+            max-width: innerDim($padding: var(--padding));
+        }
+    }
+    .img {
+        width: stretch;    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @if ($sticky) {      
+            height: 100vh;
+            position: sticky;  
+            background-size: cover;
+            background-position-y: top;
+            background-position-x: center;
+            top: 0;
+            img {
+                display: none;
+            }
+        } @else {
+            min-height: stretch;
+        }
+        img {
+            width: 90%;
+        }
+        @media (width <= $breakpoint1) {
+            position: unset;
+            height: fit-content;
+            padding-top: var(--padding);
+            @if ($sticky) {
+                background: none;
+                img {
+                    display: unset;
+                }
+            }
+        }
+    }
 }

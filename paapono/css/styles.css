@@ -118,56 +118,344 @@
   font-weight: 100 900;
   src: url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.woff2") format("woff2"), url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.woff") format("woff"), url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.ttf") format("truetype");
 }
-main .banner.left-text {
-  font-size: 1.5rem;
-  height: unset;
-  background-attachment: fixed;
-}
-main .banner.center-text {
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/two kids fishing.jpg");
-  background-position-x: right;
-  color: black;
-  font-size: 1.8rem;
-  height: calc(80vh - 4em - 0rem);
-}
-main .hero-img img {
-  width: 100%;
-}
-main .banner.left-text {
-  padding: 2em;
-  background-position-y: center;
-  display: flex;
-  align-items: center;
+:root {
+  font-size: clamp(16px, 10px + 1vw, 20px);
 }
 @media (width <= 700px) {
-  main .banner.left-text {
-    padding: 3% 2em;
+  :root {
+    font-size: clamp(16px, 10px + 2vw, 22px);
   }
-}
-main .banner.left-text section {
-  width: clamp(50%, 60ch, 94% - 0rem);
-}
-main .banner.center-text {
-  background-position-y: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-main .banner.center-text section {
-  width: max-content;
-  max-width: calc(94% - 0rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-@media (width > 700px) {
-  main .banner.center-text p {
-    margin-inline-start: 2em;
-  }
-}
-main .banner.center-text h2 {
-  text-align: center;
-  font-weight: 200;
 }
 
-/*# sourceMappingURL=style.css.map */
+body {
+  font-family: "Ysabeau Office", Verdana, "sans-serif";
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-color: #07254b;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+  max-width: 60ch;
+  line-height: 1.4em;
+  font-family: unset;
+}
+
+button, dialog {
+  margin: 0;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  max-width: unset;
+  max-height: unset;
+  width: unset;
+  height: unset;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  text-wrap-style: balance;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-block-end: 0.2em;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+a {
+  font-size: inherit;
+  text-decoration: underline 0.06em;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+p {
+  margin-block-end: 0.5em;
+}
+
+p:last-child {
+  margin-block-end: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.email {
+  text-decoration: underline 2px;
+  font-weight: unset;
+  cursor: pointer;
+}
+
+.email:hover {
+  text-decoration: none;
+}
+
+img, video, iframe, svg {
+  display: block;
+}
+
+button {
+  background-color: #12488f;
+  border-radius: 0.15rem;
+}
+button a {
+  padding: 0.3em 0.8em;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+button:hover, button:focus {
+  background-color: #07254b;
+}
+
+header {
+  padding: 0 0.7em;
+  padding-right: 0;
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: white solid 2px;
+  position: relative;
+}
+header img {
+  height: 2em;
+}
+@media (width <= 700px) {
+  header {
+    font-size: 2rem;
+  }
+}
+header nav > ul {
+  display: flex;
+}
+header nav > ul h2 {
+  margin: 0;
+  font-size: inherit;
+}
+header nav > ul > li > a {
+  text-underline-offset: 0.2em;
+  height: 3.2em;
+  padding: 0 0.75em;
+  display: flex;
+  align-items: center;
+}
+header nav > ul ul {
+  display: none;
+  background-color: #07254b;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+}
+header nav > ul ul li {
+  border: white solid 2px;
+}
+header nav > ul ul li a {
+  padding: 0.3em 0.6em;
+  text-decoration: none;
+  display: block;
+}
+header nav > ul ul li:hover {
+  background-color: white;
+  color: #07254b;
+}
+header nav > ul ul h3 {
+  font-size: 0.8em;
+}
+header nav > ul li:hover > ul {
+  display: unset;
+}
+
+footer {
+  position: fixed;
+  z-index: -1;
+  width: stretch;
+  font-size: 1rem;
+  padding: 0 5%;
+  border-top: white solid 2px;
+  bottom: 0;
+}
+@media (width <= 900px) {
+  footer {
+    padding: 0 2.5%;
+    font-size: 0.9rem;
+  }
+}
+@media (width <= 700px) {
+  footer {
+    position: unset;
+  }
+}
+
+.footer-top {
+  font-size: inherit;
+  position: relative;
+  height: 12.4rem;
+}
+@media (width <= 700px) {
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    align-items: center;
+    height: unset;
+    padding: 1.7em 0;
+  }
+}
+@media (width > 700px) {
+  .footer-top > div, .footer-top .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@media (width <= 700px) {
+  .footer-top .logo {
+    padding: 1em 0;
+  }
+}
+.footer-top .logo img {
+  height: 3.5em;
+}
+@media (width <= 700px) {
+  .footer-top .logo img {
+    height: 5em;
+  }
+}
+.footer-top address {
+  margin: auto;
+  text-align: center;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.footer-top address > * {
+  margin-block-end: 0.5em;
+}
+.footer-top .socials {
+  right: 0;
+  display: flex;
+  gap: 1.2em;
+  justify-content: center;
+  align-items: center;
+}
+.footer-top .socials a {
+  display: block;
+  color: white;
+}
+.footer-top .socials .svg-secondary {
+  color: #07254b;
+}
+.footer-top .socials .facebook svg {
+  height: 50px;
+  width: auto;
+}
+.footer-top .socials .youtube svg {
+  height: 35px;
+  width: auto;
+}
+.footer-top .socials .facebook:hover, .footer-top .socials .facebook:focus {
+  color: #0866FF;
+}
+.footer-top .socials .youtube:hover, .footer-top .socials .youtube:focus {
+  color: rgb(255, 0, 51);
+}
+
+.footer-bottom {
+  font-size: smaller;
+  border-top: white solid 2px;
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  text-align: center;
+}
+.footer-bottom small {
+  font-size: inherit;
+}
+
+main {
+  background-color: white;
+  color: black;
+  margin-bottom: calc(15.3666666667rem + 4px);
+}
+@media (width <= 900px) {
+  main {
+    margin-bottom: calc(15.25rem + 4px);
+  }
+}
+@media (width <= 700px) {
+  main {
+    margin-bottom: 0;
+  }
+}
+main li {
+  border-left: 0.2em solid #12488f;
+  padding: 0.3em 0 0.3em 0.7em;
+  margin-block-end: 0.4em;
+}
+main h1 {
+  font-size: 3em;
+  margin-block-end: 0.2em;
+}
+main h3 {
+  font-size: 2em;
+  margin-block-end: 0.3em;
+}
+main p {
+  font-size: 1em;
+  margin-block-end: 1em;
+}
+main h2 {
+  font-size: 2.5em;
+}
+main h4 {
+  font-size: 1.5em;
+  margin-block-end: 0.5em;
+}
+main .banner {
+  color: white;
+  background-size: cover;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  position: relative;
+}
+main .banner:first-of-type {
+  height: calc(100vh - 4em - (4.8rem + 2px + 15vh));
+  min-height: unset;
+}
+main .banner.no-img {
+  color: black;
+  background: none;
+}
+main .banner p {
+  font-variation-settings: "wght" 450;
+}
+main hgroup {
+  font-size: 3rem;
+}
+main hgroup h1, main hgroup h2, main hgroup h3, main hgroup h4, main hgroup h5, main hgroup h6 {
+  font-size: inherit;
+}
+main hgroup p {
+  font-size: 0.5em;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -119,4 +119,21 @@
   border-left-color: #07254b;
 }
 
+footer .copy .bottom::after {
+  border-bottom-color: white;
+}
+footer .copy .right::after {
+  border-right-color: white;
+}
+footer .copy .top::after {
+  border-top-color: white;
+}
+footer .copy .left::after {
+  border-left-color: white;
+}
+footer .copy .tooltip span {
+  background-color: white;
+  color: black;
+}
+
 /*# sourceMappingURL=tooltip.css.map */

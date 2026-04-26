@@ -71,7 +71,7 @@
             line-height: 1em;
             font-weight: normal;
             padding: 0.5em;
-            border-radius: 0.15rem;
+            border-radius: global.$border-radius;
             
             display: flex;
             align-items: center;
@@ -154,5 +154,27 @@
         left: calc(100% - $offset);
         top: 50%;
         border-left-color: global.$tertiaryColor;
+    }
+}
+
+footer .copy {
+    .bottom::after {
+        border-bottom-color: white;
+    }
+
+    .right::after {
+        border-right-color: white;
+    }
+
+    .top::after {
+        border-top-color: white;
+    }
+
+    .left::after {
+        border-left-color: white;
+    }
+    .tooltip span {
+        background-color: white;
+        color: black;
     }
 }

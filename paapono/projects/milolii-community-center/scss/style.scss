@@ -1,0 +1,40 @@
+@use "sass:math";
+@use "../../../scss/fonts";
+@use "../../../scss/global";
+
+.mountain-view {
+    background-image: linear-gradient(0deg, #00000070, #00000070), url("../images/paʻa pono center mountain view.jpeg");
+}
+
+main {
+    .banner {
+        min-height: 20em;
+        &.center-text {
+            p {
+                font-weight: 200;
+            }
+            font-size: 1.5em;
+        }
+        &.center-text {
+            height: global.innerDim($width: calc((global.rel-to-abs(2em + .6em * 2, 1.5rem) + global.$line) + 15vh), $fullDim: 100vh, $padding: 2em);
+            background-image: linear-gradient(0deg, #ffffff96, #ffffff96), url("../images/boats on the water milolii.jpg");
+            background-position-x: right;
+        }
+        &.center-text {
+            background-image: linear-gradient(0deg, #00000096, #00000096), url("../images/paʻa pono center trucks.jpeg");
+        }
+    }
+    .side-section {
+        &.right {
+            .img {
+                background-image: url("../images/paʻa pono center ocean view.jpeg");
+            }
+            @include global.side-section($left: false);
+        }
+        &.left {
+            @include global.side-section($sticky: false);
+        }
+    }
+    @include global.banner-left-text();
+    @include global.banner-center-text();
+}
