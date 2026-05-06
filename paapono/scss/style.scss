@@ -1,21 +1,22 @@
 @use "sass:math";
-@use "fonts";
 @use "global";
 
 
 main {
     .banner.left-text {
         // background-image: linear-gradient(0deg, #00000070, #00000070), url("../images/group\ of\ people\ on\ boat\ off\ the\ coast\ of\ miloliʻi.jpg");
-        font-size: 1.5rem;
+        background-image: linear-gradient(0deg, #ffffff96, #ffffff96), url("../images/two\ kids\ fishing.jpg");
+        background-position-x: right;
         height: unset;
         background-attachment: fixed;
+        color: black;
+        min-height: 20em;
     }
     
     .banner.center-text {
         background-image: linear-gradient(0deg, #ffffff96, #ffffff96), url("../images/two\ kids\ fishing.jpg");
         background-position-x: right;
         color: black;
-        font-size: 1.8rem;
         height: global.innerDim($fullDim: 80vh, $padding: 2em);
     }
 

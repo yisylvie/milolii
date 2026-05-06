@@ -1,4 +1,5 @@
 .copy {
+  text-decoration: none;
   cursor: pointer;
   position: relative;
 }
@@ -43,7 +44,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.copy .tooltip span {
+.copy .tooltip > span {
   background-color: #07254b;
   color: white;
   line-height: 1em;
@@ -119,19 +120,19 @@
   border-left-color: #07254b;
 }
 
-footer .copy .bottom::after {
+.white.copy .bottom::after {
   border-bottom-color: white;
 }
-footer .copy .right::after {
+.white.copy .right::after {
   border-right-color: white;
 }
-footer .copy .top::after {
+.white.copy .top::after {
   border-top-color: white;
 }
-footer .copy .left::after {
+.white.copy .left::after {
   border-left-color: white;
 }
-footer .copy .tooltip span {
+.white.copy .tooltip > span {
   background-color: white;
   color: black;
 }

@@ -1,126 +1,13 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 900;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Black.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Black.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Black.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 900;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-BlackItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-BlackItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-BlackItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: bold;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Bold.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Bold.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: bold;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-BoldItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-BoldItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-BoldItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 800;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraBold.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraBold.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 800;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraBoldItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraBoldItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 200;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraLight.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraLight.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraLight.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 200;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraLightItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraLightItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ExtraLightItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: normal;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Italic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Italic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Italic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Light.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Light.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 300;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-LightItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-LightItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-LightItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 500;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Medium.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Medium.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 500;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-MediumItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-MediumItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-MediumItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Regular.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Regular.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-SemiBold.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-SemiBold.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 600;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-SemiBoldItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-SemiBoldItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-SemiBoldItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 100;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-Thin.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Thin.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-Thin.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 100;
-  src: url("../fonts/Ysabeau_Office/static/YsabeauOffice-ThinItalic.woff2") format("woff2"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ThinItalic.woff") format("woff"), url("../fonts/Ysabeau_Office/static/YsabeauOffice-ThinItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: italic;
-  font-weight: 100 900;
-  src: url("../fonts/Ysabeau_Office/YsabeauOffice-Italic-VariableFont_wght.woff2") format("woff2"), url("../fonts/Ysabeau_Office/YsabeauOffice-Italic-VariableFont_wght.woff") format("woff"), url("../fonts/Ysabeau_Office/YsabeauOffice-Italic-VariableFont_wght.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ysabeau Office";
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.woff2") format("woff2"), url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.woff") format("woff"), url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.ttf") format("truetype");
-}
 .mountain-view {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4392156863), rgba(0, 0, 0, 0.4392156863)), url("../images/paʻa pono center mountain view.jpeg");
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6470588235), rgba(0, 0, 0, 0.6470588235)), url("../images/paʻa pono center mountain view.jpeg");
+  background-position-x: right;
+  background-position-y: center;
+}
+
+.trucks {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5882352941), rgba(0, 0, 0, 0.5882352941)), url("../images/paʻa pono center trucks.jpeg");
+  background-attachment: fixed;
 }
 
 main .banner {
@@ -129,85 +16,152 @@ main .banner {
 main .banner.center-text p {
   font-weight: 200;
 }
-main .banner.center-text {
-  font-size: 1.5em;
-}
-main .banner.center-text {
-  height: calc(100vh - 4em - (4.8rem + 2px + 15vh));
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/boats on the water milolii.jpg");
+main .side-section.right.sticky .img {
+  background-image: url("../images/Miloliʻi charter school students.JPG");
   background-position-x: right;
 }
-main .banner.center-text {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5882352941), rgba(0, 0, 0, 0.5882352941)), url("../images/paʻa pono center trucks.jpeg");
-}
-main .side-section.right .img {
-  background-image: url("../images/paʻa pono center ocean view.jpeg");
-}
-main .side-section.right {
+main .side-section.right.sticky {
   --padding: clamp(1.8em, -24.6em + 44vw, 4em);
   display: flex;
 }
 @media (width <= 900px) {
-  main .side-section.right {
+  main .side-section.right.sticky {
     flex-direction: column;
-    --padding: 4em;
+    --padding: 3%;
   }
 }
-main .side-section.right p:last-of-type {
+main .side-section.right.sticky p:last-of-type {
   margin-block-end: 2em;
 }
-main .side-section.right .content {
+main .side-section.right.sticky article {
   position: relative;
 }
 @media (width > 900px) {
-  main .side-section.right .content {
+  main .side-section.right.sticky article {
     max-width: 55%;
   }
 }
-main .side-section.right .content > div {
-  margin: var(--padding);
-}
-@media (700px < width <= 900px) {
-  main .side-section.right .content > div {
-    margin: var(--padding);
-  }
-}
-@media (width <= 700px) {
-  main .side-section.right .content > div {
-    margin: var(--padding) 3%;
-  }
-}
-main .side-section.right .content > div {
-  width: 60ch;
+main .side-section.right.sticky article > div {
+  margin: 4em var(--padding);
+  width: 32em;
   max-width: calc(100% - var(--padding) * 2 - 0rem);
 }
-main .side-section.right .img {
+@media (width <= 900px) {
+  main .side-section.right.sticky article > div {
+    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+main .side-section.right.sticky .img, main .side-section.right.sticky nav {
   width: stretch;
+}
+@media (width > 900px) {
+  main .side-section.right.sticky .img, main .side-section.right.sticky nav {
+    height: calc(100vh - 8em - 0rem);
+    position: sticky;
+    background-size: cover;
+    top: 4em;
+    margin: 4em var(--padding);
+    margin-right: 0;
+  }
+}
+main .side-section.right.sticky nav {
+  margin: 4em var(--padding);
+  width: 32em;
+  max-width: calc(100% - var(--padding) * 2 - 0rem);
+}
+@media (width <= 900px) {
+  main .side-section.right.sticky nav {
+    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+main .side-section.right.sticky .img {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  position: sticky;
-  background-size: cover;
-  background-position-y: top;
-  background-position-x: center;
-  top: 0;
 }
-main .side-section.right .img img {
+main .side-section.right.sticky .img img {
   display: none;
 }
-main .side-section.right .img img {
+main .side-section.right.sticky .img img {
   width: 90%;
 }
 @media (width <= 900px) {
-  main .side-section.right .img {
+  main .side-section.right.sticky .img {
     position: unset;
     height: fit-content;
-    padding-top: var(--padding);
+    padding-top: 4em;
     background: none;
   }
-  main .side-section.right .img img {
+  main .side-section.right.sticky .img img {
     display: unset;
+  }
+}
+main .side-section.right.no-sticky {
+  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+  display: flex;
+}
+@media (width <= 900px) {
+  main .side-section.right.no-sticky {
+    flex-direction: column;
+    --padding: 3%;
+  }
+}
+main .side-section.right.no-sticky p:last-of-type {
+  margin-block-end: 2em;
+}
+main .side-section.right.no-sticky article {
+  position: relative;
+}
+@media (width > 900px) {
+  main .side-section.right.no-sticky article {
+    max-width: 55%;
+  }
+}
+main .side-section.right.no-sticky article > div {
+  margin: 4em var(--padding);
+  width: 32em;
+  max-width: calc(100% - var(--padding) * 2 - 0rem);
+}
+@media (width <= 900px) {
+  main .side-section.right.no-sticky article > div {
+    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+main .side-section.right.no-sticky .img, main .side-section.right.no-sticky nav {
+  width: stretch;
+}
+main .side-section.right.no-sticky nav {
+  margin: 4em var(--padding);
+  width: 32em;
+  max-width: calc(100% - var(--padding) * 2 - 0rem);
+}
+@media (width <= 900px) {
+  main .side-section.right.no-sticky nav {
+    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+main .side-section.right.no-sticky .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: stretch;
+}
+main .side-section.right.no-sticky .img img {
+  width: 90%;
+}
+@media (width <= 900px) {
+  main .side-section.right.no-sticky .img {
+    position: unset;
+    height: fit-content;
+    padding-top: 4em;
   }
 }
 main .side-section.left {
@@ -218,39 +172,48 @@ main .side-section.left {
 @media (width <= 900px) {
   main .side-section.left {
     flex-direction: column;
-    --padding: 4em;
+    --padding: 3%;
   }
 }
 main .side-section.left p:last-of-type {
   margin-block-end: 2em;
 }
-main .side-section.left .content {
+main .side-section.left article {
   position: relative;
 }
 @media (width > 900px) {
-  main .side-section.left .content {
+  main .side-section.left article {
     max-width: 55%;
   }
 }
-main .side-section.left .content > div {
-  margin: var(--padding);
-}
-@media (700px < width <= 900px) {
-  main .side-section.left .content > div {
-    margin: var(--padding);
-  }
-}
-@media (width <= 700px) {
-  main .side-section.left .content > div {
-    margin: var(--padding) 3%;
-  }
-}
-main .side-section.left .content > div {
-  width: 60ch;
+main .side-section.left article > div {
+  margin: 4em var(--padding);
+  width: 32em;
   max-width: calc(100% - var(--padding) * 2 - 0rem);
 }
-main .side-section.left .img {
+@media (width <= 900px) {
+  main .side-section.left article > div {
+    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+main .side-section.left .img, main .side-section.left nav {
   width: stretch;
+}
+main .side-section.left nav {
+  margin: 4em var(--padding);
+  width: 32em;
+  max-width: calc(100% - var(--padding) * 2 - 0rem);
+}
+@media (width <= 900px) {
+  main .side-section.left nav {
+    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+main .side-section.left .img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -263,25 +226,26 @@ main .side-section.left .img img {
   main .side-section.left .img {
     position: unset;
     height: fit-content;
-    padding-top: var(--padding);
+    padding-top: 4em;
   }
 }
 main .banner.left-text {
-  padding: 2em;
-  background-position-y: center;
+  padding: 3em var(--padding);
   display: flex;
   align-items: center;
 }
-@media (width <= 700px) {
-  main .banner.left-text {
-    padding: 3% 2em;
-  }
+main .banner.left-text section > p {
+  border-top: rgba(255, 255, 255, 0.18) solid 2px;
+  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
+  padding: 1em 0;
 }
-main .banner.left-text section {
-  width: clamp(50%, 60ch, 94% - 0rem);
+main .banner.left-text hgroup {
+  font-size: 3rem;
+}
+main .banner.left-text hgroup :last-child {
+  border-bottom: none;
 }
 main .banner.center-text {
-  background-position-y: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,15 +256,22 @@ main .banner.center-text section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2em;
 }
 @media (width > 700px) {
-  main .banner.center-text p {
+  main .banner.center-text section > p {
     margin-inline-start: 2em;
   }
 }
 main .banner.center-text h2 {
+  border-top: rgba(255, 255, 255, 0.18) solid 2px;
+  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
   text-align: center;
   font-weight: 200;
+}
+main .banner.center-text.no-img h2 {
+  border-top: rgba(255, 255, 255, 0.18) solid 2px;
+  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

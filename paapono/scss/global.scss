@@ -6,21 +6,48 @@ $translate5050: translate(-50%, -50%);
 
 $secondaryColor: #12488f;
 $tertiaryColor: #07254b;
+
 $youtube: rgb(255, 0, 51);
 $facebook:#0866FF;
 
+$grey0: #262626;
+$grey1: #4e4e4e;
+$grey2: #828282;
+$grey3: #bbbcbb;
+$grey3_5: #dedede;
+$grey4: #e5e5e5;
+$grey5: #f9f9f9;
+
+$p-size: 1.05em;
+$smaller-size: .9em;
+
+$line0: 1px;
 $line: 2px;
+$line1: 3px;
 $rel-line: .06em;
 $line-height: 1.4em;
-$line-length: 60ch;
+$line-length: 32em;
 
 $breakpoint1: 900px;
 $breakpoint2: 700px;
 
-$border: white solid $line;
+$border: solid $line;
+$border-white: white $border;
+$border-blue: $tertiaryColor $border;
+$border-grey: $grey3_5 $border;
+$border-transp:  rgba(255, 255, 255, 0.18) $border;
+
+$border1: solid $line1;
+$border1-blue: $secondaryColor $border1;
+
 $border-radius: 0.15rem;
 
 $cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
+
+@mixin underline() {
+    text-decoration: underline $rel-line;
+    text-underline-offset: .2em;
+}
 
 @mixin centerFillWidth() {
     width: -webkit-fill-available;
@@ -74,6 +101,10 @@ $min-padding: 3%;
 
 @mixin hero-img() {
     .hero-img {
+        display: flex;
+        align-items: center;
+        overflow: clip;
+        max-height: max(50vh, 18em);
         img {
             width: 100%;
         }
@@ -82,23 +113,26 @@ $min-padding: 3%;
 
 @mixin banner-left-text() {
     .banner.left-text {
-        $padding: 2em;
+        $padding: 3em var(--padding);
         padding: $padding;
-        background-position-y: center;
         display: flex;
         align-items: center;
-        @media (width <= $breakpoint2) {
-            padding: $min-padding $padding;
+        section > p {
+            border-top: $border-transp;
+            border-bottom: $border-transp;
+            padding: 1em 0;
         }
-        section {
-            width: clamp(50%, $line-length, innerDim($padding: $min-padding));
+        hgroup {
+            font-size: 3rem;
+            :last-child {
+                border-bottom: none;
+            }
         }
     }
 }
 
 @mixin banner-center-text() {
     .banner.center-text {
-        background-position-y: center;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -108,15 +142,22 @@ $min-padding: 3%;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        p {
-            @media (width > $breakpoint2) {
-                margin-inline-start: 2em;
+            padding: 2em;
+            > p {
+                @media (width > $breakpoint2) {
+                    margin-inline-start: 2em;
+                }
             }
         }
         h2 {
+            border-top: $border-transp;
+            border-bottom: $border-transp;
             text-align: center;
             font-weight: 200;
+        }
+        &.no-img h2{
+            border-top: $border-transp;
+            border-bottom: $border-transp;
         }
     }
 }
@@ -129,40 +170,55 @@ $min-padding: 3%;
     }
     @media (width <= $breakpoint1) {
         flex-direction: column;
-        --padding: 4em;
+        --padding: #{$min-padding};
     }
     p:last-of-type {
         margin-block-end: 2em;
     }
-    .content {
+    article {
         position: relative;
         @media (width > $breakpoint1) {
             max-width: 55%;
         }
         > div {
-            margin: var(--padding);
-            @media ($breakpoint2 < width <= $breakpoint1) {
-                margin: var(--padding);
-            }
-            @media (width <= $breakpoint2) {
-                margin: var(--padding) $min-padding;
-            }
+            margin: 4em var(--padding);
             width: $line-length;
             max-width: innerDim($padding: var(--padding));
+            @media (width <= $breakpoint1) {
+                max-width: calc(100% - var(--padding) * 2 - 0rem);
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     }
-    .img {
-        width: stretch;    
+    .img, nav {
+        width: stretch;  
+        @if ($sticky) { 
+            @media (width > $breakpoint1) {
+                height: innerDim($padding: 4em, $fullDim: 100vh);
+                position: sticky;  
+                background-size: cover;
+                top: 4em;
+                margin: 4em var(--padding);
+                margin-right: 0;
+            }
+        }
+    }
+    nav {
+        margin: 4em var(--padding);
+        width: $line-length;
+        max-width: innerDim($padding: var(--padding));
+        @media (width <= $breakpoint1) {
+            max-width: calc(100% - var(--padding) * 2 - 0rem);
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .img {  
         display: flex;
         align-items: center;
         justify-content: center;
         @if ($sticky) {      
-            height: 100vh;
-            position: sticky;  
-            background-size: cover;
-            background-position-y: top;
-            background-position-x: center;
-            top: 0;
             img {
                 display: none;
             }
@@ -175,7 +231,7 @@ $min-padding: 3%;
         @media (width <= $breakpoint1) {
             position: unset;
             height: fit-content;
-            padding-top: var(--padding);
+            padding-top: 4em;
             @if ($sticky) {
                 background: none;
                 img {

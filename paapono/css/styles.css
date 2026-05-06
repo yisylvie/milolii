@@ -1,4 +1,102 @@
 @font-face {
+  font-family: "Source Sans 3 VF";
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/VF/SourceSans3VF-Upright.ttf.woff2") format("woff2-variations"), url("WOFF/VF/SourceSans3VF-Upright.ttf.woff") format("woff-variations"), url("VF/SourceSans3VF-Upright.ttf") format("truetype-variations");
+}
+@font-face {
+  font-family: "Source Sans 3 VF";
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/VF/SourceSans3VF-Italic.ttf.woff2") format("woff2-variations"), url("WOFF/VF/SourceSans3VF-Italic.ttf.woff") format("woff-variations"), url("VF/SourceSans3VF-Italic.ttf") format("truetype-variations");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-ExtraLight.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-ExtraLight.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-ExtraLightIt.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-ExtraLightIt.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-Light.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-Light.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-LightIt.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-LightIt.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-Regular.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-Regular.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-It.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-It.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-Semibold.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-Semibold.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-SemiboldIt.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-SemiboldIt.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-Bold.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-Bold.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-BoldIt.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-BoldIt.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-Black.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-Black.otf.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("WOFF2/TTF/SourceSans3-BlackIt.ttf.woff2") format("woff2"), url("WOFF/OTF/SourceSans3-BlackIt.otf.woff") format("woff");
+}
+@font-face {
   font-family: "Ysabeau Office";
   font-style: normal;
   font-weight: 900;
@@ -118,6 +216,36 @@
   font-weight: 100 900;
   src: url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.woff2") format("woff2"), url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.woff") format("woff"), url("../fonts/Ysabeau_Office/YsabeauOffice-VariableFont_wght.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Libertinus Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/Libertinus/static/WOFF2/LibertinusSans-Bold.woff2") format("woff2"), url("../fonts/Libertinus/static/WOFF/LibertinusSans-Bold.woff") format("woff"), url("../fonts/Libertinus/static/OTF/LibertinusSans-Bold.otf") format("opentype"), url("../fonts/Libertinus/static/TTF/LibertinusSans-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Libertinus Sans";
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/Libertinus/static/WOFF2/LibertinusSans-Italic.woff2") format("woff2"), url("../fonts/Libertinus/static/WOFF/LibertinusSans-Italic.woff") format("woff"), url("../fonts/Libertinus/static/OTF/LibertinusSans-Italic.otf") format("opentype"), url("../fonts/Libertinus/static/TTF/LibertinusSans-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Libertinus Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Libertinus/static/WOFF2/LibertinusSans-Regular.woff2") format("woff2"), url("../fonts/Libertinus/static/WOFF/LibertinusSans-Regular.woff") format("woff"), url("../fonts/Libertinus/static/OTF/LibertinusSans-Regular.otf") format("opentype"), url("../fonts/Libertinus/static/TTF/LibertinusSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Red Hat";
+  font-style: italic;
+  font-weight: 300 700;
+  src: url("../fonts/RedHat/fonts/RedHatText/variable/RedHatText-Italic-VF.woff2") format("woff2"), url("../fonts/RedHat/fonts/RedHatText/variable/RedHatText-Italic-VF.woff") format("woff"), url("../fonts/RedHat/fonts/RedHatText/variable/RedHatText-Italic-VF.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Red Hat";
+  font-style: normal;
+  font-weight: 300 700;
+  src: url("../fonts/RedHat/fonts/RedHatText/variable/RedHatText-VF.woff2") format("woff2"), url("../fonts/RedHat/fonts/RedHatText/variable/RedHatText-VF.woff") format("woff"), url("../fonts/RedHat/fonts/RedHatText/variable/RedHatText-VF.ttf") format("truetype");
+}
 :root {
   font-size: clamp(16px, 10px + 1vw, 20px);
 }
@@ -128,7 +256,8 @@
 }
 
 body {
-  font-family: "Ysabeau Office", Verdana, "sans-serif";
+  font-family: "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  font-variant-numeric: oldstyle-nums tabular-nums;
   font-weight: normal;
   font-style: normal;
   margin: 0;
@@ -137,7 +266,7 @@ body {
   color: white;
 }
 
-h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
+h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figcaption {
   margin: 0;
   padding: 0;
   color: inherit;
@@ -145,7 +274,7 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address {
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  max-width: 60ch;
+  max-width: 32em;
   line-height: 1.4em;
   font-family: unset;
 }
@@ -163,7 +292,7 @@ button, dialog {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+  font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
   text-wrap-style: balance;
 }
 
@@ -172,17 +301,12 @@ h2 {
   margin-block-end: 0.2em;
 }
 
-h3 {
-  font-weight: 600;
-}
-
 a {
   font-size: inherit;
-  text-decoration: underline 0.06em;
 }
-
 a:hover, a:focus {
-  text-decoration: none;
+  text-decoration: underline 0.06em;
+  text-underline-offset: 0.2em;
 }
 
 p {
@@ -198,12 +322,13 @@ ul {
 }
 
 .email {
-  text-decoration: underline 2px;
+  text-decoration: underline 0.06em;
+  text-underline-offset: 0.2em;
   font-weight: unset;
   cursor: pointer;
 }
 
-.email:hover {
+.email:hover, .email:focus {
   text-decoration: none;
 }
 
@@ -211,95 +336,112 @@ img, video, iframe, svg {
   display: block;
 }
 
-button {
+.button, button {
   background-color: #12488f;
   border-radius: 0.15rem;
-}
-button a {
+  font-size: 1.2em;
   padding: 0.3em 0.8em;
   text-decoration: none;
   display: block;
   color: white;
+  width: fit-content;
 }
-button:hover, button:focus {
+.button:hover, .button:focus, button:hover, button:focus {
   background-color: #07254b;
+  text-decoration: none;
 }
 
-header {
+.visually-hidden {
+  position: absolute;
+  top: auto;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+#everything > header {
+  background-color: #07254b;
   padding: 0 0.7em;
   padding-right: 0;
   display: flex;
   font-size: 1.5rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: white solid 2px;
   position: relative;
+  z-index: 2;
 }
-header img {
+#everything > header img {
   height: 2em;
 }
 @media (width <= 700px) {
-  header {
+  #everything > header {
     font-size: 2rem;
   }
 }
-header nav > ul {
+#everything > header nav > ul {
   display: flex;
 }
-header nav > ul h2 {
+#everything > header nav > ul h2 {
   margin: 0;
   font-size: inherit;
 }
-header nav > ul > li > a {
-  text-underline-offset: 0.2em;
+#everything > header nav > ul > li > a {
   height: 3.2em;
   padding: 0 0.75em;
   display: flex;
   align-items: center;
 }
-header nav > ul ul {
+#everything > header nav > ul ul {
   display: none;
   background-color: #07254b;
   position: absolute;
   z-index: 1;
   top: 100%;
 }
-header nav > ul ul li {
+#everything > header nav > ul ul li {
   border: white solid 2px;
+  border-bottom: none;
 }
-header nav > ul ul li a {
+#everything > header nav > ul ul li:last-of-type {
+  border-bottom: white solid 2px;
+}
+#everything > header nav > ul ul li a {
+  background-color: white;
+  color: #07254b;
   padding: 0.3em 0.6em;
   text-decoration: none;
   display: block;
 }
-header nav > ul ul li:hover {
-  background-color: white;
-  color: #07254b;
+#everything > header nav > ul ul li a:hover, #everything > header nav > ul ul li a:focus {
+  background-color: #07254b;
+  color: white;
 }
-header nav > ul ul h3 {
+#everything > header nav > ul ul h3 {
   font-size: 0.8em;
 }
-header nav > ul li:hover > ul {
+#everything > header nav > ul li:hover ul, #everything > header nav > ul li:focus-within ul {
   display: unset;
+  background-color: gray;
 }
 
-footer {
-  position: fixed;
-  z-index: -1;
+#everything > footer {
+  position: sticky;
   width: stretch;
   font-size: 1rem;
   padding: 0 5%;
-  border-top: white solid 2px;
   bottom: 0;
 }
 @media (width <= 900px) {
-  footer {
+  #everything > footer {
     padding: 0 2.5%;
     font-size: 0.9rem;
   }
 }
-@media (width <= 700px) {
-  footer {
+@media (width <= 700px), (height < 350px) {
+  #everything > footer {
     position: unset;
   }
 }
@@ -308,6 +450,9 @@ footer {
   font-size: inherit;
   position: relative;
   height: 12.4rem;
+}
+.footer-top h1, .footer-top h2, .footer-top h3, .footer-top h4, .footer-top h5, .footer-top h6 {
+  font-weight: 600;
 }
 @media (width <= 700px) {
   .footer-top {
@@ -382,7 +527,7 @@ footer {
 
 .footer-bottom {
   font-size: smaller;
-  border-top: white solid 2px;
+  border-top: rgba(255, 255, 255, 0.18) solid 2px;
   padding-top: 1rem;
   padding-bottom: 0.8rem;
   text-align: center;
@@ -392,43 +537,56 @@ footer {
 }
 
 main {
+  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
   background-color: white;
   color: black;
-  margin-bottom: calc(15.3666666667rem + 4px);
+  z-index: 1;
+  position: relative;
 }
 @media (width <= 900px) {
   main {
-    margin-bottom: calc(15.25rem + 4px);
+    --padding: 3%;
   }
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height < 350px) {
   main {
     margin-bottom: 0;
   }
 }
 main li {
-  border-left: 0.2em solid #12488f;
+  border-left: #12488f solid 3px;
   padding: 0.3em 0 0.3em 0.7em;
   margin-block-end: 0.4em;
+}
+main li p:last-of-type {
+  margin-block-end: 0;
+}
+main li p {
+  margin-left: 0;
 }
 main h1 {
   font-size: 3em;
   margin-block-end: 0.2em;
 }
-main h3 {
-  font-size: 2em;
-  margin-block-end: 0.3em;
+main p, main li {
+  font-size: 1.05em;
 }
 main p {
-  font-size: 1em;
   margin-block-end: 1em;
 }
 main h2 {
   font-size: 2.5em;
 }
-main h4 {
+main h3 {
   font-size: 1.5em;
-  margin-block-end: 0.5em;
+  margin-block-end: 0.2em;
+}
+main sup {
+  font-size: 0.6em;
+  line-height: 0;
+}
+main small {
+  font-size: inherit;
 }
 main .banner {
   color: white;
@@ -438,24 +596,28 @@ main .banner {
   position: relative;
 }
 main .banner:first-of-type {
-  height: calc(100vh - 4em - (4.8rem + 2px + 15vh));
-  min-height: unset;
+  height: calc(100vh - 4em - 0rem);
+  min-height: fit-content;
 }
 main .banner.no-img {
   color: black;
   background: none;
 }
-main .banner p {
-  font-variation-settings: "wght" 450;
-}
 main hgroup {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
 }
-main hgroup h1, main hgroup h2, main hgroup h3, main hgroup h4, main hgroup h5, main hgroup h6 {
+main hgroup :first-child {
   font-size: inherit;
 }
-main hgroup p {
-  font-size: 0.5em;
+main hgroup :last-child {
+  font-style: italic;
+  font-weight: 300;
+  padding-bottom: 0.3em;
+  width: fit-content;
+  font-size: 0.42em;
+  border-bottom: #07254b solid 2px;
+  margin-block-end: 2em;
 }
 
 /*# sourceMappingURL=styles.css.map */

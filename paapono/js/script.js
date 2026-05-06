@@ -25,3 +25,14 @@ function setUnhoverListener(el, listener) {
         }
     });
 }
+
+// make sure sticky footer scrolls into view when tabbed to
+let footer = document.querySelector("#everything > footer");
+let tabbableFoot = footer.querySelectorAll("[tabindex='0'], a");
+
+tabbableFoot.forEach(el => {
+    el.addEventListener("focus", (e) => {
+        console.log("focused");
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+});

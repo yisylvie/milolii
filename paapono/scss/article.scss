@@ -1,0 +1,93 @@
+@use "sass:math";
+@use "global";
+@use "fonts";
+
+main {
+    .article {
+        padding-bottom: 4em;
+    }
+    article {
+        hgroup {
+            width: calc(100vw - min(43vw, 100vw - clamp(26rem, -2.2rem + 60vw, 32rem) - var(--padding)) - var(--padding));
+        }
+        $left-pad: 43vw;
+        $width: clamp(26rem, -2.2rem + 60vw, 32rem);
+        $true-left-pad: min($left-pad, 100vw - $width - var(--padding));
+        width: $width;
+        margin: 4em var(--padding);
+        margin-left: $true-left-pad;
+        position: relative;
+        li {
+            margin-block-end: 0.6em;
+        }
+        a {
+            font-weight: inherit;
+            font-style: inherit;
+            &:hover, &:focus {
+                text-decoration: none;
+                color: global.$secondaryColor;
+            }
+        }
+        hgroup {
+            font-size: 2.5rem;
+        }
+        figure {
+            position: absolute;
+            right: calc(100% + var(--padding));
+            width: global.innerDim($fullDim: $left-pad, $padding: var(--padding));
+            max-width: calc(100vw - var(--padding) * 3 - $width);
+            img {
+                width: 100%;
+            }
+            figcaption {
+                margin: 1em .5em;
+                font-size: global.$smaller-size;
+                color: global.$grey2;
+            }
+        }
+        aside {
+            $awidth: 30em;
+            width: $awidth;
+            border-top: global.$border-grey;
+            border-bottom: global.$border-grey;
+            padding: 1em;
+            margin: 2.5em 0;
+            font-family: fonts.$redhat;
+            line-height: 1.5em;
+            color: global.$secondaryColor;
+            margin-right: var(--padding);
+            position: relative;
+            float: right;
+            right: calc(-1 * (100vw - $true-left-pad - $width));
+            margin-top: calc(2.5em - 1em);
+        }
+        .gallery {
+            width: global.innerDim($fullDim: 100vw, $padding: var(--padding));
+            position: relative;
+            left: calc($true-left-pad * -1);
+            margin: 4em var(--padding);
+            column-width: 17em;
+            column-gap: 1em;
+            img {
+                margin-bottom: 1em;
+                width: 100%;
+            }
+        }
+        footer {
+            margin-top: 2em;
+            h3 {
+                font-size: global.$p-size;
+                border-bottom: global.$border-grey;
+                font-family: fonts.$libertinus;
+                margin-bottom: 1em;
+            }
+            li {
+                font-size: global.$smaller-size;
+                small {
+                    font-size: inherit;
+                }
+            }
+        }
+    }
+    @include global.hero-img();
+}
