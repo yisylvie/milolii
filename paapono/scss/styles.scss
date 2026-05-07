@@ -112,21 +112,6 @@ img, video, iframe, svg {
     // padding-bottom: 1em;
 }
 
-.button, button {
-    background-color: global.$secondaryColor;
-    border-radius: global.$border-radius;
-    font-size: 1.2em;
-    padding: 0.3em 0.8em;
-    text-decoration: none;
-    display: block;
-    color: white;
-    width: fit-content;
-    &:hover, &:focus {
-        background-color: global.$tertiaryColor;
-        text-decoration: none;
-    }
-}
-
 .visually-hidden {
     position: absolute;
     top: auto;
@@ -149,11 +134,11 @@ img, video, iframe, svg {
     align-items: center;
     position: relative;
     z-index: 2;
-    img {
-        height: 2em;
-    }
     @media (width <= global.$breakpoint2) {
         font-size: 2rem;
+    }
+    img {
+        height: 2em;
     }
     nav > ul {
         display: flex;
@@ -311,7 +296,7 @@ img, video, iframe, svg {
 }
 
 main {
-    --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+    --padding: clamp(1.8em, -24.6em + 44vw, #{global.$max-padding});
     background-color: white;
     color: black;
     z-index: 1;
@@ -359,6 +344,22 @@ main {
     small {
         font-size: inherit;
     }
+    hgroup {
+        font-size: 2.5rem;
+        font-family: fonts.$redhat;
+        :first-child {
+            font-size: inherit;
+        }
+        :last-child {
+            font-style: italic;
+            font-weight: 300;
+            padding-bottom: .3em;
+            width: fit-content;
+            font-size: .42em;
+            border-bottom: global.$border-blue;
+            margin-block-end: 2em;
+        }
+    }
     .banner {
         color: white;
         background-size: cover;
@@ -375,20 +376,18 @@ main {
             background: none;
         }
     }
-    hgroup {
-        font-size: 2.5rem;
-        font-family: fonts.$redhat;
-        :first-child {
-            font-size: inherit;
-        }
-        :last-child {
-            font-style: italic;
-            font-weight: 300;
-            padding-bottom: .3em;
-            width: fit-content;
-            font-size: .42em;
-            border-bottom: global.$border-blue;
-            margin-block-end: 2em;
+    .button, button {
+    background-color: global.$secondaryColor;
+    border-radius: global.$border-radius;
+    font-size: 1.2em;
+    padding: 0.3em 0.8em;
+    text-decoration: none;
+    display: block;
+    color: white;
+    width: fit-content;
+        &:hover, &:focus {
+            background-color: global.$tertiaryColor;
+            text-decoration: none;
         }
     }
 }

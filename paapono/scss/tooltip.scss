@@ -7,17 +7,18 @@
     $offset: .6em;
     $timing: 120ms global.$cubic-bezier-in;
     $font-size: .9em;
-    text-decoration: none;
-
     cursor: pointer;
     position: relative;
+
+    *, *:hover, *:focus {
+        text-decoration: none !important;
+    }
 
     &.no-clipboard {
         -webkit-user-select: all;
         -ms-user-select: all;
         user-select: all;
     }
-    // display: inline-block;
 
     @keyframes pop {
         0% {

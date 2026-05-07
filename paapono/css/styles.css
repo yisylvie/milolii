@@ -336,21 +336,6 @@ img, video, iframe, svg {
   display: block;
 }
 
-.button, button {
-  background-color: #12488f;
-  border-radius: 0.15rem;
-  font-size: 1.2em;
-  padding: 0.3em 0.8em;
-  text-decoration: none;
-  display: block;
-  color: white;
-  width: fit-content;
-}
-.button:hover, .button:focus, button:hover, button:focus {
-  background-color: #07254b;
-  text-decoration: none;
-}
-
 .visually-hidden {
   position: absolute;
   top: auto;
@@ -373,13 +358,13 @@ img, video, iframe, svg {
   position: relative;
   z-index: 2;
 }
-#everything > header img {
-  height: 2em;
-}
 @media (width <= 700px) {
   #everything > header {
     font-size: 2rem;
   }
+}
+#everything > header img {
+  height: 2em;
 }
 #everything > header nav > ul {
   display: flex;
@@ -545,7 +530,7 @@ main {
 }
 @media (width <= 900px) {
   main {
-    --padding: 3%;
+    --padding: 3vw;
   }
 }
 @media (width <= 700px), (height < 350px) {
@@ -588,21 +573,6 @@ main sup {
 main small {
   font-size: inherit;
 }
-main .banner {
-  color: white;
-  background-size: cover;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  position: relative;
-}
-main .banner:first-of-type {
-  height: calc(100vh - 4em - 0rem);
-  min-height: fit-content;
-}
-main .banner.no-img {
-  color: black;
-  background: none;
-}
 main hgroup {
   font-size: 2.5rem;
   font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
@@ -618,6 +588,35 @@ main hgroup :last-child {
   font-size: 0.42em;
   border-bottom: #07254b solid 2px;
   margin-block-end: 2em;
+}
+main .banner {
+  color: white;
+  background-size: cover;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  position: relative;
+}
+main .banner:first-of-type {
+  height: calc(100vh - 4em - 0rem);
+  min-height: fit-content;
+}
+main .banner.no-img {
+  color: black;
+  background: none;
+}
+main .button, main button {
+  background-color: #12488f;
+  border-radius: 0.15rem;
+  font-size: 1.2em;
+  padding: 0.3em 0.8em;
+  text-decoration: none;
+  display: block;
+  color: white;
+  width: fit-content;
+}
+main .button:hover, main .button:focus, main button:hover, main button:focus {
+  background-color: #07254b;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

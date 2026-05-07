@@ -21,6 +21,9 @@ $grey5: #f9f9f9;
 $p-size: 1.05em;
 $smaller-size: .9em;
 
+$min-padding: 3vw;
+$max-padding: 4em;
+
 $line0: 1px;
 $line: 2px;
 $line1: 3px;
@@ -97,8 +100,6 @@ $cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
     @return calc(strip-units($number) * $em);
 }
 
-$min-padding: 3%;
-
 @mixin hero-img() {
     .hero-img {
         display: flex;
@@ -163,14 +164,14 @@ $min-padding: 3%;
 }
 
 @mixin side-section($left: true, $sticky: true) {
-    --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+    // --padding: clamp(1.8em, -24.6em + 44vw, 4em);
     display: flex;
     @if ($left) {
         flex-direction: row-reverse;
     }
     @media (width <= $breakpoint1) {
         flex-direction: column;
-        --padding: #{$min-padding};
+        // --padding: #{$min-padding};
     }
     p:last-of-type {
         margin-block-end: 2em;
@@ -181,7 +182,7 @@ $min-padding: 3%;
             max-width: 55%;
         }
         > div {
-            margin: 4em var(--padding);
+            margin: $max-padding var(--padding);
             width: $line-length;
             max-width: innerDim($padding: var(--padding));
             @media (width <= $breakpoint1) {
@@ -191,27 +192,17 @@ $min-padding: 3%;
             }
         }
     }
-    .img, nav {
+    .img {
         width: stretch;  
         @if ($sticky) { 
             @media (width > $breakpoint1) {
-                height: innerDim($padding: 4em, $fullDim: 100vh);
+                height: innerDim($padding: $max-padding, $fullDim: 100vh);
                 position: sticky;  
                 background-size: cover;
-                top: 4em;
-                margin: 4em var(--padding);
+                top: $max-padding;
+                margin: $max-padding var(--padding);
                 margin-right: 0;
             }
-        }
-    }
-    nav {
-        margin: 4em var(--padding);
-        width: $line-length;
-        max-width: innerDim($padding: var(--padding));
-        @media (width <= $breakpoint1) {
-            max-width: calc(100% - var(--padding) * 2 - 0rem);
-            margin-left: auto;
-            margin-right: auto;
         }
     }
     .img {  
@@ -231,7 +222,7 @@ $min-padding: 3%;
         @media (width <= $breakpoint1) {
             position: unset;
             height: fit-content;
-            padding-top: 4em;
+            padding-top: $max-padding;
             @if ($sticky) {
                 background: none;
                 img {

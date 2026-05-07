@@ -2,6 +2,9 @@ let copy = document.querySelectorAll(".copy");
 
 // if we can copy to the clipboard
 if (navigator.clipboard && window.isSecureContext) {
+    for (const item of copy) {
+        item.classList.remove("no-clipboard");
+    }
     const directions = ["bottom", "right", "top", "left"];
 
     let observer = new IntersectionObserver(function (entries) {
@@ -76,7 +79,7 @@ if (navigator.clipboard && window.isSecureContext) {
 
         setClickListener(item, () => {
             try {
-                const content = item.innerText;
+                const content = item.childNodes[0].wholeText.trim();
                 navigator.clipboard.writeText(content);
                 tooltip.firstElementChild.innerText = "Copied!";
                 if (tooltip.classList.contains("hidden")) {
@@ -86,9 +89,5 @@ if (navigator.clipboard && window.isSecureContext) {
                 console.log(e);
             }
         });
-    }
-} else {
-    for (const item of copy) {
-        item.classList.add("no-clipboard");
     }
 }
