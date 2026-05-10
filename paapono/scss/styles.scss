@@ -16,8 +16,12 @@
 
 :root{
     font-size: clamp(16px, 10px + 1vw, 20px);
+    --padding: clamp(1.8em, -24.6em + 44vw, #{global.$max-padding});
     @media (width <= global.$breakpoint2) {
         font-size: clamp(16px, 10px + 2vw, 22px);
+    }
+    @media (width <= global.$breakpoint1) {
+        --padding: #{global.$min-padding};
     }
 }
 
@@ -44,7 +48,6 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figc
     font-family: unset;
 }
 
-
 // clear weird default stylings
 button, dialog {
     margin: 0;
@@ -62,7 +65,6 @@ h1, h2, h3, h4, h5, h6 {
     @extend %headings !optional;
 }
 
-
 %headings {
     font-family: fonts.$redhat;
     text-wrap-style: balance;
@@ -79,7 +81,6 @@ a {
         @include global.underline();
     }
 }
-
 
 p {
     margin-block-end: .5em;
@@ -123,7 +124,14 @@ img, video, iframe, svg {
     text-decoration: none;
 }
 
-#everything > header {
+.mobile {
+    display: none;
+    @media (width <= global.$breakpoint2) {
+        display: unset;
+    }
+}
+
+#everything > dialog {
     background-color: global.$tertiaryColor;
     $padding: .6em;
     padding: 0 0.7em;
@@ -134,48 +142,129 @@ img, video, iframe, svg {
     align-items: center;
     position: relative;
     z-index: 2;
+    height: fit-content;
     @media (width <= global.$breakpoint2) {
-        font-size: 2rem;
+        position: sticky;
+        top: 0;
+        width: 100vw;
+        font-size: 1.3rem;
+        padding: 0;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        &[open] {
+            position: fixed;
+            // I am not hamburger I yam xxx
+
+            .l-top {
+                transform: global.$translate050;
+            }
+
+            .l-bottom {
+                transform: translateY(50%);
+            }
+
+            .x {
+                &-1 {
+                    transform: rotate(45deg);
+                }
+                &-2 {
+                    transform: rotate(-45deg);
+                }
+            }
+            &::backdrop {
+                background-color: global.$transp-black;
+            }
+        }
+        &:not([open]) {
+            border-bottom: global.$border-white;
+            nav > ul {
+                display: none;
+            }
+        }
+    }
+    > nav {
+        background-color: global.$tertiaryColor;
     }
     img {
         height: 2em;
     }
+    // outer
     nav > ul {
-        display: flex;
-
+        @media (width > global.$breakpoint2) {
+            display: flex;
+        }
         h2 {
             margin: 0;
             font-size: inherit;
         }
-
+        > li:last-child > a {
+            @media (width <= global.$breakpoint2) {
+                border-bottom: global.$border-white;
+            }
+        }
         > li > a {
             height: 2em + $padding * 2;
             padding: 0 .75em;
             display: flex;
             align-items: center;
+            @media (width <= global.$breakpoint2) {
+                height: 2.7em;
+                padding: 0 var(--padding);
+                border-top: global.$border-white;
+                display: flex;
+                justify-content: space-between;
+                &:hover, &:focus {
+                    background-color: white;
+                    color: global.$tertiaryColor;
+                    text-decoration: none;
+                }
+            }
+            svg {
+                display: none;
+                @media (width <= global.$breakpoint2) {
+                    display: unset;
+                    width: .7em;
+                    transition: transform 100ms ease-out;
+                    transform-origin: center;
+                }
+            }
         }
-
+        // inner nav
         ul {
             display: none;
             background-color: global.$tertiaryColor;
-            position: absolute;
-            z-index: 1;
-            top: 100%;
+            @media (width > global.$breakpoint2) {   
+                position: absolute;
+                z-index: 1;
+                top: 100%;
+            }
             li {
-                border: global.$border-white;
-                border-bottom: none;
-                &:last-of-type {
-                    border-bottom: global.$border-white;
+                @media (width > global.$breakpoint2) {
+                    border: global.$border-white;
+                    border-bottom: none;
+                    &:last-of-type {
+                        border-bottom: global.$border-white;
+                    }
                 }
                 a {
-                    background-color: white;
-                    color: global.$tertiaryColor;
-                    padding: math.div($padding, 2) $padding;
                     text-decoration: none;
                     display: block;
-                    &:hover, &:focus {
-                        background-color: global.$tertiaryColor;
-                        color: white;
+                    padding: math.div($padding, 2) $padding;
+                    @media (width > global.$breakpoint2) {
+                        background-color: white;
+                        color: global.$tertiaryColor;
+                        &:hover, &:focus {
+                            background-color: global.$tertiaryColor;
+                            color: white;
+                        }
+                    }
+                    @media (width <= global.$breakpoint2) {
+                        padding-left: 2em;
+                        &:hover, &:focus {
+                            background-color: white;
+                            color: global.$tertiaryColor;
+                        }
                     }
                 }
             }
@@ -183,9 +272,51 @@ img, video, iframe, svg {
                 font-size: .8em;
             }
         }
-        li:hover ul, li:focus-within ul{
-            display: unset;
-            background-color: gray;
+        > li:hover, > li:focus-within {
+            ul {
+                @media (width > global.$breakpoint2) {
+                    display: unset;
+                }
+            }
+        }
+        .open {
+            > a {
+                border-bottom: global.$border-white;
+                &:hover, &:focus {
+                    border-bottom: global.$border-blue;
+                }
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+            ul {
+                display: unset;
+            }
+        }
+    }
+    .hamburger-nav {
+        @media (width <= global.$breakpoint2) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: var(--padding);
+        }
+        button {
+            cursor: pointer;
+            display: none;
+            svg {
+                height: 100%;
+                path {
+                    transition: transform 100ms ease-out;
+                    transform-origin: center;
+                }
+            }
+            @media (width <= global.$breakpoint2) {
+                display: unset;
+                height: 1em;
+                padding: 1em var(--padding);
+                box-sizing: content-box;
+            }
         }
     }
 }

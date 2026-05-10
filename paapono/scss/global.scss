@@ -18,6 +18,9 @@ $grey3_5: #dedede;
 $grey4: #e5e5e5;
 $grey5: #f9f9f9;
 
+$transp-white: rgba(255, 255, 255, 0.18);
+$transp-black: rgba(0, 0, 0, 0.215);
+
 $p-size: 1.05em;
 $smaller-size: .9em;
 
@@ -38,7 +41,7 @@ $border: solid $line;
 $border-white: white $border;
 $border-blue: $tertiaryColor $border;
 $border-grey: $grey3_5 $border;
-$border-transp:  rgba(255, 255, 255, 0.18) $border;
+$border-transp: $transp-white $border;
 
 $border1: solid $line1;
 $border1-blue: $secondaryColor $border1;

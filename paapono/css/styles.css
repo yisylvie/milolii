@@ -248,10 +248,16 @@
 }
 :root {
   font-size: clamp(16px, 10px + 1vw, 20px);
+  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
 }
 @media (width <= 700px) {
   :root {
     font-size: clamp(16px, 10px + 2vw, 22px);
+  }
+}
+@media (width <= 900px) {
+  :root {
+    --padding: 3vw;
   }
 }
 
@@ -347,7 +353,16 @@ img, video, iframe, svg {
   text-decoration: none;
 }
 
-#everything > header {
+.mobile {
+  display: none;
+}
+@media (width <= 700px) {
+  .mobile {
+    display: unset;
+  }
+}
+
+#everything > dialog {
   background-color: #07254b;
   padding: 0 0.7em;
   padding-right: 0;
@@ -357,59 +372,185 @@ img, video, iframe, svg {
   align-items: center;
   position: relative;
   z-index: 2;
+  height: fit-content;
 }
 @media (width <= 700px) {
-  #everything > header {
-    font-size: 2rem;
+  #everything > dialog {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    font-size: 1.3rem;
+    padding: 0;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  #everything > dialog[open] {
+    position: fixed;
+  }
+  #everything > dialog[open] .l-top {
+    transform: translateY(-50%);
+  }
+  #everything > dialog[open] .l-bottom {
+    transform: translateY(50%);
+  }
+  #everything > dialog[open] .x-1 {
+    transform: rotate(45deg);
+  }
+  #everything > dialog[open] .x-2 {
+    transform: rotate(-45deg);
+  }
+  #everything > dialog[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0.215);
+  }
+  #everything > dialog:not([open]) {
+    border-bottom: white solid 2px;
+  }
+  #everything > dialog:not([open]) nav > ul {
+    display: none;
   }
 }
-#everything > header img {
+#everything > dialog > nav {
+  background-color: #07254b;
+}
+#everything > dialog img {
   height: 2em;
 }
-#everything > header nav > ul {
-  display: flex;
+@media (width > 700px) {
+  #everything > dialog nav > ul {
+    display: flex;
+  }
 }
-#everything > header nav > ul h2 {
+#everything > dialog nav > ul h2 {
   margin: 0;
   font-size: inherit;
 }
-#everything > header nav > ul > li > a {
+@media (width <= 700px) {
+  #everything > dialog nav > ul > li:last-child > a {
+    border-bottom: white solid 2px;
+  }
+}
+#everything > dialog nav > ul > li > a {
   height: 3.2em;
   padding: 0 0.75em;
   display: flex;
   align-items: center;
 }
-#everything > header nav > ul ul {
+@media (width <= 700px) {
+  #everything > dialog nav > ul > li > a {
+    height: 2.7em;
+    padding: 0 var(--padding);
+    border-top: white solid 2px;
+    display: flex;
+    justify-content: space-between;
+  }
+  #everything > dialog nav > ul > li > a:hover, #everything > dialog nav > ul > li > a:focus {
+    background-color: white;
+    color: #07254b;
+    text-decoration: none;
+  }
+}
+#everything > dialog nav > ul > li > a svg {
+  display: none;
+}
+@media (width <= 700px) {
+  #everything > dialog nav > ul > li > a svg {
+    display: unset;
+    width: 0.7em;
+    transition: transform 100ms ease-out;
+    transform-origin: center;
+  }
+}
+#everything > dialog nav > ul ul {
   display: none;
   background-color: #07254b;
-  position: absolute;
-  z-index: 1;
-  top: 100%;
 }
-#everything > header nav > ul ul li {
-  border: white solid 2px;
-  border-bottom: none;
+@media (width > 700px) {
+  #everything > dialog nav > ul ul {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+  }
 }
-#everything > header nav > ul ul li:last-of-type {
-  border-bottom: white solid 2px;
+@media (width > 700px) {
+  #everything > dialog nav > ul ul li {
+    border: white solid 2px;
+    border-bottom: none;
+  }
+  #everything > dialog nav > ul ul li:last-of-type {
+    border-bottom: white solid 2px;
+  }
 }
-#everything > header nav > ul ul li a {
-  background-color: white;
-  color: #07254b;
-  padding: 0.3em 0.6em;
+#everything > dialog nav > ul ul li a {
   text-decoration: none;
   display: block;
+  padding: 0.3em 0.6em;
 }
-#everything > header nav > ul ul li a:hover, #everything > header nav > ul ul li a:focus {
-  background-color: #07254b;
-  color: white;
+@media (width > 700px) {
+  #everything > dialog nav > ul ul li a {
+    background-color: white;
+    color: #07254b;
+  }
+  #everything > dialog nav > ul ul li a:hover, #everything > dialog nav > ul ul li a:focus {
+    background-color: #07254b;
+    color: white;
+  }
 }
-#everything > header nav > ul ul h3 {
+@media (width <= 700px) {
+  #everything > dialog nav > ul ul li a {
+    padding-left: 2em;
+  }
+  #everything > dialog nav > ul ul li a:hover, #everything > dialog nav > ul ul li a:focus {
+    background-color: white;
+    color: #07254b;
+  }
+}
+#everything > dialog nav > ul ul h3 {
   font-size: 0.8em;
 }
-#everything > header nav > ul li:hover ul, #everything > header nav > ul li:focus-within ul {
+@media (width > 700px) {
+  #everything > dialog nav > ul > li:hover ul, #everything > dialog nav > ul > li:focus-within ul {
+    display: unset;
+  }
+}
+#everything > dialog nav > ul .open > a {
+  border-bottom: white solid 2px;
+}
+#everything > dialog nav > ul .open > a:hover, #everything > dialog nav > ul .open > a:focus {
+  border-bottom: #07254b solid 2px;
+}
+#everything > dialog nav > ul .open > a svg {
+  transform: rotate(180deg);
+}
+#everything > dialog nav > ul .open ul {
   display: unset;
-  background-color: gray;
+}
+@media (width <= 700px) {
+  #everything > dialog .hamburger-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--padding);
+  }
+}
+#everything > dialog .hamburger-nav button {
+  cursor: pointer;
+  display: none;
+}
+#everything > dialog .hamburger-nav button svg {
+  height: 100%;
+}
+#everything > dialog .hamburger-nav button svg path {
+  transition: transform 100ms ease-out;
+  transform-origin: center;
+}
+@media (width <= 700px) {
+  #everything > dialog .hamburger-nav button {
+    display: unset;
+    height: 1em;
+    padding: 1em var(--padding);
+    box-sizing: content-box;
+  }
 }
 
 #everything > footer {

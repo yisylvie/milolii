@@ -12,12 +12,13 @@
         <link href="css/styles.css" type="text/css" rel="stylesheet">
         <link href="css/tooltip.css" type="text/css" rel="stylesheet">
 
+        <!-- only works in incognito -->
         <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self'">
         
         <!-- preloading -->
-        <link fetchpriority="low" rel="preload" href="fonts/ysabeau-office-v4-latin_latin-ext-regular.woff2" as="font"
+        <link fetchpriority="low" rel="preload" href="fonts/RedHat/fonts/RedHatText/variable/RedHatText-VF.woff2" as="font"
             type="font/woff2" crossorigin="anonymous">
-        <link rel="preload" href="fonts/ysabeau-office-v4-latin_latin-ext-700.woff2" as="font" type="font/woff2"
+        <link rel="preload" href="fonts/Libertinus/static/WOFF2/LibertinusSans-Regular.woff2" as="font" type="font/woff2"
             crossorigin="anonymous">
 
         <!-- favicons -->
@@ -30,15 +31,15 @@
     </head>
     <body id="body">
         <div id="everything">
-            <header>
-                <nav>
+            <dialog id="header">
+                <nav class="hamburger-nav">
                     <a href="#">
-                        <img srcset="icons/icon white text.png 60w"
+                        <img srcset="icons/icon%20white%20text.png 60w"
                             decoding="async" fetchpriority="high"
                             src="icons/icon white text.png" alt="Pa&#699;a Pono Logo">
                     </a>
-                    <button id="hamburger-button" class="menu-button" aria-expanded="false" aria-controls="nav-sidebar"
-                        aria-label="Toggle navigation">
+                    <button id="hamburger-button" class="menu-button"
+                        aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
                         <svg viewBox="0 0 36.42 27.59">
                             <path class="l-top" fill="currentColor"
                                 d="M2.5,5A2.53,2.53,0,0,1,0,2.48,2.5,2.5,0,0,1,2.5,0H33.89a2.52,2.52,0,0,1,2.53,2.48A2.56,2.56,0,0,1,33.89,5H2.5Z" />
@@ -51,15 +52,28 @@
                         </svg>
                     </button>
                 </nav>
-                <nav class="main-nav">
+                <nav id="main-nav">
                     <ul>
                         <li>
-                            <a href="about">
+                            <a href="about" class="dropdown">
                                 <h2>
                                     About
                                 </h2>
+                                <svg x="0px" y="0px" width="31.806px" height="17.917px" viewBox="0 0 31.806 17.917" enable-background="new 0 0 31.806 17.917">
+                                    <path fill="currentColor" d="M31.292,3.084l-14.417,14.43c-0.148,0.148-0.301,0.252-0.458,0.312c-0.158,0.061-0.329,0.091-0.514,0.091
+                                	s-0.356-0.03-0.514-0.09c-0.157-0.06-0.31-0.164-0.458-0.312L0.5,3.084C0.167,2.75,0,2.329,0,1.82s0.171-0.935,0.514-1.278
+                                	C0.875,0.181,1.301,0,1.792,0C2.283,0,2.709,0.181,3.07,0.542l12.833,12.833L28.736,0.542c0.352-0.352,0.775-0.523,1.271-0.514
+                                	c0.495,0.009,0.914,0.185,1.257,0.528c0.361,0.361,0.542,0.787,0.542,1.278C31.806,2.324,31.634,2.741,31.292,3.084z" />
+                                </svg>
                             </a>
                             <ul>
+                                <li class="mobile">
+                                    <a href="about/">
+                                        <h3>
+                                            About Us
+                                        </h3>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="about/core-values">
                                         <h3>
@@ -105,12 +119,25 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="projects">
+                            <a href="projects" class="dropdown">
                                 <h2>
                                     Projects
                                 </h2>
+                                <svg x="0px" y="0px" width="31.806px" height="17.917px" viewBox="0 0 31.806 17.917" enable-background="new 0 0 31.806 17.917">
+                                    <path fill="currentColor" d="M31.292,3.084l-14.417,14.43c-0.148,0.148-0.301,0.252-0.458,0.312c-0.158,0.061-0.329,0.091-0.514,0.091
+                                	s-0.356-0.03-0.514-0.09c-0.157-0.06-0.31-0.164-0.458-0.312L0.5,3.084C0.167,2.75,0,2.329,0,1.82s0.171-0.935,0.514-1.278
+                                	C0.875,0.181,1.301,0,1.792,0C2.283,0,2.709,0.181,3.07,0.542l12.833,12.833L28.736,0.542c0.352-0.352,0.775-0.523,1.271-0.514
+                                	c0.495,0.009,0.914,0.185,1.257,0.528c0.361,0.361,0.542,0.787,0.542,1.278C31.806,2.324,31.634,2.741,31.292,3.084z" />
+                                </svg>
                             </a>
                             <ul>
+                                <li class="mobile">
+                                    <a href="projects/">
+                                        <h3>
+                                            Our Projects
+                                        </h3>
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="projects/milolii-community-center/">
                                         <h3>
@@ -129,7 +156,7 @@
                         </li>
                     </ul>
                 </nav>
-            </header>
+            </dialog>
             <main>
                 <div>
                     <div class="hero-img">
