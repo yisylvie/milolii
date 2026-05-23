@@ -35,7 +35,7 @@ main .banner.left-text hgroup {
   font-size: 3rem;
 }
 main .banner.left-text hgroup :last-child {
-  border-bottom: none;
+  box-shadow: none;
 }
 main .banner.center-text {
   display: flex;
@@ -50,7 +50,7 @@ main .banner.center-text section {
   align-items: center;
   padding: 2em;
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   main .banner.center-text section > p {
     margin-inline-start: 2em;
   }

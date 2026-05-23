@@ -249,8 +249,9 @@
 :root {
   font-size: clamp(16px, 10px + 1vw, 20px);
   --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+  --shadow-color: oklch(0% 0 0);
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   :root {
     font-size: clamp(16px, 10px + 2vw, 22px);
   }
@@ -283,6 +284,7 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figc
   max-width: 32em;
   line-height: 1.4em;
   font-family: unset;
+  overflow-wrap: break-word;
 }
 
 button, dialog {
@@ -308,11 +310,8 @@ h2 {
 }
 
 a {
-  font-size: inherit;
-}
-a:hover, a:focus {
-  text-decoration: underline 0.06em;
-  text-underline-offset: 0.2em;
+  font: inherit;
+  transition: all 100ms ease-out;
 }
 
 p {
@@ -328,14 +327,33 @@ ul {
 }
 
 .email {
+  transition: text-decoration-color 100ms ease-out;
+  text-underline-offset: 0.1em;
   text-decoration: underline 0.06em;
-  text-underline-offset: 0.2em;
+}
+.email:hover, .email:focus-visible {
+  text-decoration-color: transparent;
+}
+.email {
   font-weight: unset;
   cursor: pointer;
 }
 
-.email:hover, .email:focus {
-  text-decoration: none;
+.button {
+  font-size: 1.2em;
+  padding: 0.3em 0.8em;
+  display: block;
+  width: fit-content;
+  border-radius: 0.15rem;
+  color: white;
+}
+
+.primary-button {
+  background-color: #12488f;
+  transition: background-color 100ms ease-out;
+}
+.primary-button:hover, .primary-button:focus-visible {
+  background-color: #07254b;
 }
 
 img, video, iframe, svg {
@@ -353,13 +371,35 @@ img, video, iframe, svg {
   text-decoration: none;
 }
 
-.mobile {
-  display: none;
+.focus-hidden {
+  position: fixed;
+  left: -300em;
+  top: 0.5em;
+  z-index: 3;
+  background-color: #12488f;
+  max-width: calc(100vw - 2.6em - 0rem);
 }
-@media (width <= 700px) {
+
+.focus-hidden:focus {
+  left: 0.5em;
+}
+
+@media ((width > 700px) and (height > 450px)) {
   .mobile {
-    display: unset;
+    display: none;
   }
+}
+@media (hover: none) {
+  .mobile {
+    display: block;
+  }
+}
+
+.opened {
+  overflow: clip;
+}
+.opened main {
+  margin-top: calc(3.9em + 2px);
 }
 
 #everything > dialog {
@@ -373,8 +413,9 @@ img, video, iframe, svg {
   position: relative;
   z-index: 2;
   height: fit-content;
+  box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.33), 1.3px 1.3px 2.1px -1.2px oklch(from var(--shadow-color) l c h/0.35), 5px 5px 8.1px -2.3px oklch(from var(--shadow-color) l c h/0.36);
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog {
     position: sticky;
     top: 0;
@@ -403,6 +444,9 @@ img, video, iframe, svg {
   #everything > dialog[open]::backdrop {
     background-color: rgba(0, 0, 0, 0.215);
   }
+  #everything > dialog[open] .hamburger-nav {
+    border-bottom: white solid 2px;
+  }
   #everything > dialog:not([open]) {
     border-bottom: white solid 2px;
   }
@@ -416,7 +460,7 @@ img, video, iframe, svg {
 #everything > dialog img {
   height: 2em;
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   #everything > dialog nav > ul {
     display: flex;
   }
@@ -425,7 +469,12 @@ img, video, iframe, svg {
   margin: 0;
   font-size: inherit;
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
+  #everything > dialog nav > ul > li:first-child > a {
+    border-top: none;
+  }
+}
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog nav > ul > li:last-child > a {
     border-bottom: white solid 2px;
   }
@@ -436,7 +485,17 @@ img, video, iframe, svg {
   display: flex;
   align-items: center;
 }
-@media (width <= 700px) {
+@media (width > 700px) and (height > 450px) {
+  #everything > dialog nav > ul > li > a {
+    transition: text-decoration-color 100ms ease-out;
+    text-underline-offset: 0.2em;
+    text-decoration-color: transparent;
+  }
+  #everything > dialog nav > ul > li > a:hover, #everything > dialog nav > ul > li > a:focus-visible {
+    text-decoration: underline 0.06em;
+  }
+}
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog nav > ul > li > a {
     height: 2.7em;
     padding: 0 var(--padding);
@@ -444,16 +503,15 @@ img, video, iframe, svg {
     display: flex;
     justify-content: space-between;
   }
-  #everything > dialog nav > ul > li > a:hover, #everything > dialog nav > ul > li > a:focus {
+  #everything > dialog nav > ul > li > a:hover, #everything > dialog nav > ul > li > a:focus-visible {
     background-color: white;
     color: #07254b;
-    text-decoration: none;
   }
 }
 #everything > dialog nav > ul > li > a svg {
   display: none;
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog nav > ul > li > a svg {
     display: unset;
     width: 0.7em;
@@ -461,46 +519,53 @@ img, video, iframe, svg {
     transform-origin: center;
   }
 }
-#everything > dialog nav > ul ul {
-  display: none;
-  background-color: #07254b;
-}
-@media (width > 700px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog nav > ul ul {
+    display: none;
+  }
+}
+#everything > dialog nav > ul ul {
+  background-color: white;
+}
+@media (width > 700px) and (height > 450px) {
+  #everything > dialog nav > ul ul {
+    box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.33), 1.3px 1.3px 2.1px -1.2px oklch(from var(--shadow-color) l c h/0.35), 5px 5px 8.1px -2.3px oklch(from var(--shadow-color) l c h/0.36);
     position: absolute;
     z-index: 1;
     top: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 100ms ease-out;
   }
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   #everything > dialog nav > ul ul li {
-    border: white solid 2px;
-    border-bottom: none;
+    padding: 2px;
+    padding-bottom: 0;
   }
   #everything > dialog nav > ul ul li:last-of-type {
-    border-bottom: white solid 2px;
+    padding-bottom: 2px;
   }
 }
 #everything > dialog nav > ul ul li a {
-  text-decoration: none;
   display: block;
   padding: 0.3em 0.6em;
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   #everything > dialog nav > ul ul li a {
     background-color: white;
     color: #07254b;
   }
-  #everything > dialog nav > ul ul li a:hover, #everything > dialog nav > ul ul li a:focus {
+  #everything > dialog nav > ul ul li a:hover, #everything > dialog nav > ul ul li a:focus-visible {
     background-color: #07254b;
     color: white;
   }
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog nav > ul ul li a {
-    padding-left: 2em;
+    padding-left: 1.4em;
   }
-  #everything > dialog nav > ul ul li a:hover, #everything > dialog nav > ul ul li a:focus {
+  #everything > dialog nav > ul ul li a:hover, #everything > dialog nav > ul ul li a:focus-visible {
     background-color: white;
     color: #07254b;
   }
@@ -508,24 +573,27 @@ img, video, iframe, svg {
 #everything > dialog nav > ul ul h3 {
   font-size: 0.8em;
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   #everything > dialog nav > ul > li:hover ul, #everything > dialog nav > ul > li:focus-within ul {
-    display: unset;
+    visibility: visible;
+    opacity: 1;
   }
 }
 #everything > dialog nav > ul .open > a {
   border-bottom: white solid 2px;
 }
-#everything > dialog nav > ul .open > a:hover, #everything > dialog nav > ul .open > a:focus {
+#everything > dialog nav > ul .open > a:hover, #everything > dialog nav > ul .open > a:focus-visible {
   border-bottom: #07254b solid 2px;
 }
 #everything > dialog nav > ul .open > a svg {
   transform: rotate(180deg);
 }
-#everything > dialog nav > ul .open ul {
-  display: unset;
+@media (width <= 700px), (height <= 450px) {
+  #everything > dialog nav > ul .open ul {
+    display: unset;
+  }
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog .hamburger-nav {
     display: flex;
     align-items: center;
@@ -544,12 +612,18 @@ img, video, iframe, svg {
   transition: transform 100ms ease-out;
   transform-origin: center;
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > dialog .hamburger-nav button {
     display: unset;
     height: 1em;
     padding: 1em var(--padding);
     box-sizing: content-box;
+  }
+}
+@media (width <= 700px), (height <= 450px) {
+  #everything > dialog #main-nav {
+    max-height: calc(100vh - (3em + 2px));
+    overflow: scroll;
   }
 }
 
@@ -566,7 +640,7 @@ img, video, iframe, svg {
     font-size: 0.9rem;
   }
 }
-@media (width <= 700px), (height < 350px) {
+@media (width <= 700px), (height <= 450px) {
   #everything > footer {
     position: unset;
   }
@@ -580,7 +654,7 @@ img, video, iframe, svg {
 .footer-top h1, .footer-top h2, .footer-top h3, .footer-top h4, .footer-top h5, .footer-top h6 {
   font-weight: 600;
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   .footer-top {
     display: flex;
     flex-direction: column;
@@ -590,14 +664,14 @@ img, video, iframe, svg {
     padding: 1.7em 0;
   }
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   .footer-top > div, .footer-top .logo {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   .footer-top .logo {
     padding: 1em 0;
   }
@@ -605,7 +679,7 @@ img, video, iframe, svg {
 .footer-top .logo img {
   height: 3.5em;
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   .footer-top .logo img {
     height: 5em;
   }
@@ -644,10 +718,10 @@ img, video, iframe, svg {
   height: 35px;
   width: auto;
 }
-.footer-top .socials .facebook:hover, .footer-top .socials .facebook:focus {
+.footer-top .socials .facebook:hover, .footer-top .socials .facebook:focus-visible {
   color: #0866FF;
 }
-.footer-top .socials .youtube:hover, .footer-top .socials .youtube:focus {
+.footer-top .socials .youtube:hover, .footer-top .socials .youtube:focus-visible {
   color: rgb(255, 0, 51);
 }
 
@@ -674,10 +748,30 @@ main {
     --padding: 3vw;
   }
 }
-@media (width <= 700px), (height < 350px) {
+@media (width <= 700px), (height <= 450px) {
   main {
     margin-bottom: 0;
   }
+}
+@media (width > 700px) and (height > 450px) {
+  main {
+    --shadow-color: oklch(0.1804 0.0548 252.52);
+    box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.33), 1.3px 1.3px 2.1px -1.2px oklch(from var(--shadow-color) l c h/0.35), 5px 5px 8.1px -2.3px oklch(from var(--shadow-color) l c h/0.36);
+  }
+}
+main .link {
+  color: #12488f;
+}
+main .link:hover, main .link:focus {
+  color: #07254b;
+}
+main .link {
+  transition: text-decoration-color 100ms ease-out;
+  text-underline-offset: 0.1em;
+  text-decoration-color: transparent;
+}
+main .link:hover, main .link:focus-visible {
+  text-decoration: underline 0.06em;
 }
 main li {
   border-left: #12488f solid 3px;
@@ -696,6 +790,7 @@ main h1 {
 }
 main p, main li {
   font-size: 1.05em;
+  text-wrap-style: pretty;
 }
 main p {
   margin-block-end: 1em;
@@ -724,12 +819,20 @@ main hgroup :first-child {
 main hgroup :last-child {
   font-style: italic;
   font-weight: 300;
-  padding-bottom: 0.3em;
+  padding-bottom: calc(0.3em + 2px);
   width: fit-content;
   font-size: 0.42em;
-  border-bottom: #07254b solid 2px;
+  overflow: hidden;
   margin-block-end: 2em;
 }
+main article hgroup :last-child:after {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  box-shadow: -100em 100.3em 0 100em;
+  color: #07254b;
+}
+
 main .banner {
   color: white;
   background-size: cover;
@@ -744,20 +847,6 @@ main .banner:first-of-type {
 main .banner.no-img {
   color: black;
   background: none;
-}
-main .button, main button {
-  background-color: #12488f;
-  border-radius: 0.15rem;
-  font-size: 1.2em;
-  padding: 0.3em 0.8em;
-  text-decoration: none;
-  display: block;
-  color: white;
-  width: fit-content;
-}
-main .button:hover, main .button:focus, main button:hover, main button:focus {
-  background-color: #07254b;
-  text-decoration: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

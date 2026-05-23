@@ -17,10 +17,13 @@
 :root{
     font-size: clamp(16px, 10px + 1vw, 20px);
     --padding: clamp(1.8em, -24.6em + 44vw, #{global.$max-padding});
-    @media (width <= global.$breakpoint2) {
+
+    --shadow-color: oklch(0% 0 0);
+
+    @include global.mobile-small {
         font-size: clamp(16px, 10px + 2vw, 22px);
     }
-    @media (width <= global.$breakpoint1) {
+    @include global.mobile {
         --padding: #{global.$min-padding};
     }
 }
@@ -46,6 +49,7 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figc
     max-width: global.$line-length;
     line-height: global.$line-height;
     font-family: unset;
+    overflow-wrap: break-word;
 }
 
 // clear weird default stylings
@@ -76,10 +80,8 @@ h2 {
 }
 
 a {
-    font-size: inherit;
-    &:hover, &:focus {
-        @include global.underline();
-    }
+    font: inherit;
+    transition: all global.$ease;
 }
 
 p {
@@ -100,17 +102,25 @@ ul {
     cursor: pointer;
 }
 
-.email:hover, .email:focus {
-    text-decoration: none;
+.button {
+    font-size: 1.2em;
+    padding: 0.3em 0.8em;
+    display: block;
+    width: fit-content;
+    border-radius: global.$border-radius;
+    color: white;
+}
+
+.primary-button {
+    background-color: global.$secondaryColor;
+    transition: background-color global.$ease;
+    &:hover, &:focus-visible {
+        background-color: global.$tertiaryColor;
+    }
 }
 
 img, video, iframe, svg {
-    // margin: auto;
-    // padding: auto;
-    // max-width: 100%;
     display: block;
-    // padding-top: 1em;
-    // padding-bottom: 1em;
 }
 
 .visually-hidden {
@@ -124,10 +134,32 @@ img, video, iframe, svg {
     text-decoration: none;
 }
 
+.focus-hidden {
+    position: fixed;
+    left: -300em;
+    top: .5em;
+    z-index: 3;
+    background-color: global.$secondaryColor;
+    max-width: global.innerDim($padding: .5em + .8em, $fullDim: 100vw);
+}
+
+.focus-hidden:focus {
+    left: .5em;
+}
+
 .mobile {
-    display: none;
-    @media (width <= global.$breakpoint2) {
-        display: unset;
+    @media ((width > global.$breakpoint2) and (height > global.$breakpointh1)) {
+        display: none;
+    }
+    @media (hover: none) {
+        display: block;
+    }
+}
+
+.opened {
+    overflow: clip;
+    main {
+        margin-top: calc(global.rel-to-abs(3em, 1.3em) + global.$line);
     }
 }
 
@@ -143,7 +175,8 @@ img, video, iframe, svg {
     position: relative;
     z-index: 2;
     height: fit-content;
-    @media (width <= global.$breakpoint2) {
+    box-shadow: global.$shadow-elevation-medium;
+    @include global.mobile-small {
         position: sticky;
         top: 0;
         width: 100vw;
@@ -155,7 +188,6 @@ img, video, iframe, svg {
         &[open] {
             position: fixed;
             // I am not hamburger I yam xxx
-
             .l-top {
                 transform: global.$translate050;
             }
@@ -175,6 +207,9 @@ img, video, iframe, svg {
             &::backdrop {
                 background-color: global.$transp-black;
             }
+            .hamburger-nav {
+                border-bottom: global.$border-white;
+            }
         }
         &:not([open]) {
             border-bottom: global.$border-white;
@@ -191,15 +226,20 @@ img, video, iframe, svg {
     }
     // outer
     nav > ul {
-        @media (width > global.$breakpoint2) {
+        @include global.tablet-desktop {
             display: flex;
         }
         h2 {
             margin: 0;
             font-size: inherit;
         }
+        > li:first-child > a {
+            @include global.mobile-small {
+                border-top: none;
+            }
+        }
         > li:last-child > a {
-            @media (width <= global.$breakpoint2) {
+            @include global.mobile-small {
                 border-bottom: global.$border-white;
             }
         }
@@ -208,60 +248,67 @@ img, video, iframe, svg {
             padding: 0 .75em;
             display: flex;
             align-items: center;
-            @media (width <= global.$breakpoint2) {
+            @include global.tablet-desktop {
+                @include global.underline(false, .2em);
+            }
+            @include global.mobile-small {
                 height: 2.7em;
                 padding: 0 var(--padding);
                 border-top: global.$border-white;
                 display: flex;
                 justify-content: space-between;
-                &:hover, &:focus {
+                &:hover, &:focus-visible {
                     background-color: white;
                     color: global.$tertiaryColor;
-                    text-decoration: none;
                 }
             }
             svg {
                 display: none;
-                @media (width <= global.$breakpoint2) {
+                @include global.mobile-small {
                     display: unset;
                     width: .7em;
-                    transition: transform 100ms ease-out;
+                    transition: transform global.$ease;
                     transform-origin: center;
                 }
             }
         }
         // inner nav
         ul {
-            display: none;
-            background-color: global.$tertiaryColor;
-            @media (width > global.$breakpoint2) {   
+            @include global.mobile-small {
+                display: none;
+            }
+            background-color: white;
+            @include global.tablet-desktop {   
+                box-shadow: global.$shadow-elevation-medium;
                 position: absolute;
                 z-index: 1;
                 top: 100%;
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity global.$ease;
             }
             li {
-                @media (width > global.$breakpoint2) {
-                    border: global.$border-white;
-                    border-bottom: none;
+                @include global.tablet-desktop {
+                    padding: global.$line;
+                    padding-bottom: 0;
                     &:last-of-type {
-                        border-bottom: global.$border-white;
+                        padding-bottom: global.$line;
                     }
                 }
                 a {
-                    text-decoration: none;
                     display: block;
                     padding: math.div($padding, 2) $padding;
-                    @media (width > global.$breakpoint2) {
+                    @include global.tablet-desktop {
                         background-color: white;
                         color: global.$tertiaryColor;
-                        &:hover, &:focus {
+                        &:hover, &:focus-visible {
                             background-color: global.$tertiaryColor;
                             color: white;
                         }
                     }
-                    @media (width <= global.$breakpoint2) {
-                        padding-left: 2em;
-                        &:hover, &:focus {
+                    @include global.mobile-small {
+                        padding-left: 1.4em;
+                        &:hover, &:focus-visible {
                             background-color: white;
                             color: global.$tertiaryColor;
                         }
@@ -274,15 +321,16 @@ img, video, iframe, svg {
         }
         > li:hover, > li:focus-within {
             ul {
-                @media (width > global.$breakpoint2) {
-                    display: unset;
+                @include global.tablet-desktop {   
+                    visibility: visible;
+                    opacity: 1;
                 }
             }
         }
         .open {
             > a {
                 border-bottom: global.$border-white;
-                &:hover, &:focus {
+                &:hover, &:focus-visible {
                     border-bottom: global.$border-blue;
                 }
                 svg {
@@ -290,12 +338,14 @@ img, video, iframe, svg {
                 }
             }
             ul {
-                display: unset;
+                @include global.mobile-small {
+                    display: unset;
+                }
             }
         }
     }
     .hamburger-nav {
-        @media (width <= global.$breakpoint2) {
+        @include global.mobile-small {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -307,16 +357,22 @@ img, video, iframe, svg {
             svg {
                 height: 100%;
                 path {
-                    transition: transform 100ms ease-out;
+                    transition: transform global.$ease;
                     transform-origin: center;
                 }
             }
-            @media (width <= global.$breakpoint2) {
+            @include global.mobile-small {
                 display: unset;
                 height: 1em;
                 padding: 1em var(--padding);
                 box-sizing: content-box;
             }
+        }
+    }
+    #main-nav {
+        @include global.mobile-small {
+            max-height: calc(100vh - (3em + global.$line));
+            overflow: scroll;
         }
     }
 }
@@ -327,11 +383,11 @@ img, video, iframe, svg {
     font-size: 1rem;
     padding: 0 5%;
     bottom: 0;
-    @media (width <= global.$breakpoint1) {
+    @include global.mobile {
         padding: 0 2.5%;
         font-size: .9rem;
     }
-    @media (width <= global.$breakpoint2), (height < 350px) {
+    @include global.mobile-small {
         position: unset;
     }
 }
@@ -343,7 +399,7 @@ img, video, iframe, svg {
     %headings {
         font-weight: 600;
     }
-    @media (width <= global.$breakpoint2) {
+    @include global.mobile-small {
         display: flex;
         flex-direction: column;
         gap: 2.5em;
@@ -352,19 +408,19 @@ img, video, iframe, svg {
         padding: 1.7em 0;
     }
     > div, .logo {
-        @media (width > global.$breakpoint2) {   
+        @include global.tablet-desktop {   
             position: absolute;
             top: 50%;
             transform: global.$translate050;
         }
     }
     .logo {
-        @media (width <= global.$breakpoint2) {
+        @include global.mobile-small {
             padding: 1em 0;
         }
         img {
             height: 3.5em;
-            @media (width <= global.$breakpoint2) {
+            @include global.mobile-small {
                 height: 5em;
             }
         }
@@ -403,12 +459,12 @@ img, video, iframe, svg {
             width: auto;
         }
         .facebook {
-            &:hover,&:focus {
+            &:hover,&:focus-visible {
                 color: global.$facebook;
             }
         }
         .youtube {
-            &:hover,&:focus {
+            &:hover,&:focus-visible {
                 color: global.$youtube;
             }
         }
@@ -433,12 +489,23 @@ main {
     z-index: 1;
     position: relative;
     // margin-bottom: calc(12.4rem + (global.rel-to-abs(1.4em, math.div(5rem, 6))) + 1rem + .8rem + global.$line);
-    @media (width <= global.$breakpoint1) {
+    @include global.mobile {
         --padding: #{global.$min-padding};
         // margin-bottom: calc(12.4rem + (global.rel-to-abs(1.4em, math.div(.9 * 5rem, 6))) + 1rem + .8rem + global.$line * 2);
     }
-    @media (width <= global.$breakpoint2), (height < 350px) {
+    @include global.mobile-small {
         margin-bottom: 0;
+    }
+    @include global.tablet-desktop {
+        --shadow-color: oklch(0.1804 0.0548 252.52);
+        box-shadow: global.$shadow-elevation-medium;
+    }
+    .link {
+        color: global.$secondaryColor;
+        &:hover, &:focus {
+            color: global.$tertiaryColor;
+        }
+        @include global.underline(false);
     }
     li {
         border-left: global.$border1-blue;
@@ -457,6 +524,7 @@ main {
     }
     p, li {
         font-size: global.$p-size;
+        text-wrap-style: pretty;
     }
     p {
         margin-block-end: 1em;
@@ -482,13 +550,21 @@ main {
             font-size: inherit;
         }
         :last-child {
+            $padding: .3em;
             font-style: italic;
             font-weight: 300;
-            padding-bottom: .3em;
+            padding-bottom: calc($padding + global.$line);
             width: fit-content;
             font-size: .42em;
-            border-bottom: global.$border-blue;
+            overflow: hidden;
             margin-block-end: 2em;
+            @at-root main article hgroup :last-child:after {
+                content: '';
+                display: inline-block;
+                vertical-align: bottom;
+                box-shadow: -100em calc(100em + $padding) 0 100em;
+                color: global.$tertiaryColor;
+            }
         }
     }
     .banner {
@@ -505,20 +581,6 @@ main {
         &.no-img {
             color: black;
             background: none;
-        }
-    }
-    .button, button {
-    background-color: global.$secondaryColor;
-    border-radius: global.$border-radius;
-    font-size: 1.2em;
-    padding: 0.3em 0.8em;
-    text-decoration: none;
-    display: block;
-    color: white;
-    width: fit-content;
-        &:hover, &:focus {
-            background-color: global.$tertiaryColor;
-            text-decoration: none;
         }
     }
 }

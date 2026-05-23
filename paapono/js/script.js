@@ -3,7 +3,9 @@ let header = document.getElementById("header");
 let dropdowns = document.getElementsByClassName("dropdown");
 let footer = document.querySelector("#everything > footer");
 let tabbableFoot = footer.querySelectorAll("[tabindex='0'], a");
-
+const breakpoint2 = 700;
+const breakpointh1 = 450;
+let scrollPos = window.scrollY;
 // check if element has been clicked or enter/space pressed on focus
 function setClickListener(el, listener) {
     el.addEventListener("keydown", function (e) {
@@ -33,32 +35,41 @@ function setUnhoverListener(el, listener) {
 }
 
 visualViewport.addEventListener("resize", function (e) {
-    if (e.target.width > 700) {
+    if (e.target.width > breakpoint2) {
         if (header.open) {
+            scrollPos = window.scrollY;
             header.close();
         }
     }
 });
 
+// inner nav function on mobile
 for (const dropdown of dropdowns) {
     dropdown.addEventListener("click", (e) => {
-        e.preventDefault();
-        let liClass = dropdown.parentNode.classList;
-        if (liClass.contains("open")) {
-            liClass.remove("open");
-        } else {
-            liClass.add("open");
-            document.activeElement.blur();
+        if (window.matchMedia("(hover: none)").matches) {
+            e.preventDefault();
+        }
+        if (window.matchMedia("(width <= " + breakpoint2 + "px), (height <= " + breakpointh1 + "px)").matches) {
+            e.preventDefault();
+            let liClass = dropdown.parentNode.classList;
+            if (liClass.contains("open")) {
+                liClass.remove("open");
+            } else {
+                liClass.add("open");
+                document.activeElement.blur();
+            }
         }
     });
 }
 
 hamburgerButton.addEventListener("click", function (e) {
     if (!header.open) {
+        body.className = "opened";
         header.showModal();
         document.activeElement.blur();
         hamburgerButton.ariaExpanded = true;
     } else {
+        scrollPos = window.scrollY;
         header.close();
     }
 });
@@ -68,7 +79,7 @@ xOutMenu();
 function xOutMenu() {
     // x out menu if clicking anywhere outside the menu
     header.addEventListener("click", function (e) {
-        if (header.open) {
+        if (window.innerWidth <= breakpoint2 && header.open) {
             let outside = true;
 
             // check if clicking navbar
@@ -79,16 +90,21 @@ function xOutMenu() {
             }
 
             if (outside) {
+                scrollPos = window.scrollY;
                 header.close();
             }
         }
     });
 
     header.addEventListener("close", function (e) {
-        body.style.overflow = "unset";
         document.activeElement.blur();
-        body.className = "closed";
+        body.classList.remove("opened");
         hamburgerButton.ariaExpanded = false;
+        window.scrollTo(0, scrollPos);
+        for (const dropdown of dropdowns) {
+            let liClass = dropdown.parentNode.classList;
+            liClass.remove("open");
+        }
     });
 }
 

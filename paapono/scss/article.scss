@@ -15,7 +15,7 @@ main {
         margin: global.$max-padding var(--padding);
         margin-left: $true-left-pad;
         position: relative;
-        @media (width <= global.$breakpoint1) {
+        @include global.mobile {
             max-width: global.innerDim($padding: var(--padding));
             width: global.$line-length;
             margin-left: auto;
@@ -24,17 +24,9 @@ main {
         li {
             margin-block-end: 0.6em;
         }
-        a {
-            font-weight: inherit;
-            font-style: inherit;
-            &:hover, &:focus {
-                text-decoration: none;
-                color: global.$secondaryColor;
-            }
-        }
         hgroup {
             font-size: 2.5rem;
-            @media (width > global.$breakpoint1) {
+            @include global.desktop {
                 width: global.innerDim($fullDim: 100vw, $width: calc($true-left-pad + var(--padding)));
             }
         }
@@ -43,17 +35,17 @@ main {
             right: calc(100% + var(--padding));
             width: global.innerDim($fullDim: $left-pad, $padding: var(--padding));
             max-width: calc(100vw - var(--padding) * 3 - $width);
-            @media (width <= global.$breakpoint1) {
+            @include global.mobile {
                 position: revert;
                 width: 100%;
                 max-width: unset;
                 margin: 2.5em 0;
             }
             img {
-                @media (width > global.$breakpoint1) {
+                @include global.desktop {
                     width: 100%;
                 }
-                @media (width <= global.$breakpoint1) {
+                @include global.mobile {
                     max-width: 100%;
                     max-height: 70vh;
                     margin: auto;
@@ -63,7 +55,7 @@ main {
                 margin: 1em .5em;
                 font-size: global.$smaller-size;
                 color: global.$grey2;
-                @media (width <= global.$breakpoint1) {
+                @include global.mobile {
                     margin: 1em;
                 }
             }
@@ -77,10 +69,10 @@ main {
             font-family: fonts.$redhat;
             line-height: 1.5em;
             color: global.$secondaryColor;
-            @media (width > global.$breakpoint2) {
+            @include global.tablet-desktop {
                 width: $awidth;
             }
-            @media (width > global.$breakpoint1) {   
+            @include global.desktop {   
                 margin-right: var(--padding);
                 position: relative;
                 float: right;
@@ -89,7 +81,7 @@ main {
             }
         }
         .gallery {
-            @media (width > global.$breakpoint2) {   
+            @include global.tablet-desktop {   
                 column-gap: 1em;
                 width: global.innerDim($fullDim: 100vw, $padding: var(--padding));
                 position: relative;
@@ -97,10 +89,10 @@ main {
                 margin: global.$max-padding var(--padding);
                 column-width: 17em;
             }
-            @media (width <= global.$breakpoint1) {
+            @include global.mobile {
                 left: calc((100vw - global.$line-length) / -2);
             }
-            @media (width <= global.$breakpoint2) {
+            @include global.mobile-small {
                 margin: global.$max-padding 0;
                 column-width: 12em;
                 column-gap: var(--padding);
@@ -108,7 +100,7 @@ main {
             img {
                 margin-bottom: 1em;
                 width: 100%;
-                @media (width <= global.$breakpoint2) {
+                @include global.mobile-small {
                     margin-bottom: var(--padding);
                 }
             }

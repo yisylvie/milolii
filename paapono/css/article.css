@@ -266,14 +266,6 @@ main article {
 main article li {
   margin-block-end: 0.6em;
 }
-main article a {
-  font-weight: inherit;
-  font-style: inherit;
-}
-main article a:hover, main article a:focus {
-  text-decoration: none;
-  color: #12488f;
-}
 main article hgroup {
   font-size: 2.5rem;
 }
@@ -327,7 +319,7 @@ main article aside {
   line-height: 1.5em;
   color: #12488f;
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   main article aside {
     width: 30em;
   }
@@ -341,7 +333,7 @@ main article aside {
     margin-top: 1.5em;
   }
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   main article .gallery {
     column-gap: 1em;
     width: calc(100vw - var(--padding) * 2 - 0rem);
@@ -356,7 +348,7 @@ main article aside {
     left: calc((100vw - 32em) / -2);
   }
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   main article .gallery {
     margin: 4em 0;
     column-width: 12em;
@@ -367,7 +359,7 @@ main article .gallery img {
   margin-bottom: 1em;
   width: 100%;
 }
-@media (width <= 700px) {
+@media (width <= 700px), (height <= 450px) {
   main article .gallery img {
     margin-bottom: var(--padding);
   }

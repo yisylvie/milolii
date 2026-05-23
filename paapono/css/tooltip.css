@@ -2,9 +2,6 @@
   cursor: pointer;
   position: relative;
 }
-.copy *, .copy *:hover, .copy *:focus {
-  text-decoration: none !important;
-}
 .copy.no-clipboard {
   -webkit-user-select: all;
   -ms-user-select: all;

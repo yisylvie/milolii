@@ -5,14 +5,10 @@
 // silly little tooltip
 .copy {
     $offset: .6em;
-    $timing: 120ms global.$cubic-bezier-in;
+    $timing: global.$bezier;
     $font-size: .9em;
     cursor: pointer;
     position: relative;
-
-    *, *:hover, *:focus {
-        text-decoration: none !important;
-    }
 
     &.no-clipboard {
         -webkit-user-select: all;

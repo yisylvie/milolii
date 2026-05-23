@@ -21,13 +21,11 @@ main .side-section.right.sticky .img {
   background-position-x: right;
 }
 main .side-section.right.sticky {
-  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
   display: flex;
 }
 @media (width <= 900px) {
   main .side-section.right.sticky {
     flex-direction: column;
-    --padding: 3%;
   }
 }
 main .side-section.right.sticky p:last-of-type {
@@ -53,29 +51,17 @@ main .side-section.right.sticky article > div {
     margin-right: auto;
   }
 }
-main .side-section.right.sticky .img, main .side-section.right.sticky nav {
+main .side-section.right.sticky .img {
   width: stretch;
 }
 @media (width > 900px) {
-  main .side-section.right.sticky .img, main .side-section.right.sticky nav {
+  main .side-section.right.sticky .img {
     height: calc(100vh - 8em - 0rem);
     position: sticky;
     background-size: cover;
     top: 4em;
     margin: 4em var(--padding);
     margin-right: 0;
-  }
-}
-main .side-section.right.sticky nav {
-  margin: 4em var(--padding);
-  width: 32em;
-  max-width: calc(100% - var(--padding) * 2 - 0rem);
-}
-@media (width <= 900px) {
-  main .side-section.right.sticky nav {
-    max-width: calc(100% - var(--padding) * 2 - 0rem);
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 main .side-section.right.sticky .img {
@@ -101,13 +87,11 @@ main .side-section.right.sticky .img img {
   }
 }
 main .side-section.right.no-sticky {
-  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
   display: flex;
 }
 @media (width <= 900px) {
   main .side-section.right.no-sticky {
     flex-direction: column;
-    --padding: 3%;
   }
 }
 main .side-section.right.no-sticky p:last-of-type {
@@ -133,20 +117,8 @@ main .side-section.right.no-sticky article > div {
     margin-right: auto;
   }
 }
-main .side-section.right.no-sticky .img, main .side-section.right.no-sticky nav {
+main .side-section.right.no-sticky .img {
   width: stretch;
-}
-main .side-section.right.no-sticky nav {
-  margin: 4em var(--padding);
-  width: 32em;
-  max-width: calc(100% - var(--padding) * 2 - 0rem);
-}
-@media (width <= 900px) {
-  main .side-section.right.no-sticky nav {
-    max-width: calc(100% - var(--padding) * 2 - 0rem);
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 main .side-section.right.no-sticky .img {
   display: flex;
@@ -165,14 +137,12 @@ main .side-section.right.no-sticky .img img {
   }
 }
 main .side-section.left {
-  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
   display: flex;
   flex-direction: row-reverse;
 }
 @media (width <= 900px) {
   main .side-section.left {
     flex-direction: column;
-    --padding: 3%;
   }
 }
 main .side-section.left p:last-of-type {
@@ -198,20 +168,8 @@ main .side-section.left article > div {
     margin-right: auto;
   }
 }
-main .side-section.left .img, main .side-section.left nav {
+main .side-section.left .img {
   width: stretch;
-}
-main .side-section.left nav {
-  margin: 4em var(--padding);
-  width: 32em;
-  max-width: calc(100% - var(--padding) * 2 - 0rem);
-}
-@media (width <= 900px) {
-  main .side-section.left nav {
-    max-width: calc(100% - var(--padding) * 2 - 0rem);
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 main .side-section.left .img {
   display: flex;
@@ -243,7 +201,7 @@ main .banner.left-text hgroup {
   font-size: 3rem;
 }
 main .banner.left-text hgroup :last-child {
-  border-bottom: none;
+  box-shadow: none;
 }
 main .banner.center-text {
   display: flex;
@@ -252,13 +210,13 @@ main .banner.center-text {
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(94% - 0rem);
+  max-width: calc(100% - 6vw - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2em;
 }
-@media (width > 700px) {
+@media (width > 700px) and (height > 450px) {
   main .banner.center-text section > p {
     margin-inline-start: 2em;
   }
