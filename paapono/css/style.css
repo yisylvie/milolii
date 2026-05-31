@@ -1,3 +1,4 @@
+@charset "UTF-8";
 main .banner.left-text {
   background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/two kids fishing.jpg");
   background-position-x: right;
@@ -7,7 +8,7 @@ main .banner.left-text {
   min-height: 20em;
 }
 main .banner.center-text {
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/two kids fishing.jpg");
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/Miloliʻi Last Fishing Village in Hawaiʻi Nei.jpg");
   background-position-x: right;
   color: black;
   height: calc(80vh - 4em - 0rem);

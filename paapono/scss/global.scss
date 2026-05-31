@@ -242,9 +242,6 @@ $ease: 100ms ease-out;
         flex-direction: column;
         // --padding: #{$min-padding};
     }
-    p:last-of-type {
-        margin-block-end: 2em;
-    }
     article {
         position: relative;
         @include desktop {

@@ -358,6 +358,7 @@ ul {
 
 img, video, iframe, svg {
   display: block;
+  max-width: 100%;
 }
 
 .visually-hidden {
@@ -773,17 +774,6 @@ main .link {
 main .link:hover, main .link:focus-visible {
   text-decoration: underline 0.06em;
 }
-main li {
-  border-left: #12488f solid 3px;
-  padding: 0.3em 0 0.3em 0.7em;
-  margin-block-end: 0.4em;
-}
-main li p:last-of-type {
-  margin-block-end: 0;
-}
-main li p {
-  margin-left: 0;
-}
 main h1 {
   font-size: 3em;
   margin-block-end: 0.2em;
@@ -833,6 +823,20 @@ main article hgroup :last-child:after {
   color: #07254b;
 }
 
+main article section li {
+  border-left: #12488f solid 3px;
+  padding: 0.3em 0 0.3em 0.7em;
+  margin-block-end: 0.4em;
+}
+main article section li p:last-of-type {
+  margin-block-end: 0;
+}
+main article section li p {
+  margin-left: 0;
+}
+main article section > p:last-child, main article section li:last-child {
+  margin-block-end: 2em;
+}
 main .banner {
   color: white;
   background-size: cover;
