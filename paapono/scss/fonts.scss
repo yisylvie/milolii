@@ -209,5 +209,14 @@ $redhat: "Red Hat", $libertinus;
 
 @mixin libertinus() {
     font-family: $libertinus;
-    @include numerals();
+    --line-height: 1.4em;
+}
+
+@mixin redhat($body-text: false) {
+    font-family: $redhat;
+    @if ($body-text) {
+        --line-height: 1.5em;
+    } @else {
+        --line-height: 1.4em;
+    }
 }

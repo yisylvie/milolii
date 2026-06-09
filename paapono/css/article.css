@@ -316,6 +316,7 @@ main article aside {
   padding: 1em;
   margin: 2.5em 0;
   font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  --line-height: 1.5em;
   line-height: 1.5em;
   color: #12488f;
 }
@@ -368,6 +369,7 @@ main article footer h3 {
   font-size: 1.05em;
   border-bottom: #dedede solid 2px;
   font-family: "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  --line-height: 1.4em;
   margin-bottom: 1em;
 }
 main article footer li {

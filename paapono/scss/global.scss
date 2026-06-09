@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:string";
 
 $translate500: translateX(-50%);
 $translate050: translateY(-50%);
@@ -6,6 +7,7 @@ $translate5050: translate(-50%, -50%);
 
 $secondaryColor: #12488f;
 $tertiaryColor: #07254b;
+$highlightColor: #d0e3fc;
 
 $youtube: rgb(255, 0, 51);
 $facebook:#0866FF;
@@ -46,7 +48,6 @@ $line0: 1px;
 $line: 2px;
 $line1: 3px;
 $rel-line: .06em;
-$line-height: 1.4em;
 $line-length: 32em;
 
 $breakpoint1: 900px;
@@ -99,14 +100,27 @@ $border1-blue: $secondaryColor $border1;
 
 $border-radius: 0.15rem;
 
+
 $cubic-bezier-in: cubic-bezier(1, 0.06, 0.983, 0.165);
 $bezier: 120ms $cubic-bezier-in;
 $ease: 100ms ease-out;
 
+// the distributive property go burrr
+@function transition($properties, $timing: $ease) {
+    $transition: null;
+
+    @each $property in $properties {
+        $transition: $property $timing, $transition;
+    }
+
+    @return $transition;
+}
+
+$color-transition: transition((color, background-color, text-decoration-color, border-color));
+
 // if root then underline on hover
 // else remove underline on hover
 @mixin underline($root: true, $offset: .1em) {
-    transition: text-decoration-color $ease;
     text-underline-offset: $offset;
     @if ($root) {
         text-decoration: underline $rel-line;
@@ -122,7 +136,7 @@ $ease: 100ms ease-out;
 }
 
 @mixin centerFillWidth() {
-    width: -webkit-fill-available;
+    width: stretch;
     text-align: center;
 }
 
@@ -206,29 +220,33 @@ $ease: 100ms ease-out;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         section {
             width: max-content;
-            max-width: innerDim($padding: $min-padding);
+            max-width: innerDim($padding: var(--padding));
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2em;
+            padding: 2em var(--padding);
             > p {
                 @include tablet-desktop {
-                    margin-inline-start: 2em;
+                    margin: auto;
                 }
             }
         }
-        h2 {
-            border-top: $border-transp;
-            border-bottom: $border-transp;
+        h1 {
             text-align: center;
-            font-weight: 200;
         }
-        &.no-img h2{
-            border-top: $border-transp;
-            border-bottom: $border-transp;
-        }
+        // h2 {
+        //     border-top: $border-transp;
+        //     border-bottom: $border-transp;
+        //     text-align: center;
+        //     font-weight: 200;
+        // }
+        // &.no-img h2{
+        //     border-top: $border-transp;
+        //     border-bottom: $border-transp;
+        // }
     }
 }
 

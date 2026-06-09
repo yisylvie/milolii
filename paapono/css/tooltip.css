@@ -2,11 +2,6 @@
   cursor: pointer;
   position: relative;
 }
-.copy.no-clipboard {
-  -webkit-user-select: all;
-  -ms-user-select: all;
-  user-select: all;
-}
 @keyframes pop {
   0% {
     font-size: 0;

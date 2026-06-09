@@ -3,7 +3,7 @@ let copy = document.querySelectorAll(".copy");
 // if we can copy to the clipboard
 if (navigator.clipboard && window.isSecureContext) {
     for (const item of copy) {
-        item.classList.remove("no-clipboard");
+        item.classList.remove("highlight");
     }
     const directions = ["bottom", "right", "top", "left"];
 

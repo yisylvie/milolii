@@ -3,21 +3,91 @@
 
 
 main {
-    .banner.left-text {
-        // background-image: linear-gradient(0deg, #00000070, #00000070), url("../images/group\ of\ people\ on\ boat\ off\ the\ coast\ of\ miloliʻi.jpg");
-        background-image: linear-gradient(0deg, #ffffff96, #ffffff96), url("../images/two\ kids\ fishing.jpg");
-        background-position-x: right;
-        height: unset;
-        background-attachment: fixed;
-        color: black;
-        min-height: 20em;
-    }
+    // .banner.left-text {
+    //     // background-image: linear-gradient(0deg, #00000070, #00000070), url("../images/group\ of\ people\ on\ boat\ off\ the\ coast\ of\ miloliʻi.jpg");
+    //     background-image: linear-gradient(0deg, #ffffff96, #ffffff96), url("../images/two\ kids\ fishing.jpg");
+    //     background-position-x: right;
+    //     height: unset;
+    //     background-attachment: fixed;
+    //     color: black;
+    //     min-height: 20em;
+    // }
     
-    .banner.center-text {
-        background-image: linear-gradient(0deg, #ffffff96, #ffffff96), url("../images/Miloliʻi\ Last\ Fishing\ Village\ in\ Hawaiʻi\ Nei.jpg");
-        background-position-x: right;
-        color: black;
-        height: global.innerDim($fullDim: 80vh, $padding: 2em);
+    .banner.center-text:first-of-type {
+        background-image: linear-gradient(0deg, #000000cb, #000000cb), url("../images/canoes\ off\ of\ miloliʻi\ coast.jpg");
+        background-position-x: center;
+        // color: black;
+        // height: global.innerDim($fullDim: 100vh, $padding: 2em, $width: rel-to-abs(1.5em));
+        font-size: 1.5em;
+        h1 {
+            font-size: 3rem;
+            margin-block-end: .8em;
+        }
+        p {
+            margin-block-end: 1em;
+        }
+        .button {
+            font-size: inherit;
+        }
+    }
+
+    .banner.center-text:nth-of-type(2) {
+        background-color: global.$grey5;
+        section {
+            padding-bottom: 4em;
+        }
+    }
+
+    .more-pages {
+        width: stretch;
+        ul {
+            max-width: unset;
+            font-size: 1em;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 19em);
+            gap: 2em;
+            padding: 0 var(--padding);
+            align-items: baseline;
+            justify-content: center;
+            a {
+                background-color: white;
+                color: black;
+                box-shadow: global.$shadow-elevation-low;
+                border-bottom: 1em solid global.$tertiaryColor;
+                transition: global.$color-transition;
+                
+                &:focus-visible, &:hover {
+                    color: global.$secondaryColor;
+                    border-color: global.$secondaryColor;
+                    img {
+                        transform: scale(110%);
+                    }
+                }
+                * {
+                    transition: global.$color-transition;
+                }
+                div:first-of-type {
+                    overflow: hidden;
+                    img {
+                        height: 12em;
+                        width: 100%;
+                        object-fit: cover;
+                        overflow: hidden;
+                        transition: transform 250ms ease-in;
+                    }
+                }
+                div:nth-of-type(2) {
+                    padding: 1em;
+                    h3 {
+                        font-weight: 600;
+                        margin-block-end: .5em;
+                    }
+                    li {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
     }
 
     @include global.hero-img();

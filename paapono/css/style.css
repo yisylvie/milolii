@@ -1,17 +1,74 @@
 @charset "UTF-8";
-main .banner.left-text {
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/two kids fishing.jpg");
-  background-position-x: right;
-  height: unset;
-  background-attachment: fixed;
-  color: black;
-  min-height: 20em;
+main .banner.center-text:first-of-type {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7960784314), rgba(0, 0, 0, 0.7960784314)), url("../images/canoes off of miloliʻi coast.jpg");
+  background-position-x: center;
+  font-size: 1.5em;
 }
-main .banner.center-text {
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.5882352941), rgba(255, 255, 255, 0.5882352941)), url("../images/Miloliʻi Last Fishing Village in Hawaiʻi Nei.jpg");
-  background-position-x: right;
+main .banner.center-text:first-of-type h1 {
+  font-size: 3rem;
+  margin-block-end: 0.8em;
+}
+main .banner.center-text:first-of-type p {
+  margin-block-end: 1em;
+}
+main .banner.center-text:first-of-type .button {
+  font-size: inherit;
+}
+main .banner.center-text:nth-of-type(2) {
+  background-color: #f9f9f9;
+}
+main .banner.center-text:nth-of-type(2) section {
+  padding-bottom: 4em;
+}
+main .more-pages {
+  width: stretch;
+}
+main .more-pages ul {
+  max-width: unset;
+  font-size: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 19em);
+  gap: 2em;
+  padding: 0 var(--padding);
+  align-items: baseline;
+  justify-content: center;
+}
+main .more-pages ul a {
+  background-color: white;
   color: black;
-  height: calc(80vh - 4em - 0rem);
+  box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.35), 1px 1px 1.6px -2.3px oklch(from var(--shadow-color) l c h/0.38);
+  border-bottom: 1em solid #07254b;
+  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
+}
+main .more-pages ul a:focus-visible, main .more-pages ul a:hover {
+  color: #12488f;
+  border-color: #12488f;
+}
+main .more-pages ul a:focus-visible img, main .more-pages ul a:hover img {
+  transform: scale(110%);
+}
+main .more-pages ul a * {
+  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
+}
+main .more-pages ul a div:first-of-type {
+  overflow: hidden;
+}
+main .more-pages ul a div:first-of-type img {
+  height: 12em;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  transition: transform 250ms ease-in;
+}
+main .more-pages ul a div:nth-of-type(2) {
+  padding: 1em;
+}
+main .more-pages ul a div:nth-of-type(2) h3 {
+  font-weight: 600;
+  margin-block-end: 0.5em;
+}
+main .more-pages ul a div:nth-of-type(2) li {
+  font-size: 1em;
 }
 main .hero-img {
   display: flex;
@@ -42,29 +99,23 @@ main .banner.center-text {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(100% - 6vw - 0rem);
+  max-width: calc(100% - var(--padding) * 2 - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
+  padding: 2em var(--padding);
 }
 @media (width > 700px) and (height > 450px) {
   main .banner.center-text section > p {
-    margin-inline-start: 2em;
+    margin: auto;
   }
 }
-main .banner.center-text h2 {
-  border-top: rgba(255, 255, 255, 0.18) solid 2px;
-  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
+main .banner.center-text h1 {
   text-align: center;
-  font-weight: 200;
-}
-main .banner.center-text.no-img h2 {
-  border-top: rgba(255, 255, 255, 0.18) solid 2px;
-  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

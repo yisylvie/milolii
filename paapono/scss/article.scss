@@ -66,7 +66,7 @@ main {
             border-bottom: global.$border-grey;
             padding: 1em;
             margin: 2.5em 0;
-            font-family: fonts.$redhat;
+            @include fonts.redhat(true);
             line-height: 1.5em;
             color: global.$secondaryColor;
             @include global.tablet-desktop {
@@ -109,7 +109,7 @@ main {
             h3 {
                 font-size: global.$p-size;
                 border-bottom: global.$border-grey;
-                font-family: fonts.$libertinus;
+                @include fonts.libertinus();
                 margin-bottom: 1em;
             }
             li {

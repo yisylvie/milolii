@@ -264,13 +264,21 @@
 
 body {
   font-family: "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
-  font-variant-numeric: oldstyle-nums tabular-nums;
+  --line-height: 1.4em;
   font-weight: normal;
   font-style: normal;
   margin: 0;
   padding: 0;
   background-color: #07254b;
   color: white;
+}
+body ::selection {
+  background-color: #d0e3fc;
+  color: black;
+}
+body ::-webkit-selection {
+  background-color: #d0e3fc;
+  color: black;
 }
 
 h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figcaption {
@@ -281,8 +289,7 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figc
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
-  max-width: 32em;
-  line-height: 1.4em;
+  line-height: var(--line-height);
   font-family: unset;
   overflow-wrap: break-word;
 }
@@ -301,6 +308,7 @@ button, dialog {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  --line-height: 1.4em;
   text-wrap-style: balance;
 }
 
@@ -311,7 +319,7 @@ h2 {
 
 a {
   font: inherit;
-  transition: all 100ms ease-out;
+  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
 }
 
 p {
@@ -326,8 +334,13 @@ ul {
   list-style: none;
 }
 
+.highlight {
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
 .email {
-  transition: text-decoration-color 100ms ease-out;
   text-underline-offset: 0.1em;
   text-decoration: underline 0.06em;
 }
@@ -337,6 +350,7 @@ ul {
 .email {
   font-weight: unset;
   cursor: pointer;
+  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
 }
 
 .button {
@@ -488,7 +502,6 @@ img, video, iframe, svg {
 }
 @media (width > 700px) and (height > 450px) {
   #everything > dialog nav > ul > li > a {
-    transition: text-decoration-color 100ms ease-out;
     text-underline-offset: 0.2em;
     text-decoration-color: transparent;
   }
@@ -652,8 +665,10 @@ img, video, iframe, svg {
   position: relative;
   height: 12.4rem;
 }
-.footer-top h1, .footer-top h2, .footer-top h3, .footer-top h4, .footer-top h5, .footer-top h6 {
+.footer-top .h3 {
   font-weight: 600;
+  font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  --line-height: 1.4em;
 }
 @media (width <= 700px), (height <= 450px) {
   .footer-top {
@@ -744,6 +759,9 @@ main {
   z-index: 1;
   position: relative;
 }
+main h1, main h2, main h3, main h4, main h5, main p, main ol, main ul, main li, main a, main button, main small, main menu, main address, main figure, main figcaption {
+  max-width: 32em;
+}
 @media (width <= 900px) {
   main {
     --padding: 3vw;
@@ -763,11 +781,10 @@ main {
 main .link {
   color: #12488f;
 }
-main .link:hover, main .link:focus {
+main .link:hover, main .link:focus-visible {
   color: #07254b;
 }
 main .link {
-  transition: text-decoration-color 100ms ease-out;
   text-underline-offset: 0.1em;
   text-decoration-color: transparent;
 }
@@ -802,6 +819,7 @@ main small {
 main hgroup {
   font-size: 2.5rem;
   font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  --line-height: 1.4em;
 }
 main hgroup :first-child {
   font-size: inherit;
@@ -845,7 +863,7 @@ main .banner {
   position: relative;
 }
 main .banner:first-of-type {
-  height: calc(100vh - 4em - 0rem);
+  height: calc(100vh - 4em - 4.8rem);
   min-height: fit-content;
 }
 main .banner.no-img {

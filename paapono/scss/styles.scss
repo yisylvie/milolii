@@ -36,9 +36,21 @@ body {
     padding: 0;
     background-color: global.$tertiaryColor;
     color: white;
+    ::selection {
+        background-color: global.$highlightColor;
+        color: black;
+    }
+    ::-webkit-selection {
+        background-color: global.$highlightColor;
+        color: black;
+    }
 }
 
 h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figcaption {
+    @extend %text-styles !optional;
+}
+
+%text-styles {
     margin: 0;
     padding: 0;
     color: inherit;
@@ -46,8 +58,7 @@ h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figc
     font-size: 1em;
     font-weight: normal;
     font-style: normal;
-    max-width: global.$line-length;
-    line-height: global.$line-height;
+    line-height: var(--line-height);;
     font-family: unset;
     overflow-wrap: break-word;
 }
@@ -70,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %headings {
-    font-family: fonts.$redhat;
+    @include fonts.redhat();
     text-wrap-style: balance;
 }
 
@@ -81,7 +92,7 @@ h2 {
 
 a {
     font: inherit;
-    transition: all global.$ease;
+    transition: global.$color-transition;
 }
 
 p {
@@ -96,10 +107,17 @@ ul {
     list-style: none;
 }
 
+.highlight {
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+
 .email {
     @include global.underline();
     font-weight: unset;
     cursor: pointer;
+    transition: global.$color-transition;
 }
 
 .button {
@@ -397,8 +415,9 @@ img, video, iframe, svg {
     font-size: inherit;
     position: relative;
     height: 12.4rem;
-    %headings {
+    .h3 {
         font-weight: 600;
+        @include fonts.redhat();
     }
     @include global.mobile-small {
         display: flex;
@@ -490,6 +509,10 @@ main {
     z-index: 1;
     position: relative;
     // margin-bottom: calc(12.4rem + (global.rel-to-abs(1.4em, math.div(5rem, 6))) + 1rem + .8rem + global.$line);
+    %text-styles {
+        max-width: global.$line-length;
+    }
+
     @include global.mobile {
         --padding: #{global.$min-padding};
         // margin-bottom: calc(12.4rem + (global.rel-to-abs(1.4em, math.div(.9 * 5rem, 6))) + 1rem + .8rem + global.$line * 2);
@@ -503,7 +526,7 @@ main {
     }
     .link {
         color: global.$secondaryColor;
-        &:hover, &:focus {
+        &:hover, &:focus-visible {
             color: global.$tertiaryColor;
         }
         @include global.underline(false);
@@ -535,7 +558,7 @@ main {
     }
     hgroup {
         font-size: 2.5rem;
-        font-family: fonts.$redhat;
+        @include fonts.redhat();        
         :first-child {
             font-size: inherit;
         }
@@ -580,8 +603,8 @@ main {
         padding-bottom: 2em;
         position: relative;
         &:first-of-type {
-            height: global.innerDim($padding: 2em, $fullDim: 100vh);
-            // height: global.innerDim($width: calc((global.rel-to-abs(2em + .6em * 2, 1.5rem) + global.$line) + 15vh), $fullDim: 100vh, $padding:2em);
+            // height: global.innerDim($padding: 2em, $fullDim: 100vh);
+            height: global.innerDim($width: calc((global.rel-to-abs(3.2em, 1.5rem))), $fullDim: 100vh, $padding: 2em);
             min-height: fit-content;
         }
         &.no-img {
