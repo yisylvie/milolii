@@ -89,6 +89,18 @@ $breakpointh2: 350px;
     }
 }
 
+@mixin desktop-tall {
+    @media (height > $breakpointh1) and (width > $breakpoint1) {
+        @content;
+    }
+}
+
+@mixin mobile-short {
+    @media (height <= $breakpointh1), (width <= $breakpoint1) {
+        @content;
+    }
+}
+
 $border: solid $line;
 $border-white: white $border;
 $border-blue: $tertiaryColor $border;
@@ -201,6 +213,10 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         padding: $padding;
         display: flex;
         align-items: center;
+        > div {
+            background-image: var(--banner-background);
+            opacity: var(--overlay);
+        }
         section > p {
             border-top: $border-transp;
             border-bottom: $border-transp;
@@ -221,6 +237,10 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        > div {
+            background-image: var(--banner-background);
+            opacity: var(--overlay);
+        }
         section {
             width: max-content;
             max-width: innerDim($padding: var(--padding));
@@ -278,8 +298,18 @@ $color-transition: transition((color, background-color, text-decoration-color, b
     }
     .img {
         width: stretch;  
+        display: flex;
+        align-items: center;
+        @if ($left) {
+            justify-content: flex-start;
+        } @else {
+            justify-content: flex-end;
+        }
         @if ($sticky) { 
-            @include desktop {
+            @include desktop-tall {
+                img {
+                    display: none;
+                }
                 height: innerDim($padding: $max-padding, $fullDim: 100vh);
                 position: sticky;  
                 background-size: cover;
@@ -287,15 +317,8 @@ $color-transition: transition((color, background-color, text-decoration-color, b
                 margin: $max-padding var(--padding);
                 margin-right: 0;
             }
-        }
-    }
-    .img {  
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @if ($sticky) {      
-            img {
-                display: none;
+            @include mobile-short {
+                background-image: none;
             }
         } @else {
             min-height: stretch;

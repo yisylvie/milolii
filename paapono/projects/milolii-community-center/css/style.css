@@ -1,13 +1,12 @@
 @charset "UTF-8";
-.mountain-view {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6470588235), rgba(0, 0, 0, 0.6470588235)), url("../images/paʻa pono center mountain view.jpeg");
+.mountain-view .img {
+  --banner-background: url("../images/paʻa pono center mountain view.jpeg");
   background-position-x: right;
-  background-position-y: center;
 }
 
-.trucks {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5882352941), rgba(0, 0, 0, 0.5882352941)), url("../images/paʻa pono center trucks.jpeg");
-  background-attachment: fixed;
+.trucks .img {
+  --banner-background: url("../images/paʻa\ pono\ center\ trucks.jpeg");
+  background-position-x: right;
 }
 
 main .banner {
@@ -27,9 +26,6 @@ main .side-section.right.sticky {
   main .side-section.right.sticky {
     flex-direction: column;
   }
-}
-main .side-section.right.sticky p:last-of-type {
-  margin-block-end: 2em;
 }
 main .side-section.right.sticky article {
   position: relative;
@@ -53,8 +49,14 @@ main .side-section.right.sticky article > div {
 }
 main .side-section.right.sticky .img {
   width: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-@media (width > 900px) {
+@media (height > 450px) and (width > 900px) {
+  main .side-section.right.sticky .img img {
+    display: none;
+  }
   main .side-section.right.sticky .img {
     height: calc(100vh - 8em - 0rem);
     position: sticky;
@@ -64,13 +66,10 @@ main .side-section.right.sticky .img {
     margin-right: 0;
   }
 }
-main .side-section.right.sticky .img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-main .side-section.right.sticky .img img {
-  display: none;
+@media (height <= 450px), (width <= 900px) {
+  main .side-section.right.sticky .img {
+    background-image: none;
+  }
 }
 main .side-section.right.sticky .img img {
   width: 90%;
@@ -94,9 +93,6 @@ main .side-section.right.no-sticky {
     flex-direction: column;
   }
 }
-main .side-section.right.no-sticky p:last-of-type {
-  margin-block-end: 2em;
-}
 main .side-section.right.no-sticky article {
   position: relative;
 }
@@ -119,11 +115,9 @@ main .side-section.right.no-sticky article > div {
 }
 main .side-section.right.no-sticky .img {
   width: stretch;
-}
-main .side-section.right.no-sticky .img {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   min-height: stretch;
 }
 main .side-section.right.no-sticky .img img {
@@ -144,9 +138,6 @@ main .side-section.left {
   main .side-section.left {
     flex-direction: column;
   }
-}
-main .side-section.left p:last-of-type {
-  margin-block-end: 2em;
 }
 main .side-section.left article {
   position: relative;
@@ -170,11 +161,9 @@ main .side-section.left article > div {
 }
 main .side-section.left .img {
   width: stretch;
-}
-main .side-section.left .img {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: stretch;
 }
 main .side-section.left .img img {
@@ -192,6 +181,10 @@ main .banner.left-text {
   display: flex;
   align-items: center;
 }
+main .banner.left-text > div {
+  background-image: var(--banner-background);
+  opacity: var(--overlay);
+}
 main .banner.left-text section > p {
   border-top: rgba(255, 255, 255, 0.18) solid 2px;
   border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
@@ -207,29 +200,27 @@ main .banner.center-text {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+main .banner.center-text > div {
+  background-image: var(--banner-background);
+  opacity: var(--overlay);
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(100% - 6vw - 0rem);
+  max-width: calc(100% - var(--padding) * 2 - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
+  padding: 2em var(--padding);
 }
 @media (width > 700px) and (height > 450px) {
   main .banner.center-text section > p {
-    margin-inline-start: 2em;
+    margin: auto;
   }
 }
-main .banner.center-text h2 {
-  border-top: rgba(255, 255, 255, 0.18) solid 2px;
-  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
+main .banner.center-text h1 {
   text-align: center;
-  font-weight: 200;
-}
-main .banner.center-text.no-img h2 {
-  border-top: rgba(255, 255, 255, 0.18) solid 2px;
-  border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

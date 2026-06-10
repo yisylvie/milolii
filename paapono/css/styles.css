@@ -856,8 +856,6 @@ main article section > p:last-child, main article section li:last-child {
   margin-block-end: 2em;
 }
 main .banner {
-  color: white;
-  background-size: cover;
   padding-top: 2em;
   padding-bottom: 2em;
   position: relative;
@@ -865,6 +863,72 @@ main .banner {
 main .banner:first-of-type {
   height: calc(100vh - 4em - 4.8rem);
   min-height: fit-content;
+}
+main .banner:not(.no-img) {
+  color: white;
+  background-size: cover;
+  overflow: clip;
+  background-color: black;
+  view-timeline: --tracked-elem;
+}
+main .banner:not(.no-img) .img {
+  --scroll-amount: 10vh;
+  --overlay: 0.204;
+  --background-position: 50%;
+  background-size: cover;
+  width: 100%;
+  height: calc(100% + var(--scroll-amount) * 2);
+  left: 0;
+  background-position-x: center;
+  background-position-y: var(--background-position);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes position {
+      0% {
+        background-position-y: calc(var(--background-position) + var(--scroll-amount));
+      }
+      100% {
+        background-position-y: calc(var(--background-position) - var(--scroll-amount));
+      }
+    }
+    @keyframes opacity {
+      100% {
+        opacity: 1;
+      }
+    }
+    main .banner:not(.no-img) .img {
+      animation: position linear, opacity linear reverse, opacity linear;
+      animation-timeline: --tracked-elem;
+      animation-range: scroll, entry contain 0%, exit;
+    }
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main .banner:not(.no-img) section {
+      --scroll-amount: 15vh;
+    }
+    @keyframes position-2 {
+      0% {
+        transform: translateY(var(--scroll-amount));
+      }
+      50% {
+        transform: translate(0);
+      }
+      100% {
+        transform: translateY(calc(-1 * var(--scroll-amount)));
+      }
+    }
+    main .banner:not(.no-img) section {
+      animation: position-2 linear;
+      animation-timeline: --tracked-elem;
+      animation-range: cover;
+    }
+  }
 }
 main .banner.no-img {
   color: black;

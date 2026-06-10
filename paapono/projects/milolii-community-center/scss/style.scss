@@ -2,14 +2,18 @@
 @use "../../../scss/global";
 
 .mountain-view {
-    background-image: linear-gradient(0deg, #000000a5, #000000a5), url("../images/paʻa pono center mountain view.jpeg");
-    background-position-x: right;
-    background-position-y: center;
+    .img {
+        --banner-background: url("../images/paʻa pono center mountain view.jpeg");
+        background-position-x: right;
+    }
 }
 
 .trucks {
-    background-image: linear-gradient(0deg, #00000096, #00000096), url("../images/paʻa pono center trucks.jpeg");
-    background-attachment: fixed;
+    .img {
+        --banner-background: url("../images/paʻa\ pono\ center\ trucks.jpeg");
+        background-position-x: right;
+        // background-attachment: fixed;
+    }
 }
 
 main {

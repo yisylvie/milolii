@@ -14,9 +14,10 @@ main {
     // }
     
     .banner.center-text:first-of-type {
-        background-image: linear-gradient(0deg, #000000cb, #000000cb), url("../images/canoes\ off\ of\ miloliʻi\ coast.jpg");
-        background-position-x: center;
-        // color: black;
+        .img {
+            --banner-background: url("../images/canoes\ off\ of\ miloliʻi\ coast.jpg");
+            --background-position: 0%;
+        }
         // height: global.innerDim($fullDim: 100vh, $padding: 2em, $width: rel-to-abs(1.5em));
         font-size: 1.5em;
         h1 {
@@ -34,12 +35,13 @@ main {
     .banner.center-text:nth-of-type(2) {
         background-color: global.$grey5;
         section {
-            padding-bottom: 4em;
+            padding-bottom: 0;
         }
     }
 
     .more-pages {
         width: stretch;
+        margin: 4em 0;
         ul {
             max-width: unset;
             font-size: 1em;

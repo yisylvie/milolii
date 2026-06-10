@@ -597,15 +597,79 @@ main {
         }
     }
     .banner {
-        color: white;
-        background-size: cover;
         padding-top: 2em;
         padding-bottom: 2em;
         position: relative;
         &:first-of-type {
-            // height: global.innerDim($padding: 2em, $fullDim: 100vh);
             height: global.innerDim($width: calc((global.rel-to-abs(3.2em, 1.5rem))), $fullDim: 100vh, $padding: 2em);
             min-height: fit-content;
+        }
+        &:not(.no-img) {
+            color: white;
+            background-size: cover;
+            overflow: clip;
+            background-color: black;
+            
+            view-timeline: --tracked-elem;
+
+            .img {
+                --scroll-amount: 10vh;
+                --overlay: 0.204;
+                --background-position: 50%;
+
+                background-size: cover;
+                width: 100%;
+                height: calc(100% + var(--scroll-amount) * 2);
+                left: 0;
+                background-position-x: center;
+                background-position-y: var(--background-position);
+
+                @include global.absoluteTopCenter();
+                
+                @supports (animation-timeline: view()) {
+                    @media (prefers-reduced-motion: no-preference) {
+                        @keyframes position {
+                            0% {
+                                background-position-y: calc(var(--background-position) + var(--scroll-amount));
+                            }
+                            100% {
+                                background-position-y: calc(var(--background-position) - var(--scroll-amount));
+                            }
+                        }
+                        @keyframes opacity {
+                            100% {
+                                opacity: 1;
+                            }
+                        }
+                        animation: position linear, opacity linear reverse, opacity linear;
+                        animation-timeline: --tracked-elem;
+                        animation-range: scroll, entry contain 0%, exit;
+                    }
+                }
+            }
+            section {
+                @supports (animation-timeline: view()) {
+                    @media (prefers-reduced-motion: no-preference) {
+                        --scroll-amount: 15vh;
+                        @keyframes position-2 {
+                            0% {
+                                transform: translateY(var(--scroll-amount));
+                            }
+
+                            50% {
+                                transform: translate(0);
+                            }
+                    
+                            100% {
+                                transform: translateY(calc(-1 * var(--scroll-amount)));
+                            }
+                        }
+                        animation: position-2 linear;
+                        animation-timeline: --tracked-elem;
+                        animation-range: cover;
+                    }
+                }
+            }
         }
         &.no-img {
             color: black;
