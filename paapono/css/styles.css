@@ -263,6 +263,7 @@
 }
 
 body {
+  font-variant-numeric: oldstyle-nums tabular-nums;
   font-family: "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
   --line-height: 1.4em;
   font-weight: normal;
@@ -430,9 +431,13 @@ img, video, iframe, svg {
   height: fit-content;
   box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.33), 1.3px 1.3px 2.1px -1.2px oklch(from var(--shadow-color) l c h/0.35), 5px 5px 8.1px -2.3px oklch(from var(--shadow-color) l c h/0.36);
 }
-@media (width <= 700px), (height <= 450px) {
+@media (width <= 900px) and (height > 450px) {
   #everything > dialog {
     position: sticky;
+  }
+}
+@media (width <= 700px), (height <= 450px) {
+  #everything > dialog {
     top: 0;
     width: 100vw;
     font-size: 1.3rem;
@@ -753,7 +758,6 @@ img, video, iframe, svg {
 }
 
 main {
-  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
   background-color: white;
   color: black;
   z-index: 1;
@@ -761,11 +765,6 @@ main {
 }
 main h1, main h2, main h3, main h4, main h5, main p, main ol, main ul, main li, main a, main button, main small, main menu, main address, main figure, main figcaption {
   max-width: 32em;
-}
-@media (width <= 900px) {
-  main {
-    --padding: 3vw;
-  }
 }
 @media (width <= 700px), (height <= 450px) {
   main {
@@ -797,6 +796,8 @@ main h1 {
 }
 main p, main li {
   font-size: 1.05em;
+}
+main p, main li, main figcaption {
   text-wrap-style: pretty;
 }
 main p {
@@ -860,6 +861,9 @@ main .banner {
   padding-bottom: 2em;
   position: relative;
 }
+main .banner section {
+  position: relative;
+}
 main .banner:first-of-type {
   height: calc(100vh - 4em - 4.8rem);
   min-height: fit-content;
@@ -916,9 +920,6 @@ main .banner:not(.no-img) .img {
       0% {
         transform: translateY(var(--scroll-amount));
       }
-      50% {
-        transform: translate(0);
-      }
       100% {
         transform: translateY(calc(-1 * var(--scroll-amount)));
       }
@@ -927,6 +928,17 @@ main .banner:not(.no-img) .img {
       animation: position-2 linear;
       animation-timeline: --tracked-elem;
       animation-range: cover;
+    }
+    @keyframes position-3 {
+      0% {
+        transform: translateY(var(--scroll-amount));
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    main .banner:not(.no-img):last-child section {
+      animation: position-3 linear;
     }
   }
 }

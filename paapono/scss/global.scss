@@ -62,9 +62,28 @@ $breakpointh2: 350px;
     }
 }
 
+@mixin mobile-small-tall {
+    @media (width <= $breakpoint2) {
+        @content;
+    }
+}
+
+// inverse of desktop-tall
+@mixin mobile-short {
+    @media (height <= $breakpointh1), (width <= $breakpoint1) {
+        @content;
+    }
+}
+
 // inverse of desktop
 @mixin mobile {
     @media (width <= $breakpoint1) {
+        @content;
+    }
+}
+
+@mixin mobile-not-short {
+    @media (width <=$breakpoint1) and (height > $breakpointh1) {
         @content;
     }
 }
@@ -82,6 +101,13 @@ $breakpointh2: 350px;
     }
 }
 
+// inverse of mobile-small-tall
+@mixin tablet-desktop-tall {
+    @media (width > $breakpoint2) {
+        @content;
+    }
+}
+
 // inverse of mobile
 @mixin desktop {
     @media (width > $breakpoint1) {
@@ -89,14 +115,9 @@ $breakpointh2: 350px;
     }
 }
 
+// inverse of mobile-short
 @mixin desktop-tall {
     @media (height > $breakpointh1) and (width > $breakpoint1) {
-        @content;
-    }
-}
-
-@mixin mobile-short {
-    @media (height <= $breakpointh1), (width <= $breakpoint1) {
         @content;
     }
 }
@@ -310,7 +331,7 @@ $color-transition: transition((color, background-color, text-decoration-color, b
                 img {
                     display: none;
                 }
-                height: innerDim($padding: $max-padding, $fullDim: 100vh);
+                max-height: innerDim($padding: $max-padding, $fullDim: 100vh);
                 position: sticky;  
                 background-size: cover;
                 top: $max-padding;

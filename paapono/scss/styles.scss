@@ -195,8 +195,10 @@ img, video, iframe, svg {
     z-index: 2;
     height: fit-content;
     box-shadow: global.$shadow-elevation-medium;
-    @include global.mobile-small {
+    @include global.mobile-not-short {
         position: sticky;
+    }
+    @include global.mobile-small {
         top: 0;
         width: 100vw;
         font-size: 1.3rem;
@@ -503,7 +505,6 @@ img, video, iframe, svg {
 }
 
 main {
-    --padding: clamp(1.8em, -24.6em + 44vw, #{global.$max-padding});
     background-color: white;
     color: black;
     z-index: 1;
@@ -513,10 +514,6 @@ main {
         max-width: global.$line-length;
     }
 
-    @include global.mobile {
-        --padding: #{global.$min-padding};
-        // margin-bottom: calc(12.4rem + (global.rel-to-abs(1.4em, math.div(.9 * 5rem, 6))) + 1rem + .8rem + global.$line * 2);
-    }
     @include global.mobile-small {
         margin-bottom: 0;
     }
@@ -537,6 +534,8 @@ main {
     }
     p, li {
         font-size: global.$p-size;
+    }
+    p, li, figcaption {
         text-wrap-style: pretty;
     }
     p {
@@ -600,6 +599,9 @@ main {
         padding-top: 2em;
         padding-bottom: 2em;
         position: relative;
+        section {
+            position: relative;
+        }
         &:first-of-type {
             height: global.innerDim($width: calc((global.rel-to-abs(3.2em, 1.5rem))), $fullDim: 100vh, $padding: 2em);
             min-height: fit-content;
@@ -655,11 +657,6 @@ main {
                             0% {
                                 transform: translateY(var(--scroll-amount));
                             }
-
-                            50% {
-                                transform: translate(0);
-                            }
-                    
                             100% {
                                 transform: translateY(calc(-1 * var(--scroll-amount)));
                             }
@@ -667,6 +664,19 @@ main {
                         animation: position-2 linear;
                         animation-timeline: --tracked-elem;
                         animation-range: cover;
+
+                        // so it doesn't look funny because it doesn't scroll to halfway through viewport
+                        @at-root main .banner:not(.no-img):last-child section {
+                            @keyframes position-3 {
+                                0% {
+                                    transform: translateY(var(--scroll-amount));
+                                }
+                                100% {
+                                    transform: translateY(0);
+                                }
+                            }
+                            animation: position-3 linear;
+                        }
                     }
                 }
             }

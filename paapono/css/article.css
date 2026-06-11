@@ -280,7 +280,7 @@ main article figure {
   width: calc(43vw - var(--padding) * 2 - 0rem);
   max-width: calc(100vw - var(--padding) * 3 - clamp(28rem, 9.2rem + 40vw, 32rem));
 }
-@media (width <= 900px) {
+@media (height <= 450px), (width <= 900px) {
   main article figure {
     position: revert;
     width: 100%;
@@ -288,15 +288,15 @@ main article figure {
     margin: 2.5em 0;
   }
 }
-@media (width > 900px) {
+@media (height > 450px) and (width > 900px) {
   main article figure img {
     width: 100%;
   }
 }
-@media (width <= 900px) {
+@media (height <= 450px), (width <= 900px) {
   main article figure img {
     max-width: 100%;
-    max-height: 70vh;
+    max-height: max(70vh, 21em);
     margin: auto;
   }
 }
@@ -305,7 +305,7 @@ main article figure figcaption {
   font-size: 0.9em;
   color: #828282;
 }
-@media (width <= 900px) {
+@media (height <= 450px), (width <= 900px) {
   main article figure figcaption {
     margin: 1em;
   }
@@ -320,7 +320,7 @@ main article aside {
   line-height: 1.5em;
   color: #12488f;
 }
-@media (width > 700px) and (height > 450px) {
+@media (width > 900px) {
   main article aside {
     width: 30em;
   }
@@ -334,7 +334,7 @@ main article aside {
     margin-top: 1.5em;
   }
 }
-@media (width > 700px) and (height > 450px) {
+@media (width > 700px) {
   main article .gallery {
     column-gap: 1em;
     width: calc(100vw - var(--padding) * 2 - 0rem);
@@ -349,7 +349,7 @@ main article aside {
     left: calc((100vw - 32em) / -2);
   }
 }
-@media (width <= 700px), (height <= 450px) {
+@media (width <= 700px) {
   main article .gallery {
     margin: 4em 0;
     column-width: 12em;
@@ -360,7 +360,7 @@ main article .gallery img {
   margin-bottom: 1em;
   width: 100%;
 }
-@media (width <= 700px), (height <= 450px) {
+@media (width <= 700px) {
   main article .gallery img {
     margin-bottom: var(--padding);
   }
@@ -368,6 +368,7 @@ main article .gallery img {
 main article footer h3 {
   font-size: 1.05em;
   border-bottom: #dedede solid 2px;
+  font-variant-numeric: oldstyle-nums tabular-nums;
   font-family: "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
   --line-height: 1.4em;
   margin-bottom: 1em;
