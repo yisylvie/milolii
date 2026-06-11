@@ -74,12 +74,11 @@ main {
             @include global.desktop {
                 width: $awidth;
                 max-width: global.innerDim($fullDim: 100vw, $width: calc($true-left-pad + var(--outer-padding)), $padding: 1em);
-            }
-            @include global.desktop {   
                 margin-right: var(--outer-padding);
+                margin-left: clamp(0rem, -30rem + 50vw, 5rem);
+                margin-left: clamp(0rem, calc(100vw - global.$line-length - $true-left-pad - var(--outer-padding)), 5rem);
                 position: relative;
-                float: right;
-                right: calc(-1 * (100vw - $true-left-pad - $width));
+                float: left;
                 margin-top: calc(2.5em - 1em);
             }
         }
