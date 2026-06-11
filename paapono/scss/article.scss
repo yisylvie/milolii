@@ -7,16 +7,16 @@ main {
         padding-bottom: global.$max-padding;
     }
     article {
-        $left-pad: 43vw;
+        $left-pad: global.$left-pad;
         // $width: clamp(26rem, -2.2rem + 60vw, 32rem);
         $width: clamp(28rem, 9.2rem + 40vw, 32rem);
-        $true-left-pad: min($left-pad, 100vw - $width - var(--padding));
+        $true-left-pad: min($left-pad, 100vw - $width - var(--outer-padding));
         width: $width;
-        margin: global.$max-padding var(--padding);
+        margin: global.$max-padding var(--outer-padding);
         margin-left: $true-left-pad;
         position: relative;
         @include global.mobile {
-            max-width: global.innerDim($padding: var(--padding));
+            max-width: global.innerDim($padding: var(--outer-padding));
             width: global.$line-length;
             margin-left: auto;
             margin-right: auto;
@@ -27,14 +27,16 @@ main {
         hgroup {
             font-size: 2.5rem;
             @include global.desktop {
-                width: global.innerDim($fullDim: 100vw, $width: calc($true-left-pad + var(--padding)));
+                width: global.innerDim($fullDim: 100vw, $width: calc($true-left-pad + var(--outer-padding)));
             }
         }
         figure {
             position: absolute;
             right: calc(100% + var(--padding));
+            width: min(global.innerDim($fullDim: $left-pad, $padding: var(--padding)), calc(100vw - var(--outer-padding) * 2 - var(--padding) - $width));
             width: global.innerDim($fullDim: $left-pad, $padding: var(--padding));
-            max-width: calc(100vw - var(--padding) * 3 - $width);
+            width: calc($left-pad - (var(--outer-padding)) - var(--padding));
+            width: min(calc($left-pad - (var(--outer-padding)) - var(--padding)), calc(100vw - var(--outer-padding) * 2 - var(--padding) - $width));
             @include global.mobile-short {
                 position: revert;
                 width: 100%;
@@ -71,9 +73,10 @@ main {
             color: global.$secondaryColor;
             @include global.desktop {
                 width: $awidth;
+                max-width: global.innerDim($fullDim: 100vw, $width: calc($true-left-pad + var(--outer-padding)), $padding: 1em);
             }
             @include global.desktop {   
-                margin-right: var(--padding);
+                margin-right: var(--outer-padding);
                 position: relative;
                 float: right;
                 right: calc(-1 * (100vw - $true-left-pad - $width));
@@ -83,11 +86,11 @@ main {
         .gallery {
             @include global.tablet-desktop-tall {   
                 column-gap: 1em;
-                width: global.innerDim($fullDim: 100vw, $padding: var(--padding));
+                width: global.innerDim($fullDim: 100vw, $padding: var(--outer-padding));
                 position: relative;
                 left: calc($true-left-pad * -1);
-                margin: global.$max-padding var(--padding);
-                column-width: 17em;
+                margin: global.$max-padding var(--outer-padding);
+                column-width: 18em;
             }
             @include global.mobile {
                 left: calc((100vw - global.$line-length) / -2);

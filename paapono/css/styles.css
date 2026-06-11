@@ -249,6 +249,7 @@
 :root {
   font-size: clamp(16px, 10px + 1vw, 20px);
   --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+  --outer-padding: max(var(--padding), calc(43vw - 32em - var(--padding)));
   --shadow-color: oklch(0% 0 0);
 }
 @media (width <= 700px), (height <= 450px) {

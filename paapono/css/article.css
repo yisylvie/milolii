@@ -251,13 +251,13 @@ main .article {
 }
 main article {
   width: clamp(28rem, 9.2rem + 40vw, 32rem);
-  margin: 4em var(--padding);
-  margin-left: min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--padding));
+  margin: 4em var(--outer-padding);
+  margin-left: min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--outer-padding));
   position: relative;
 }
 @media (width <= 900px) {
   main article {
-    max-width: calc(100% - var(--padding) * 2 - 0rem);
+    max-width: calc(100% - var(--outer-padding) * 2 - 0rem);
     width: 32em;
     margin-left: auto;
     margin-right: auto;
@@ -271,14 +271,16 @@ main article hgroup {
 }
 @media (width > 900px) {
   main article hgroup {
-    width: calc(100vw - 0rem - (min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--padding)) + var(--padding)));
+    width: calc(100vw - 0rem - (min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--outer-padding)) + var(--outer-padding)));
   }
 }
 main article figure {
   position: absolute;
   right: calc(100% + var(--padding));
+  width: min(43vw - var(--padding) * 2 - 0rem, 100vw - var(--outer-padding) * 2 - var(--padding) - clamp(28rem, 9.2rem + 40vw, 32rem));
   width: calc(43vw - var(--padding) * 2 - 0rem);
-  max-width: calc(100vw - var(--padding) * 3 - clamp(28rem, 9.2rem + 40vw, 32rem));
+  width: calc(43vw - (var(--outer-padding)) - var(--padding));
+  width: min(43vw - (var(--outer-padding)) - var(--padding), 100vw - var(--outer-padding) * 2 - var(--padding) - clamp(28rem, 9.2rem + 40vw, 32rem));
 }
 @media (height <= 450px), (width <= 900px) {
   main article figure {
@@ -323,25 +325,26 @@ main article aside {
 @media (width > 900px) {
   main article aside {
     width: 30em;
+    max-width: calc(100vw - 2em - (min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--outer-padding)) + var(--outer-padding)));
   }
 }
 @media (width > 900px) {
   main article aside {
-    margin-right: var(--padding);
+    margin-right: var(--outer-padding);
     position: relative;
     float: right;
-    right: calc(-1 * (100vw - min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--padding)) - clamp(28rem, 9.2rem + 40vw, 32rem)));
+    right: calc(-1 * (100vw - min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--outer-padding)) - clamp(28rem, 9.2rem + 40vw, 32rem)));
     margin-top: 1.5em;
   }
 }
 @media (width > 700px) {
   main article .gallery {
     column-gap: 1em;
-    width: calc(100vw - var(--padding) * 2 - 0rem);
+    width: calc(100vw - var(--outer-padding) * 2 - 0rem);
     position: relative;
-    left: calc(min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--padding)) * -1);
-    margin: 4em var(--padding);
-    column-width: 17em;
+    left: calc(min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--outer-padding)) * -1);
+    margin: 4em var(--outer-padding);
+    column-width: 18em;
   }
 }
 @media (width <= 900px) {

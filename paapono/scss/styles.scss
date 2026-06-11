@@ -17,7 +17,7 @@
 :root{
     font-size: clamp(16px, 10px + 1vw, 20px);
     --padding: clamp(1.8em, -24.6em + 44vw, #{global.$max-padding});
-
+    --outer-padding: max(var(--padding), calc(#{global.$left-pad} - #{global.$line-length} - var(--padding)));
     --shadow-color: oklch(0% 0 0);
 
     @include global.mobile-small {
