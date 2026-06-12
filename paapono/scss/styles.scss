@@ -579,7 +579,7 @@ main {
             }
         }
     }
-    article section{
+    article section {
         li {
             border-left: global.$border1-blue;
             padding: .3em 0 .3em .7em;
@@ -591,7 +591,7 @@ main {
                 margin-left: 0;
             }
         }
-        >p:last-child, li:last-child {
+        > p:last-child, li:last-child {
             margin-block-end: 2em;
         }
     }

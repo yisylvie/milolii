@@ -231,7 +231,7 @@ $color-transition: transition((color, background-color, text-decoration-color, b
 
 @mixin banner-left-text() {
     .banner.left-text {
-        $padding: 3em var(--padding);
+        $padding: 3em var(--outer-padding);
         padding: $padding;
         display: flex;
         align-items: center;
@@ -265,11 +265,11 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         }
         section {
             width: max-content;
-            max-width: innerDim($padding: var(--padding));
+            max-width: innerDim($padding: var(--outer-padding));
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2em var(--padding);
+            padding: 2em var(--outer-padding);
             > p {
                 @include tablet-desktop {
                     margin: auto;
@@ -295,6 +295,8 @@ $color-transition: transition((color, background-color, text-decoration-color, b
 @mixin side-section($left: true, $sticky: true) {
     // --padding: clamp(1.8em, -24.6em + 44vw, 4em);
     display: flex;
+    margin: $max-padding var(--outer-padding);
+    gap: var(--padding);
     @if ($left) {
         flex-direction: row-reverse;
     }
@@ -306,13 +308,24 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         position: relative;
         @include desktop {
             max-width: 55%;
+            flex-shrink: 0;
         }
         > div {
-            margin: $max-padding var(--padding);
-            width: $line-length;
-            max-width: innerDim($padding: var(--padding));
+            // margin: $max-padding var(--padding);
+            max-width: $line-length;
+            // max-width: innerDim($width: calc(var(--padding) + var(--outer-padding)));
+            // @if ($left) {
+            //     margin-left: var(--outer-padding);
+            // } @else {
+            //     margin-right: var(--outer-padding);
+            // }
+            section:last-child {
+                ul:last-child li:last-child, p:last-child {
+                    margin-block-end: 0;
+                }
+            }
             @include mobile {
-                max-width: calc(100% - var(--padding) * 2 - 0rem);
+                // max-width: innerDim($padding: var(--outer-padding));
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -322,6 +335,8 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         width: stretch;  
         display: flex;
         align-items: center;
+        position: relative;
+
         @if ($left) {
             justify-content: flex-start;
         } @else {
@@ -329,15 +344,16 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         }
         @if ($sticky) { 
             @include desktop-tall {
-                img {
-                    display: none;
-                }
                 max-height: innerDim($padding: $max-padding, $fullDim: 100vh);
                 position: sticky;  
                 background-size: cover;
                 top: $max-padding;
-                margin: $max-padding var(--padding);
-                margin-right: 0;
+                // margin: $max-padding var(--outer-padding);
+                // @if ($left) {
+                //     margin-left: 0;
+                // } @else {
+                //     margin-right: 0;
+                // }
             }
             @include mobile-short {
                 background-image: none;
@@ -346,7 +362,27 @@ $color-transition: transition((color, background-color, text-decoration-color, b
             min-height: stretch;
         }
         img {
-            width: 90%;
+            max-height: stretch;
+
+            @include desktop-tall {
+                position: absolute;
+                
+                @if ($left) {
+                    right: 0;
+                } @else {
+                    left: 0;
+                }
+                @if ($sticky) { 
+                    display: none;
+                }
+            }
+            @include mobile {
+                margin: auto;
+                max-width: 90%;
+                @if ($sticky) {
+                    display: unset;
+                }
+            }
         }
         @include mobile {
             position: unset;
@@ -354,9 +390,6 @@ $color-transition: transition((color, background-color, text-decoration-color, b
             padding-top: $max-padding;
             @if ($sticky) {
                 background: none;
-                img {
-                    display: unset;
-                }
             }
         }
     }

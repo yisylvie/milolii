@@ -83,7 +83,7 @@ main .hero-img img {
   width: 100%;
 }
 main .banner.left-text {
-  padding: 3em var(--padding);
+  padding: 3em var(--outer-padding);
   display: flex;
   align-items: center;
 }
@@ -114,11 +114,11 @@ main .banner.center-text > div {
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(100% - var(--padding) * 2 - 0rem);
+  max-width: calc(100% - var(--outer-padding) * 2 - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em var(--padding);
+  padding: 2em var(--outer-padding);
 }
 @media (width > 700px) and (height > 450px) {
   main .banner.center-text section > p {
