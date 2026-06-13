@@ -15,6 +15,9 @@ main .banner {
 main .banner.center-text p {
   font-weight: 200;
 }
+main .banner.left-text hgroup {
+  font-size: 3rem;
+}
 main .side-section.right.sticky .img {
   background-image: url("../images/Miloliʻi charter school students.JPG");
   background-position-x: right;
@@ -224,37 +227,26 @@ main .side-section.left .img img {
 }
 main .banner.left-text {
   padding: 3em var(--outer-padding);
-  display: flex;
-  align-items: center;
 }
-main .banner.left-text > div {
+main .banner.left-text:not(.no-img) .img {
   background-image: var(--banner-background);
-  opacity: var(--overlay);
 }
 main .banner.left-text section > p {
   border-top: rgba(255, 255, 255, 0.18) solid 2px;
   border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
   padding: 1em 0;
 }
-main .banner.left-text hgroup {
-  font-size: 3rem;
-}
 main .banner.left-text hgroup :last-child {
   box-shadow: none;
 }
 main .banner.center-text {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
-main .banner.center-text > div {
+main .banner.center-text:not(.no-img) .img {
   background-image: var(--banner-background);
-  opacity: var(--overlay);
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(100vw - var(--outer-padding) * 2 - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;

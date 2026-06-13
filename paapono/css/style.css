@@ -1,4 +1,10 @@
 @charset "UTF-8";
+main .banner.no-img {
+  background-color: #f9f9f9;
+}
+main .banner.left-text hgroup {
+  font-size: 2.5rem;
+}
 main .banner.center-text:first-of-type .img {
   --banner-background: url("../images/canoes\ off\ of\ miloliʻi\ coast.jpg");
   --background-position: 0%;
@@ -15,9 +21,6 @@ main .banner.center-text:first-of-type p {
 }
 main .banner.center-text:first-of-type .button {
   font-size: inherit;
-}
-main .banner.center-text:nth-of-type(2) {
-  background-color: #f9f9f9;
 }
 main .banner.center-text:nth-of-type(2) section {
   padding-bottom: 0;
@@ -73,6 +76,15 @@ main .more-pages ul a div:nth-of-type(2) h3 {
 main .more-pages ul a div:nth-of-type(2) li {
   font-size: 1em;
 }
+main .partners ul {
+  max-width: unset;
+  font-size: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min(7em, 100vw - var(--outer-padding) * 2 - 0rem));
+  gap: 2em;
+  align-items: baseline;
+  justify-content: center;
+}
 main .hero-img {
   display: flex;
   align-items: center;
@@ -84,33 +96,23 @@ main .hero-img img {
 }
 main .banner.left-text {
   padding: 3em var(--outer-padding);
-  display: flex;
-  align-items: center;
 }
-main .banner.left-text > div {
+main .banner.left-text:not(.no-img) .img {
   background-image: var(--banner-background);
-  opacity: var(--overlay);
 }
 main .banner.left-text section > p {
   border-top: rgba(255, 255, 255, 0.18) solid 2px;
   border-bottom: rgba(255, 255, 255, 0.18) solid 2px;
   padding: 1em 0;
 }
-main .banner.left-text hgroup {
-  font-size: 3rem;
-}
 main .banner.left-text hgroup :last-child {
   box-shadow: none;
 }
 main .banner.center-text {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
-main .banner.center-text > div {
+main .banner.center-text:not(.no-img) .img {
   background-image: var(--banner-background);
-  opacity: var(--overlay);
 }
 main .banner.center-text section {
   width: max-content;

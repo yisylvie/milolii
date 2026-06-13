@@ -40,6 +40,9 @@ $shadow-elevation-high: 0.3px 0.3px 0.5px #{alphaOKLCH(0.37)},
 
 $p-size: 1.05em;
 $smaller-size: .9em;
+$h1-size: 3rem;
+$h2-size: 2.5rem;
+$h3-size: 1.5rem;
 
 $min-padding: 3vw;
 $max-padding: 4em;
@@ -235,11 +238,8 @@ $max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
     .banner.left-text {
         $padding: 3em var(--outer-padding);
         padding: $padding;
-        display: flex;
-        align-items: center;
-        > div {
+        &:not(.no-img) .img {
             background-image: var(--banner-background);
-            opacity: var(--overlay);
         }
         section > p {
             border-top: $border-transp;
@@ -247,7 +247,6 @@ $max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
             padding: 1em 0;
         }
         hgroup {
-            font-size: 3rem;
             :last-child {
                 box-shadow: none;
             }
@@ -257,13 +256,9 @@ $max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
 
 @mixin banner-center-text() {
     .banner.center-text {
-        display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        > div {
+        &:not(.no-img) .img {
             background-image: var(--banner-background);
-            opacity: var(--overlay);
         }
         section {
             width: max-content;

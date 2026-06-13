@@ -24,6 +24,11 @@ main {
                 font-weight: 200;
             }
         }
+        &.left-text {
+            hgroup {
+                font-size: global.$h1-size;
+            }
+        }
     }
     .side-section {
         &.right {

@@ -533,7 +533,7 @@ main {
         @include global.underline(false);
     }
     h1 {
-        font-size: 3em;
+        font-size: global.$h1-size;
         margin-block-end: .2em;
     }
     p, li {
@@ -546,10 +546,10 @@ main {
         margin-block-end: 1em;
     }
     h2 {
-        font-size: 2.5em;
+        font-size: global.$h2-size;
     }
     h3 {
-        font-size: 1.5em;
+        font-size: global.$h3-size;
         margin-block-end: .2em;
     }
     sup {
@@ -560,7 +560,6 @@ main {
         font-size: inherit;
     }
     hgroup {
-        font-size: 2.5rem;
         @include fonts.redhat();        
         :first-child {
             font-size: inherit;
@@ -603,6 +602,9 @@ main {
         padding-top: 2em;
         padding-bottom: 2em;
         position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         section {
             position: relative;
             max-width: global.$max-width;
@@ -630,7 +632,7 @@ main {
                 left: 0;
                 background-position-x: center;
                 background-position-y: var(--background-position);
-
+                opacity: var(--overlay);
                 @include global.absoluteTopCenter();
                 
                 @supports (animation-timeline: view()) {

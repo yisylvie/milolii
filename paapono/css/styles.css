@@ -796,7 +796,7 @@ main .link:hover, main .link:focus-visible {
   text-decoration: underline 0.06em;
 }
 main h1 {
-  font-size: 3em;
+  font-size: 3rem;
   margin-block-end: 0.2em;
 }
 main p, main li {
@@ -809,10 +809,10 @@ main p {
   margin-block-end: 1em;
 }
 main h2 {
-  font-size: 2.5em;
+  font-size: 2.5rem;
 }
 main h3 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin-block-end: 0.2em;
 }
 main sup {
@@ -823,7 +823,6 @@ main small {
   font-size: inherit;
 }
 main hgroup {
-  font-size: 2.5rem;
   font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
   --line-height: 1.4em;
 }
@@ -865,6 +864,9 @@ main .banner {
   padding-top: 2em;
   padding-bottom: 2em;
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 main .banner section {
   position: relative;
@@ -891,6 +893,7 @@ main .banner:not(.no-img) .img {
   left: 0;
   background-position-x: center;
   background-position-y: var(--background-position);
+  opacity: var(--overlay);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
