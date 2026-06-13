@@ -248,7 +248,7 @@
 }
 :root {
   font-size: clamp(16px, 10px + 1vw, 20px);
-  --padding: clamp(1.8em, -24.6em + 44vw, 4em);
+  --padding: clamp(1.8rem, -24.6rem + 44vw, 4em);
   --outer-padding: max(var(--padding), calc(43vw - 32em - var(--padding)));
   --shadow-color: oklch(0% 0 0);
 }
@@ -421,7 +421,7 @@ img, video, iframe, svg {
 
 #everything > dialog {
   background-color: #07254b;
-  padding: 0 0.7em;
+  padding: 0 var(--outer-padding);
   padding-right: 0;
   display: flex;
   font-size: 1.5rem;
@@ -651,7 +651,7 @@ img, video, iframe, svg {
   position: sticky;
   width: stretch;
   font-size: 1rem;
-  padding: 0 5%;
+  padding: 0 var(--outer-padding);
   bottom: 0;
 }
 @media (width <= 900px) {
@@ -671,11 +671,6 @@ img, video, iframe, svg {
   position: relative;
   height: 12.4rem;
 }
-.footer-top .h3 {
-  font-weight: 600;
-  font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
-  --line-height: 1.4em;
-}
 @media (width <= 700px), (height <= 450px) {
   .footer-top {
     display: flex;
@@ -685,6 +680,14 @@ img, video, iframe, svg {
     height: unset;
     padding: 1.7em 0;
   }
+}
+.footer-top > * {
+  max-width: calc(100vw - var(--outer-padding) * 2 - 0rem);
+}
+.footer-top .h3 {
+  font-weight: 600;
+  font-family: "Red Hat", "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
+  --line-height: 1.4em;
 }
 @media (width > 700px) and (height > 450px) {
   .footer-top > div, .footer-top .logo {
@@ -699,6 +702,7 @@ img, video, iframe, svg {
   }
 }
 .footer-top .logo img {
+  object-fit: contain;
   height: 3.5em;
 }
 @media (width <= 700px), (height <= 450px) {
@@ -765,7 +769,7 @@ main {
   position: relative;
 }
 main h1, main h2, main h3, main h4, main h5, main p, main ol, main ul, main li, main a, main button, main small, main menu, main address, main figure, main figcaption {
-  max-width: 32em;
+  max-width: min(32em, 100%);
 }
 @media (width <= 700px), (height <= 450px) {
   main {
@@ -864,6 +868,7 @@ main .banner {
 }
 main .banner section {
   position: relative;
+  max-width: calc(100vw - var(--outer-padding) * 2 - 0rem);
 }
 main .banner:first-of-type {
   height: calc(100vh - 4em - 4.8rem);
@@ -877,7 +882,7 @@ main .banner:not(.no-img) {
   view-timeline: --tracked-elem;
 }
 main .banner:not(.no-img) .img {
-  --scroll-amount: 10vh;
+  --scroll-amount: 8vh;
   --overlay: 0.204;
   --background-position: 50%;
   background-size: cover;

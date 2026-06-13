@@ -204,6 +204,8 @@ $color-transition: transition((color, background-color, text-decoration-color, b
     @return calc($fullDim - calc($padding * 2) - $width);
 }
 
+$max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
+
 // https://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
 @function strip-units($number) {
     @return math.div($number, ($number * 0 + 1));
@@ -265,7 +267,6 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         }
         section {
             width: max-content;
-            max-width: innerDim($padding: var(--outer-padding));
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -297,6 +298,7 @@ $color-transition: transition((color, background-color, text-decoration-color, b
     display: flex;
     margin: $max-padding var(--outer-padding);
     gap: var(--padding);
+    align-items: center;
     @if ($left) {
         flex-direction: row-reverse;
     }
@@ -344,7 +346,8 @@ $color-transition: transition((color, background-color, text-decoration-color, b
         }
         @if ($sticky) { 
             @include desktop-tall {
-                max-height: innerDim($padding: $max-padding, $fullDim: 100vh);
+                max-height: min(innerDim($padding: $max-padding, $fullDim: 100vh), 75vw);
+                height: stretch;
                 position: sticky;  
                 background-size: cover;
                 top: $max-padding;

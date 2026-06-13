@@ -16,7 +16,7 @@ main {
         margin-left: $true-left-pad;
         position: relative;
         @include global.mobile {
-            max-width: global.innerDim($padding: var(--outer-padding));
+            max-width: global.$max-width;
             width: global.$line-length;
             margin-left: auto;
             margin-right: auto;
@@ -85,7 +85,7 @@ main {
         .gallery {
             @include global.tablet-desktop-tall {   
                 column-gap: 1em;
-                width: global.innerDim($fullDim: 100vw, $padding: var(--outer-padding));
+                width: global.$max-width;
                 position: relative;
                 left: calc($true-left-pad * -1);
                 margin: global.$max-padding var(--outer-padding);

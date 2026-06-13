@@ -46,9 +46,9 @@ main {
             max-width: unset;
             font-size: 1em;
             display: grid;
-            grid-template-columns: repeat(auto-fit, 19em);
+            grid-template-columns: repeat(auto-fit, min(19em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
             gap: 2em;
-            padding: 0 var(--padding);
+            padding: 0 var(--outer-padding);
             align-items: baseline;
             justify-content: center;
             a {

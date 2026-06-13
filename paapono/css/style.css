@@ -30,9 +30,9 @@ main .more-pages ul {
   max-width: unset;
   font-size: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 19em);
+  grid-template-columns: repeat(auto-fit, min(19em, 100vw - var(--outer-padding) * 2 - 0rem));
   gap: 2em;
-  padding: 0 var(--padding);
+  padding: 0 var(--outer-padding);
   align-items: baseline;
   justify-content: center;
 }
@@ -114,7 +114,6 @@ main .banner.center-text > div {
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(100% - var(--outer-padding) * 2 - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;

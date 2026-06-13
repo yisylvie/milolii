@@ -23,6 +23,7 @@ main .side-section.right.sticky {
   display: flex;
   margin: 4em var(--outer-padding);
   gap: var(--padding);
+  align-items: center;
 }
 @media (width <= 900px) {
   main .side-section.right.sticky {
@@ -59,7 +60,8 @@ main .side-section.right.sticky .img {
 }
 @media (height > 450px) and (width > 900px) {
   main .side-section.right.sticky .img {
-    max-height: calc(100vh - 8em - 0rem);
+    max-height: min(100vh - 8em - 0rem, 75vw);
+    height: stretch;
     position: sticky;
     background-size: cover;
     top: 4em;
@@ -99,6 +101,7 @@ main .side-section.right.no-sticky {
   display: flex;
   margin: 4em var(--outer-padding);
   gap: var(--padding);
+  align-items: center;
 }
 @media (width <= 900px) {
   main .side-section.right.no-sticky {
@@ -160,6 +163,7 @@ main .side-section.left {
   display: flex;
   margin: 4em var(--outer-padding);
   gap: var(--padding);
+  align-items: center;
   flex-direction: row-reverse;
 }
 @media (width <= 900px) {
@@ -250,7 +254,7 @@ main .banner.center-text > div {
 }
 main .banner.center-text section {
   width: max-content;
-  max-width: calc(100% - var(--outer-padding) * 2 - 0rem);
+  max-width: calc(100vw - var(--outer-padding) * 2 - 0rem);
   display: flex;
   flex-direction: column;
   align-items: center;

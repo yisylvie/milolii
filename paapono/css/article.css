@@ -257,7 +257,7 @@ main article {
 }
 @media (width <= 900px) {
   main article {
-    max-width: calc(100% - var(--outer-padding) * 2 - 0rem);
+    max-width: calc(100vw - var(--outer-padding) * 2 - 0rem);
     width: 32em;
     margin-left: auto;
     margin-right: auto;
