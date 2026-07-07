@@ -25,7 +25,6 @@ main {
             margin-block-end: 0.6em;
         }
         hgroup {
-            font-size: global.$h2-size;
             @include global.desktop {
                 width: global.innerDim($fullDim: 100vw, $width: calc($true-left-pad + var(--outer-padding)));
             }

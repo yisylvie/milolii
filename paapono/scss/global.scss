@@ -38,8 +38,8 @@ $shadow-elevation-high: 0.3px 0.3px 0.5px #{alphaOKLCH(0.37)},
     10.7px 10.7px 17.4px -1.8px #{alphaOKLCH(0.4)},
     21.2px 21.3px 34.5px -2.3px #{alphaOKLCH(0.41)};
 
-$p-size: 1.05em;
-$smaller-size: .9em;
+$p-size: 1.05rem;
+$smaller-size: .9rem;
 $h1-size: 3rem;
 $h2-size: 2.5rem;
 $h3-size: 1.5rem;
@@ -236,8 +236,6 @@ $max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
 
 @mixin banner-left-text() {
     .banner.left-text {
-        $padding: 3em var(--outer-padding);
-        padding: $padding;
         &:not(.no-img) .img {
             background-image: var(--banner-background);
         }
@@ -265,7 +263,7 @@ $max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2em var(--outer-padding);
+            padding: 2em 0;
             > p {
                 @include tablet-desktop {
                     margin: auto;

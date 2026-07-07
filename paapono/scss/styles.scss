@@ -401,7 +401,6 @@ img, video, iframe, svg {
 #everything > footer {
     position: sticky;
     width: stretch;
-    font-size: 1rem;
     padding: 0 var(--outer-padding);
     bottom: 0;
     @include global.mobile {
@@ -565,24 +564,32 @@ main {
             font-size: inherit;
         }
         :last-child {
-            $padding: .3em;
             font-style: italic;
             font-weight: 300;
-            padding-bottom: calc($padding + global.$line);
             width: fit-content;
             font-size: .42em;
             overflow: hidden;
             margin-block-end: 2em;
-            @at-root main article hgroup :last-child:after {
-                content: '';
-                display: inline-block;
-                vertical-align: bottom;
-                box-shadow: -100em calc(100em + $padding) 0 100em;
-                color: global.$tertiaryColor;
+            @at-root main article hgroup :last-child {
+                $padding: .3em;
+                padding-bottom: calc($padding + global.$line);
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: bottom;
+                    box-shadow: -100em calc(100em + $padding) 0 100em;
+                    color: global.$tertiaryColor;
+                }
+            }
+            @at-root main hgroup:last-child :last-child {
+                margin-block-end: 0;
             }
         }
     }
     article section {
+        hgroup {
+            font-size: global.$h2-size;
+        }
         li {
             border-left: global.$border1-blue;
             padding: .3em 0 .3em .7em;
@@ -599,8 +606,7 @@ main {
         }
     }
     .banner {
-        padding-top: 2em;
-        padding-bottom: 2em;
+        padding: 3rem var(--outer-padding);
         position: relative;
         display: flex;
         justify-content: center;
@@ -610,7 +616,7 @@ main {
             max-width: global.$max-width;
         }
         &:first-of-type {
-            height: global.innerDim($width: calc((global.rel-to-abs(3.2em, 1.5rem))), $fullDim: 100vh, $padding: 2em);
+            height: global.innerDim($width: calc((global.rel-to-abs(3.2em, 1.5rem))), $fullDim: 100vh, $padding: 3rem);
             min-height: fit-content;
         }
         &:not(.no-img) {

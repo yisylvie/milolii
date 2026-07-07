@@ -3,6 +3,9 @@
 
 
 main {
+    h3 {
+        font-weight: 600;
+    }
     .banner.no-img {
         background-color: global.$grey5;
     }
@@ -19,12 +22,13 @@ main {
             --background-position: 0%;
         }
         // height: global.innerDim($fullDim: 100vh, $padding: 2em, $width: rel-to-abs(1.5em));
-        font-size: 1.5em;
+        font-size: 1.5rem;
         h1 {
             font-size: global.$h1-size;
             margin-block-end: .8em;
         }
         p {
+            font-size: inherit;
             margin-block-end: 1em;
         }
         .button {
@@ -38,36 +42,50 @@ main {
         }
     }
 
-    .more-pages {
-        width: stretch;
+    .grid {
         margin: 4em 0;
         ul {
             max-width: unset;
             font-size: 1em;
             display: grid;
-            grid-template-columns: repeat(auto-fit, min(19em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
-            gap: 2em;
-            padding: 0 var(--outer-padding);
             align-items: baseline;
             justify-content: center;
             a {
-                background-color: white;
                 color: black;
-                box-shadow: global.$shadow-elevation-low;
-                border-bottom: 1em solid global.$tertiaryColor;
                 transition: global.$color-transition;
-                
                 &:focus-visible, &:hover {
                     color: global.$secondaryColor;
+                }
+                * {
+                    transition: global.$color-transition;
+                }
+            }
+        }
+    }
+
+    .more-pages {
+        width: stretch;
+        ul {
+            grid-template-columns: repeat(auto-fit, min(19em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
+            gap: 2em;
+            a {
+                background-color: white;
+                box-shadow: global.$shadow-elevation-low;
+                border-bottom: 1em solid global.$tertiaryColor;
+                
+                &:focus-visible, &:hover {
                     border-color: global.$secondaryColor;
                     img {
                         transform: scale(110%);
                     }
                 }
-                * {
-                    transition: global.$color-transition;
+                div:last-child {
+                    padding: 1em;
+                    h3 {
+                        margin-block-end: .5em;
+                    }
                 }
-                div:first-of-type {
+                div:first-child {
                     overflow: hidden;
                     img {
                         height: 12em;
@@ -77,29 +95,23 @@ main {
                         transition: transform 250ms ease-in;
                     }
                 }
-                div:nth-of-type(2) {
-                    padding: 1em;
-                    h3 {
-                        font-weight: 600;
-                        margin-block-end: .5em;
-                    }
-                    li {
-                        font-size: 1em;
-                    }
-                }
             }
         }
     }
 
     .partners {
         ul {
-            max-width: unset;
-            font-size: 1em;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, min(7em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
-            gap: 2em;
-            align-items: baseline;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fit, min(11.5em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
+            gap: 1.5em;
+            text-align: center;
+            h3 {
+                margin-top: 1em;
+                font-size: global.$smaller-size;
+            }
+            img {
+                width: 75%;
+                margin: auto;
+            }
         }
     }
 

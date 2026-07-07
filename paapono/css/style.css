@@ -1,4 +1,7 @@
 @charset "UTF-8";
+main h3 {
+  font-weight: 600;
+}
 main .banner.no-img {
   background-color: #f9f9f9;
 }
@@ -10,13 +13,14 @@ main .banner.center-text:first-of-type .img {
   --background-position: 0%;
 }
 main .banner.center-text:first-of-type {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 main .banner.center-text:first-of-type h1 {
   font-size: 3rem;
   margin-block-end: 0.8em;
 }
 main .banner.center-text:first-of-type p {
+  font-size: inherit;
   margin-block-end: 1em;
 }
 main .banner.center-text:first-of-type .button {
@@ -25,65 +29,72 @@ main .banner.center-text:first-of-type .button {
 main .banner.center-text:nth-of-type(2) section {
   padding-bottom: 0;
 }
-main .more-pages {
-  width: stretch;
+main .grid {
   margin: 4em 0;
 }
-main .more-pages ul {
+main .grid ul {
   max-width: unset;
   font-size: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, min(19em, 100vw - var(--outer-padding) * 2 - 0rem));
-  gap: 2em;
-  padding: 0 var(--outer-padding);
   align-items: baseline;
   justify-content: center;
 }
-main .more-pages ul a {
-  background-color: white;
+main .grid ul a {
   color: black;
-  box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.35), 1px 1px 1.6px -2.3px oklch(from var(--shadow-color) l c h/0.38);
-  border-bottom: 1em solid #07254b;
   transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
 }
-main .more-pages ul a:focus-visible, main .more-pages ul a:hover {
+main .grid ul a:focus-visible, main .grid ul a:hover {
   color: #12488f;
+}
+main .grid ul a * {
+  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
+}
+main .more-pages {
+  width: stretch;
+}
+main .more-pages ul {
+  grid-template-columns: repeat(auto-fit, min(19em, 100vw - var(--outer-padding) * 2 - 0rem));
+  gap: 2em;
+}
+main .more-pages ul a {
+  background-color: white;
+  box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.35), 1px 1px 1.6px -2.3px oklch(from var(--shadow-color) l c h/0.38);
+  border-bottom: 1em solid #07254b;
+}
+main .more-pages ul a:focus-visible, main .more-pages ul a:hover {
   border-color: #12488f;
 }
 main .more-pages ul a:focus-visible img, main .more-pages ul a:hover img {
   transform: scale(110%);
 }
-main .more-pages ul a * {
-  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
+main .more-pages ul a div:last-child {
+  padding: 1em;
 }
-main .more-pages ul a div:first-of-type {
+main .more-pages ul a div:last-child h3 {
+  margin-block-end: 0.5em;
+}
+main .more-pages ul a div:first-child {
   overflow: hidden;
 }
-main .more-pages ul a div:first-of-type img {
+main .more-pages ul a div:first-child img {
   height: 12em;
   width: 100%;
   object-fit: cover;
   overflow: hidden;
   transition: transform 250ms ease-in;
 }
-main .more-pages ul a div:nth-of-type(2) {
-  padding: 1em;
-}
-main .more-pages ul a div:nth-of-type(2) h3 {
-  font-weight: 600;
-  margin-block-end: 0.5em;
-}
-main .more-pages ul a div:nth-of-type(2) li {
-  font-size: 1em;
-}
 main .partners ul {
-  max-width: unset;
-  font-size: 1em;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, min(7em, 100vw - var(--outer-padding) * 2 - 0rem));
-  gap: 2em;
-  align-items: baseline;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, min(11.5em, 100vw - var(--outer-padding) * 2 - 0rem));
+  gap: 1.5em;
+  text-align: center;
+}
+main .partners ul h3 {
+  margin-top: 1em;
+  font-size: 0.9rem;
+}
+main .partners ul img {
+  width: 75%;
+  margin: auto;
 }
 main .hero-img {
   display: flex;
@@ -93,9 +104,6 @@ main .hero-img {
 }
 main .hero-img img {
   width: 100%;
-}
-main .banner.left-text {
-  padding: 3em var(--outer-padding);
 }
 main .banner.left-text:not(.no-img) .img {
   background-image: var(--banner-background);
@@ -119,7 +127,7 @@ main .banner.center-text section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em var(--outer-padding);
+  padding: 2em 0;
 }
 @media (width > 700px) and (height > 450px) {
   main .banner.center-text section > p {

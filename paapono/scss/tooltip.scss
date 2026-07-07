@@ -6,7 +6,7 @@
 .copy {
     $offset: .6em;
     $timing: global.$bezier;
-    $font-size: .9em;
+    $font-size: global.$smaller-size;
     cursor: pointer;
     position: relative;
 

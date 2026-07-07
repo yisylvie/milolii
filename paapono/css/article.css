@@ -266,9 +266,6 @@ main article {
 main article li {
   margin-block-end: 0.6em;
 }
-main article hgroup {
-  font-size: 2.5rem;
-}
 @media (width > 900px) {
   main article hgroup {
     width: calc(100vw - 0rem - (min(43vw, 100vw - clamp(28rem, 9.2rem + 40vw, 32rem) - var(--outer-padding)) + var(--outer-padding)));
@@ -304,7 +301,7 @@ main article figure {
 }
 main article figure figcaption {
   margin: 1em 0.5em;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: #828282;
 }
 @media (height <= 450px), (width <= 900px) {
@@ -366,7 +363,7 @@ main article .gallery img {
   }
 }
 main article footer h3 {
-  font-size: 1.05em;
+  font-size: 1.05rem;
   border-bottom: #dedede solid 2px;
   font-variant-numeric: oldstyle-nums tabular-nums;
   font-family: "Libertinus Sans", "Ysabeau Office", Verdana, sans-serif;
@@ -374,7 +371,7 @@ main article footer h3 {
   margin-bottom: 1em;
 }
 main article footer li {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 main article footer li small {
   font-size: inherit;

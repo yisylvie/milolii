@@ -7,7 +7,7 @@
     font-size: 0;
   }
   100% {
-    font-size: 0.9em;
+    font-size: 0.9rem;
   }
 }
 @keyframes fade {
@@ -33,7 +33,7 @@
   animation: none;
 }
 .copy .tooltip {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;

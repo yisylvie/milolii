@@ -650,7 +650,6 @@ img, video, iframe, svg {
 #everything > footer {
   position: sticky;
   width: stretch;
-  font-size: 1rem;
   padding: 0 var(--outer-padding);
   bottom: 0;
 }
@@ -800,7 +799,7 @@ main h1 {
   margin-block-end: 0.2em;
 }
 main p, main li {
-  font-size: 1.05em;
+  font-size: 1.05rem;
 }
 main p, main li, main figcaption {
   text-wrap-style: pretty;
@@ -832,11 +831,13 @@ main hgroup :first-child {
 main hgroup :last-child {
   font-style: italic;
   font-weight: 300;
-  padding-bottom: calc(0.3em + 2px);
   width: fit-content;
   font-size: 0.42em;
   overflow: hidden;
   margin-block-end: 2em;
+}
+main article hgroup :last-child {
+  padding-bottom: calc(0.3em + 2px);
 }
 main article hgroup :last-child:after {
   content: "";
@@ -846,6 +847,13 @@ main article hgroup :last-child:after {
   color: #07254b;
 }
 
+main hgroup:last-child :last-child {
+  margin-block-end: 0;
+}
+
+main article section hgroup {
+  font-size: 2.5rem;
+}
 main article section li {
   border-left: #12488f solid 3px;
   padding: 0.3em 0 0.3em 0.7em;
@@ -861,8 +869,7 @@ main article section > p:last-child, main article section li:last-child {
   margin-block-end: 2em;
 }
 main .banner {
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding: 3rem var(--outer-padding);
   position: relative;
   display: flex;
   justify-content: center;
@@ -873,7 +880,7 @@ main .banner section {
   max-width: calc(100vw - var(--outer-padding) * 2 - 0rem);
 }
 main .banner:first-of-type {
-  height: calc(100vh - 4em - 4.8rem);
+  height: calc(100vh - 6rem - 4.8rem);
   min-height: fit-content;
 }
 main .banner:not(.no-img) {
