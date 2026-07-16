@@ -6,9 +6,6 @@ main {
     h3 {
         font-weight: 600;
     }
-    .banner.no-img {
-        background-color: global.$grey5;
-    }
 
     .banner.left-text {
         hgroup {
@@ -52,7 +49,7 @@ main {
             justify-content: center;
             a {
                 color: black;
-                transition: global.$color-transition;
+                transition: global.$color-transition, global.transition(box-shadow);
                 &:focus-visible, &:hover {
                     color: global.$secondaryColor;
                 }
@@ -70,10 +67,11 @@ main {
             gap: 2em;
             a {
                 background-color: white;
-                box-shadow: global.$shadow-elevation-low;
+                box-shadow: global.$shadow-elevation-medium;
                 border-bottom: 1em solid global.$tertiaryColor;
                 
                 &:focus-visible, &:hover {
+                    box-shadow: global.$shadow-elevation-medium-hover;
                     border-color: global.$secondaryColor;
                     img {
                         transform: scale(110%);

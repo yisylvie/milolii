@@ -2,9 +2,6 @@
 main h3 {
   font-weight: 600;
 }
-main .banner.no-img {
-  background-color: #f9f9f9;
-}
 main .banner.left-text hgroup {
   font-size: 2.5rem;
 }
@@ -41,7 +38,7 @@ main .grid ul {
 }
 main .grid ul a {
   color: black;
-  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out;
+  transition: border-color 100ms ease-out, text-decoration-color 100ms ease-out, background-color 100ms ease-out, color 100ms ease-out, box-shadow 100ms ease-out;
 }
 main .grid ul a:focus-visible, main .grid ul a:hover {
   color: #12488f;
@@ -58,10 +55,11 @@ main .more-pages ul {
 }
 main .more-pages ul a {
   background-color: white;
-  box-shadow: 0.3px 0.3px 0.5px oklch(from var(--shadow-color) l c h/0.35), 1px 1px 1.6px -2.3px oklch(from var(--shadow-color) l c h/0.38);
+  box-shadow: 0px 2px 8px oklch(from var(--shadow-color) l c h/0.16), 0px 0px 2px oklch(from var(--shadow-color) l c h/0.12);
   border-bottom: 1em solid #07254b;
 }
 main .more-pages ul a:focus-visible, main .more-pages ul a:hover {
+  box-shadow: 0px 8px 20px oklch(from var(--shadow-color) l c h/0.16), 0px 0px 8px oklch(from var(--shadow-color) l c h/0.12);
   border-color: #12488f;
 }
 main .more-pages ul a:focus-visible img, main .more-pages ul a:hover img {
