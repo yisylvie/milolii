@@ -47,7 +47,7 @@ main {
             display: grid;
             align-items: baseline;
             justify-content: center;
-            a {
+            li {
                 color: black;
                 transition: global.$color-transition, global.transition(box-shadow);
                 &:focus-visible, &:hover {
@@ -65,7 +65,7 @@ main {
         ul {
             grid-template-columns: repeat(auto-fit, min(19em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
             gap: 2em;
-            a {
+            li {
                 background-color: white;
                 box-shadow: global.$shadow-elevation-medium;
                 border-bottom: 1em solid global.$tertiaryColor;
@@ -98,10 +98,17 @@ main {
     }
 
     .partners {
+        margin-top: 2em;
         ul {
-            grid-template-columns: repeat(auto-fit, min(11.5em, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
-            gap: 1.5em;
+            $width: 11.5em;
+            grid-template-columns: repeat(auto-fit, minmax(min($width, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))), 1fr));
+            // grid-template-columns: repeat(auto-fit, min($width, global.innerDim($fullDim: 100vw, $padding: var(--outer-padding))));
+            gap: 3em 1.5em;
             text-align: center;
+            li {
+                width: min(max($width, 60vw), 100%);
+                @include global.autoLeftCenter();
+            }
             h3 {
                 margin-top: 1em;
                 font-size: global.$smaller-size;
@@ -110,6 +117,13 @@ main {
                 width: 75%;
                 margin: auto;
             }
+        }
+    }
+
+    .divider {
+        margin: 0 var(--outer-padding);
+        img {
+            width: 100%;
         }
     }
 

@@ -18,8 +18,7 @@ main {
         @include global.mobile {
             max-width: global.$max-width;
             width: global.$line-length;
-            margin-left: auto;
-            margin-right: auto;
+            @include global.autoLeftCenter();
         }
         li {
             margin-block-end: 0.6em;

@@ -46,6 +46,10 @@ body {
     }
 }
 
+* {
+    scrollbar-color: global.$secondaryColor global.$grey4;
+}
+
 h1, h2, h3, h4, h5, p, ol, ul, li, a, button, small, menu, address, figure, figcaption {
     @extend %text-styles !optional;
 }
@@ -142,6 +146,27 @@ img, video, iframe, svg {
     max-width: 100%;
 }
 
+.new-tab {
+    $height: .6em;
+    $margin: .2em;
+    margin-right: calc($height + $margin);
+    position: relative;
+    white-space: nowrap;
+    &::after {
+        background-color: currentcolor;
+        content: " (opens in a new tab)";
+        mask-image: url(../icons/external\ link\ opens\ in\ a\ new\ tab.svg);
+        margin-left: $margin;
+        width: $height;
+        height: $height;
+        top: calc(1lh - ((1lh - 1ex) / 2) - $height);
+        mask-size: auto $height;
+        display: inline-block;
+        position: absolute;
+        mask-repeat: no-repeat;
+    }
+}
+
 .visually-hidden {
     position: absolute;
     top: auto;
@@ -186,9 +211,9 @@ img, video, iframe, svg {
     background-color: global.$tertiaryColor;
     $padding: .6em;
     padding: 0 var(--outer-padding);
-    padding-right: 0;
+    // padding-right: 0;
     display: flex;
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -241,6 +266,7 @@ img, video, iframe, svg {
     }
     > nav {
         background-color: global.$tertiaryColor;
+        font-size: global.$header-font-size;
     }
     img {
         height: 2em;
@@ -262,6 +288,9 @@ img, video, iframe, svg {
         > li:last-child > a {
             @include global.mobile-small {
                 border-bottom: global.$border-white;
+            }
+            @include global.tablet-desktop {
+                padding-right: 0;
             }
         }
         > li > a {
@@ -616,7 +645,7 @@ main {
             max-width: global.$max-width;
         }
         &:first-of-type {
-            height: global.innerDim($width: calc((global.rel-to-abs(3.2em, 1.5rem))), $fullDim: 100vh, $padding: 3rem);
+            height: global.innerDim($width: calc((global.rel-to-abs(3.2em, global.$header-font-size))), $fullDim: 100vh, $padding: 3rem);
             min-height: fit-content;
         }
         &:not(.no-img) {

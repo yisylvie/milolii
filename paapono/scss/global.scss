@@ -50,6 +50,7 @@ $smaller-size: .9rem;
 $h1-size: 3rem;
 $h2-size: 2.5rem;
 $h3-size: 1.5rem;
+$header-font-size: 1.3rem;
 
 $min-padding: 3vw;
 $max-padding: 4em;
@@ -206,6 +207,12 @@ $color-transition: transition((color, background-color, text-decoration-color, b
     transform: $translate5050;
 }
 
+// center horizontally with margins
+@mixin autoLeftCenter() {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 // get the true dimensions of an element
 // $padding: the padding of the element
 // $fullDim: the dimensions of the element incl padding
@@ -328,8 +335,7 @@ $max-width: innerDim($fullDim: 100vw, $padding: var(--outer-padding));
             }
             @include mobile {
                 // max-width: innerDim($padding: var(--outer-padding));
-                margin-left: auto;
-                margin-right: auto;
+                @include autoLeftCenter();
             }
         }
     }
