@@ -1,0 +1,9 @@
+<script webc:type="js">
+	let text = $data.site.description;
+
+	if ($data.description) {
+		text = `${$data.description}`;
+	}
+
+	`<meta name="description" content="${text}">`;
+</script>

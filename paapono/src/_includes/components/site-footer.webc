@@ -1,0 +1,64 @@
+<footer>
+    <div class="footer-top">
+        <a class="logo" href="/">
+            <!-- <img srcset="icons/icon white text.png 60w" decoding="async" src="icons/icon white text.png" alt="Pa&#699;a Pono Logo"> -->
+        </a>
+        <address>
+            <p class="h3">
+                Contact Us
+            </p>
+            <p class="highlight">
+                89-1831 Miloli‘i Road
+            <br>
+                Captain Cook, HI 96704
+            </p>
+            <p class="highlight">
+                (808)430-2228
+            </p>
+            <p>
+                <strong class="copy highlight email white" tabindex="0">
+                    mkaupiko5@gmail.com<!--  
+                    --><span class="tooltip bottom hidden" role="tooltip"><!--  
+                        --><span>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 35 41">
+                                <path fill="currentColor" d="M3.4,41c-0.9,0-1.7-0.3-2.4-1s-1-1.5-1-2.4v-30h3.4v30H27V41H3.4z M9.8,34.6c-0.9,0-1.7-0.3-2.4-1c-0.7-0.7-1-1.5-1-2.4V3.4
+                                                            c0-0.9,0.3-1.7,1-2.4c0.7-0.7,1.5-1,2.4-1h21.8c0.9,0,1.7,0.3,2.4,1c0.7,0.7,1,1.5,1,2.4v27.8c0,0.9-0.3,1.7-1,2.4
+                                                            c-0.7,0.7-1.5,1-2.4,1C31.6,34.6,9.8,34.6,9.8,34.6z M9.8,31.2h21.8V3.4H9.8C9.8,3.4,9.8,31.2,9.8,31.2z M9.8,31.2V3.4
+                                                            C9.8,3.4,9.8,31.2,9.8,31.2z" />
+                            </svg>
+                            <span>Copy <span class="visually-hidden">to clipboard</span></span>
+                        </span><!--  
+                    --></span><!--  
+                --></strong>
+            </p>
+        </address>
+        <div class="socials">
+            <a href="https://www.facebook.com/PaaPonoMiloliiInc/" target="_blank" rel="noopener noreferrer" class="facebook">
+                <span class="visually-hidden">Paʻa Pono&rsquo;s Facebook page</span>
+                <svg viewBox="0 0 36 36" height="40" width="40">
+                    <path fill="currentColor"
+                        d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z">
+                    </path>
+                    <path fill="currentColor" class="svg-secondary"
+                        d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/@paaponomilolii6318" target="_blank" rel="noopener noreferrer" class="youtube">
+                <span class="visually-hidden">Paʻa Pono&rsquo;s YouTube page</span>
+                <svg width="50" height="35" viewBox="0 0 50 35">
+                    <path
+                        d="M24.9145 34.4009C24.9145 34.4009 40.5406 34.4009 44.4165 33.3688C46.5989 32.784 48.2402 31.0984 48.8162 29.0171C49.8812 25.1986 49.8812 17.166 49.8812 17.166C49.8812 17.166 49.8812 9.18503 48.8162 5.40094C48.2402 3.26808 46.5989 1.61684 44.4165 1.04923C40.5406 0 24.9145 0 24.9145 0C24.9145 0 9.32327 0 5.46477 1.04923C3.31727 1.61684 1.64118 3.26808 1.0301 5.40094C0 9.18503 0 17.166 0 17.166C0 17.166 0 25.1986 1.0301 29.0171C1.64118 31.0984 3.31727 32.784 5.46477 33.3688C9.32327 34.4009 24.9145 34.4009 24.9145 34.4009Z"
+                        fill="currentColor" />
+                    <path fill="currentColor" class="svg-secondary" d="M32.6806 17.2003L19.7803 9.89014V24.5105L32.6806 17.2003Z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <small>
+            Site designed and coded by Sylvie Lee.
+            &#169; 2026 All Rights Reserved.
+        </small>
+    </div>
+</footer>
