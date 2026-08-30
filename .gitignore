@@ -1,0 +1,28 @@
+package-lock.json
+css/main.css.map
+
+# dependency directories
+node_modules/
+
+# config
+.env*
+
+# caches
+.cache
+.sass-cache/
+
+# eleventy gulp build
+dist
+
+# vercel
+.vercel
+
+# OSX
+.DS_Store
+.vscode/
+
+# Misc
+*.log
+npm-debug.*
+*.scssc
+*.swp

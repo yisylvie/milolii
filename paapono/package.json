@@ -1,0 +1,26 @@
+{
+  "name": "paapono",
+  "version": "1.0.0",
+  "description": "11ty build for paʻa pono website",
+  "homepage": "https://github.com/yisylvie/milolii#readme",
+  "bugs": {
+    "url": "https://github.com/yisylvie/milolii/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yisylvie/milolii.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Sylvie Lee",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+		"start": "eleventy --serve",
+		"build": "eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}
