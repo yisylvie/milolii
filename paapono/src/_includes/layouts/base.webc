@@ -11,12 +11,9 @@
         <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self'">
 
         <!-- favicons -->
-        <link rel="icon" type="image/png" href="/icons/favicon/favicon-96x96.png" sizes="96x96">
-        <link rel="icon" type="image/svg+xml" href="/icons/favicon/favicon.svg">
-        <link rel="shortcut icon" href="/icons/favicon/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png">
-        <meta name="apple-mobile-web-app-title" content="Pa&#699;a Pono">
-        <link rel="manifest" href="/icons/favicon/site.webmanifest">
+         <template webc:type="11ty" 11ty:type="njk" webc:raw webc:nokeep>
+             {% favicons "./src/icons/favicon/favicon.svg", iconBgColor='transparent' %}
+        </template>
     </head>
 
     <body id="body">
@@ -26,4 +23,5 @@
         <!-- <script src="js/script.js"></script> -->
         <!-- <script defer fetchpriority="low" src="js/clipboard.js"></script> -->
     </body>
+    <site-footer></site-footer>
 </html>

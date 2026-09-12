@@ -1,0 +1,4 @@
+<script webc:type="js">
+	const now = new Date();
+	`&copy; ${now.getFullYear()} All Rights Reserved.`;
+</script>

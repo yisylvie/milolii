@@ -1,0 +1,1 @@
+<strong class="copy highlight email white" tabindex="0" @html="`${email}<tooltip></tooltip>`"></strong>

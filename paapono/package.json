@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-img": "^7.0.0",
-    "@11ty/eleventy-plugin-webc": "^0.11.2"
+    "@11ty/eleventy-plugin-webc": "^0.11.2",
+    "eleventy-plugin-gen-favicons": "^1.1.3"
   }
 }

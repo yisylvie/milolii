@@ -1,0 +1,6 @@
+<span class="tooltip bottom hidden" role="tooltip"><!--  
+    --><span>
+        <clipboard></clipboard>
+        <span>Copy <span class="visually-hidden">to clipboard</span></span>
+    </span><!--  
+--></span>

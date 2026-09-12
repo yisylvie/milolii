@@ -1,7 +1,6 @@
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginWebc from "@11ty/eleventy-plugin-webc";
-// import path from "node:path";
-// import fs from "node:fs";
+import faviconsPlugin from "eleventy-plugin-gen-favicons";
 
 export default function (eleventyConfig) {
 	eleventyConfig.setInputDirectory('src');
@@ -9,7 +8,8 @@ export default function (eleventyConfig) {
 	
 	// folders/files that don't get formatted and are just copied directly
 	eleventyConfig.addPassthroughCopy('src/css');
-	eleventyConfig.addPassthroughCopy('src/icons/favicon/**');
+	
+	eleventyConfig.addPlugin(faviconsPlugin, {'outputDir': './dist/icons/favicon', 'urlPath': '/icons/favicon'});
 
 	eleventyConfig.addPlugin(pluginWebc, {
 		// Glob to find no-import global components
@@ -43,9 +43,14 @@ export default function (eleventyConfig) {
 			}
 		},
 	});
+
+	// capitalize first letter of a word
+	eleventyConfig.addFilter("titleCase", function(word) { 
+		return String(word).charAt(0).toUpperCase() + String(word).slice(1);
+	 });
 }
 
 export const config = {
-	markdownTemplateEngine: 'webc',
+	// markdownTemplateEngine: 'webc',
 	htmlTemplateEngine: 'webc',
 };

@@ -1,0 +1,5 @@
+<a :href="href" :class="this.class" target="_blank" rel="noopener noreferrer">
+    <span webc:if="social" class="visually-hidden" @text="`Paʻa Pono&rsquo;s ${social} page`"></span>
+    <span webc:else class="visually-hidden" @text="`Paʻa Pono&rsquo;s ${this.titleCase(this.class)} page`"></span>
+    <slot name="logo"></slot>
+</a>
