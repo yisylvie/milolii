@@ -2,8 +2,8 @@
 layout: layouts/base.webc
 ---
 <a href="#main" class="focus-hidden button">Skip to main content</a>
-<!-- <site-nav>
-</site-nav> -->
+<site-nav>
+</site-nav>
 <main id="main">
     <div @html="content" webc:nokeep>
     </div>

@@ -6,6 +6,8 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" :href="getBundleFileUrl('css', 'defer')" webc:keep />
         
         <!-- only works in incognito -->
         <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self'">
@@ -17,6 +19,11 @@
     </head>
 
     <body id="body">
+        <style webc:bucket="defer">
+            p {
+                color: white;
+            }
+        </style>
         <div id="everything">
             <template @html="content" webc:nokeep></template>
         </div>

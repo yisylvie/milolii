@@ -21,6 +21,9 @@ dist
 .DS_Store
 .vscode/
 
+# WSL
+*.Identifier
+
 # Misc
 *.log
 npm-debug.*
