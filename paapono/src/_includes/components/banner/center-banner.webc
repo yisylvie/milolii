@@ -1,0 +1,7 @@
+<div :class="'banner center-text' + (img ? '' : ' no-img')" :@img="img" @html="content">
+    <div webc:if="img=='true'" class="img"></div>
+    <section>
+        <slot name="section"></slot>
+    </section>
+    <slot name="grid"></slot>
+</div>

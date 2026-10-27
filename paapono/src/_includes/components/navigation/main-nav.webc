@@ -1,0 +1,25 @@
+<nav id="main-nav">
+    <ul>  
+        <li webc:for="(item, index) of eleventyNavigation($data.collections.all)">
+            <a webc:if="item.children.length > 0" :href="item.url" class="dropdown">
+                <h2 @text="item.title"></h2>
+                <arrow-down></arrow-down>
+            </a>
+            <a webc:else :href="item.url">
+                <h2 @text="item.title"></h2>
+            </a>
+            <ul webc:if="item.children.length > 0">
+                <li class="mobile">
+                    <a :href="item.url">
+                        <h3 @text="item.data.mobile_name"></h3>
+                    </a>
+                </li>
+                <li webc:for="(child) of item.children">
+                    <a :href="child.url">
+                        <h3 @text="child.title"></h3>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

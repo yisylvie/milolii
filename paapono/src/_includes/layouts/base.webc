@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title webc:is="meta-title" webc:nokeep></title>
-        <meta webc:is="meta-description" webc:nokeep></meta>
+        <!-- <title webc:is="meta-title" webc:nokeep></title>
+        <meta webc:is="meta-description" webc:nokeep></meta> -->
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" :href="getBundleFileUrl('css', 'defer')" webc:keep />
-        
+        <!-- <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep/> -->
+
         <!-- only works in incognito -->
         <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self'">
 
@@ -19,16 +19,11 @@
     </head>
 
     <body id="body">
-        <style webc:bucket="defer">
-            p {
-                color: white;
-            }
-        </style>
         <div id="everything">
             <template @html="content" webc:nokeep></template>
         </div>
         <!-- <script src="js/script.js"></script> -->
         <!-- <script defer fetchpriority="low" src="js/clipboard.js"></script> -->
     </body>
-    <site-footer></site-footer>
+    <!-- <site-footer></site-footer> -->
 </html>

@@ -1,0 +1,15 @@
+<div webc:scoped :class="'banner ' + c + '-banner ' + (img ? this.class : ' no-img')" :@img="img" :img-url="img-url" :id="id">
+    <div webc:if="img==true" webc:nokeep>
+        <div class="img">
+            <style @text='`:host .img {--banner-background: url("${img_url}");--background-position: 0%;}`'>
+            </style>
+        </div>
+    </div>
+    <section>
+        <hgroup webc:if="c=='left'">
+            <slot name="section"></slot>
+        </hgroup>
+        <slot webc:else name="section"></slot>
+    </section>
+    <slot name="grid"></slot>
+</div>

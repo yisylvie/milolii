@@ -21,10 +21,10 @@
         </address>
         <div class="socials">
             <social href="https://www.facebook.com/PaaPonoMiloliiInc/" class="facebook">
-                <facebook slot="logo"></facebook>
+                <facebook></facebook>
             </social>
             <social href="https://www.youtube.com/@paaponomilolii6318" class="youtube" @social="YouTube">
-                <youtube slot="logo"></youtube>
+                <youtube></youtube>
             </social>
         </div>
     </div>

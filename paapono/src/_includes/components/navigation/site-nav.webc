@@ -1,0 +1,14 @@
+<dialog id="header">
+    <nav class="hamburger-nav">
+        <a href="/">
+            <!-- <img srcset="icons/icon%20white%20text.png 60w"
+                decoding="async" fetchpriority="high"
+                src="icons/icon white text.png" alt="Pa&#699;a Pono Logo"> -->
+        </a>
+        <button id="hamburger-button" class="menu-button"
+            aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+            <hamburger></hamburger>
+        </button>
+    </nav>
+    <main-nav></main-nav>
+</dialog>

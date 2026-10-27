@@ -1,0 +1,70 @@
+---
+title: Home
+---
+
+<banner @c="center" :img="true" @img_url="boats.jpg">
+    <template slot="section" webc:type="11ty" 11ty:type="liquid,md">
+# Improving the Lives of Our Miloliʻi ʻOhana
+
+Paʻa Pono Miloliʻi strives to preserve and protect the cultural, historical, environmental, and archaeological life and
+heritage within the ahupuaʻa of Hoʻokena, Pāpā, Hoʻōpūloa, Miloliʻi, Omokaʻa, Kalihi, Honomalino, Okoe, and Kapuʻa.
+        <primary-button href="about/core-values">Our Story</primary-button>    
+    </template>
+</banner>
+<!-- <banner @c="center" :img="false">
+    <template slot="section" webc:type="11ty" 11ty:type="liquid,md">
+## Discover Our Projects
+Paʻa Pono is dedicated to supporting our Miloliʻi community through our many projects and events.
+    </template>
+</banner> -->
+<!--- <div class="more-pages grid">
+    <ul>
+        <li>
+            <a href="">
+                <div><img src="projects/milolii-community-center/images/paʻa pono center mountain view.jpeg" alt=""></div>
+                <div>
+                    <h3>
+                        Office of Hawaiian Affairs Culture Grant
+                    </h3>
+                    <p>
+                        Perpetuating the Hawaiian cultural practices of Miloliʻi
+                    </p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div><img src="projects/milolii-community-center/images/paʻa pono center mountain view.jpeg" alt=""></div>
+                <div>
+                    <h3>
+                        Miloliʻi Community Center
+                    </h3>
+                    <p>
+                        Establishing a central gathering place for meetings, celebrations, and cultural protocol
+                    </p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div><img src="images/Opelu Project 2.jpg" alt=""></div>
+                <div>
+                    <h3>
+                        ʻŌpelu Project
+                    </h3>
+                    <p>
+                        Enhancing the marine and coastal knowledge base and stewardship action of Miloliʻi’s keiki
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div> --->
+<!-- <banner @c="left" :img="false">
+    <template slot="section" webc:type="11ty" 11ty:type="liquid,md">
+## Mahalo nui to our partner organizations!
+Our work would not be possible without you.
+    </template>
+    <div slot="grid">
+    </div>
+</banner> -->

@@ -27,7 +27,7 @@
   "dependencies": {
     "@11ty/eleventy-img": "^7.0.0",
     "@11ty/eleventy-navigation": "^1.0.5",
-    "@11ty/eleventy-plugin-webc": "0.12.0-beta.2",
+    "@11ty/eleventy-plugin-webc": "0.12.0-beta.5",
     "@danielhaim/titlecaser": "^1.8.25",
     "change-case-all": "^2.1.0",
     "eleventy-plugin-gen-favicons": "^1.1.3",
