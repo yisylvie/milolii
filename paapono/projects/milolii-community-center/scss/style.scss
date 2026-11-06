@@ -31,7 +31,7 @@ main {
         }
     }
     .side-section {
-        &.right {
+        &[data-position="right"] {
             &.sticky {
                 .img {
                     background-image: url("../images/Miloliʻi\ charter\ school\ students.JPG");
@@ -43,7 +43,7 @@ main {
                 @include global.side-section($left: false, $sticky: false);
             }
         }
-        &.left {
+        &[data-position="left"] {
             @include global.side-section($sticky: false);
         }
     }

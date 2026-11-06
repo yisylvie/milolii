@@ -51,11 +51,11 @@ for (const dropdown of dropdowns) {
         }
         if (window.matchMedia("(width <= " + breakpoint2 + "px), (height <= " + breakpointh1 + "px)").matches) {
             e.preventDefault();
-            let liClass = dropdown.parentNode.classList;
-            if (liClass.contains("open")) {
-                liClass.remove("open");
+            let dataset = dropdown.parentNode.dataset;
+            if ("display" in dataset) {
+                delete dataset.display;
             } else {
-                liClass.add("open");
+                dataset.display = "open";
                 document.activeElement.blur();
             }
         }
@@ -64,7 +64,7 @@ for (const dropdown of dropdowns) {
 
 hamburgerButton.addEventListener("click", function (e) {
     if (!header.open) {
-        body.className = "opened";
+        body.dataset.display = "open";
         header.showModal();
         document.activeElement.blur();
         hamburgerButton.ariaExpanded = true;
@@ -98,12 +98,11 @@ function xOutMenu() {
 
     header.addEventListener("close", function (e) {
         document.activeElement.blur();
-        body.classList.remove("opened");
+        delete body.dataset.display;
         hamburgerButton.ariaExpanded = false;
         window.scrollTo(0, scrollPos);
         for (const dropdown of dropdowns) {
-            let liClass = dropdown.parentNode.classList;
-            liClass.remove("open");
+            delete dropdown.parentNode.dataset.display;
         }
     });
 }

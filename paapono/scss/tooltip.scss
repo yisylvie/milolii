@@ -70,26 +70,27 @@
             gap: .5em;
         }
     
-        &.bottom {
+        &[data-position="bottom"] {
             transform: global.$translate500;
             top: 100%;
             padding-top: .6em;
         }
 
-        &.right {
+        &[data-position="right"] {
             top: 50%;
-            left: 100%;
+            right: calc(-50% - $offset / 2);
+            left: unset;
             padding-left: $offset;
             transform: translateY(-50%);
         }
 
-        &.top {
+        &[data-position="top"] {
             bottom: 100%;
             padding-bottom: .6em;
             transform: global.$translate500;
         }
 
-        &.left {
+        &[data-position="left"] {
             top: 50%;
             transform: translate(-100%, -50%);
             padding-right: $offset;
@@ -122,26 +123,26 @@
         border-right: 0.3em solid transparent;
     }
 
-    .bottom::after {
+    .tooltip[data-position="bottom"]::after {
         transform: translate(-50%, -100%);
         top: $offset;
         border-bottom-color: global.$tertiaryColor;
     }
 
-    .right::after {
+    .tooltip[data-position="right"]::after {
         transform: translate(-100%, -50%);
         left: $offset;
         top: 50%;
         border-right-color: global.$tertiaryColor;
     }
 
-    .top::after {
+    .tooltip[data-position="top"]::after {
         transform: global.$translate500;
         top: calc(100% - $offset);
         border-top-color: global.$tertiaryColor;
     }
 
-    .left::after {
+    .tooltip[data-position="left"]::after {
         transform: global.$translate050;
         left: calc(100% - $offset);
         top: 50%;
@@ -150,19 +151,19 @@
 }
 
 .white.copy {
-    .bottom::after {
+    .tooltip[data-position="bottom"]::after {
         border-bottom-color: white;
     }
 
-    .right::after {
+    .tooltip[data-position="right"]::after {
         border-right-color: white;
     }
 
-    .top::after {
+    .tooltip[data-position="top"]::after {
         border-top-color: white;
     }
 
-    .left::after {
+    .tooltip[data-position="left"]::after {
         border-left-color: white;
     }
     .tooltip > span {

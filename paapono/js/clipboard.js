@@ -18,11 +18,14 @@ if (navigator.clipboard && window.isSecureContext) {
         } else {
             // partially intersects with screen
             // cycle through positions for tooltip until one fits on the screen
-            let pos = entries[0].target.classList;
+            let pos = entries[0].target.dataset.position;
+            console.log(pos);
             for (let i = 0; i < directions.length; i++) {
-                if (pos.contains(directions[i])) {
-                    pos.remove(directions[i]);
-                    pos.add(directions[(i + 1) % directions.length]);
+                if (pos == (directions[i])) {
+                    entries[0].target.dataset.position = directions[(i + 1) % directions.length];
+                    console.log(pos);
+                    // pos.remove(directions[i]);
+                    // pos.add(directions[(i + 1) % directions.length]);
                     observer.unobserve(entries[0].target);
                     observer.observe(entries[0].target);
                     return;
@@ -41,8 +44,9 @@ if (navigator.clipboard && window.isSecureContext) {
         tooltip.addEventListener("animationend", function (e) {
             if (tooltip.classList.contains("fade")) {
                 observer.unobserve(tooltip);
-                tooltip.classList.remove(...directions);
-                tooltip.classList.add("bottom");
+                tooltip.dataset.position = "bottom";
+                // tooltip.classList.remove(...directions);
+                // tooltip.classList.add("bottom");
                 tooltip.classList.remove("fade");
                 tooltip.classList.add("hidden");
                 tooltipInner.innerHTML = tooltipInnerText;

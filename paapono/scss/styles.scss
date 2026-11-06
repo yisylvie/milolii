@@ -44,6 +44,12 @@ body {
         background-color: global.$highlightColor;
         color: black;
     }
+    &[data-display="open"] {
+        overflow: clip;
+        main {
+            margin-top: calc(global.rel-to-abs(3em, 1.3em) + global.$line);
+        }
+    }
 }
 
 * {
@@ -197,13 +203,6 @@ img, video, iframe, svg {
     }
     @media (hover: none) {
         display: block;
-    }
-}
-
-.opened {
-    overflow: clip;
-    main {
-        margin-top: calc(global.rel-to-abs(3em, 1.3em) + global.$line);
     }
 }
 
@@ -377,7 +376,7 @@ img, video, iframe, svg {
                 }
             }
         }
-        .open {
+        li[data-display="open"] {
             > a {
                 border-bottom: global.$border-white;
                 &:hover, &:focus-visible {
