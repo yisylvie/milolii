@@ -137,15 +137,27 @@ ul {
     width: fit-content;
     border-radius: global.$border-radius;
     color: white;
-}
+    &[data-button="focus-hidden"] {
+        position: fixed;
+        left: -300em;
+        top: .5em;
+        z-index: 3;
+        background-color: global.$secondaryColor;
+        max-width: global.innerDim($padding: .5em + .8em, $fullDim: 100vw);
+    }
 
-.primary-button {
-    background-color: global.$secondaryColor;
-    transition: background-color global.$ease;
-    &:hover, &:focus-visible {
-        background-color: global.$tertiaryColor;
+    &[data-button="focus-hidden"]:focus {
+        left: .5em;
+    }
+    &[data-button="primary"] {
+        background-color: global.$secondaryColor;
+        transition: background-color global.$ease;
+        &:hover, &:focus-visible {
+            background-color: global.$tertiaryColor;
+        }
     }
 }
+
 
 img, video, iframe, svg {
     display: block;
@@ -182,19 +194,6 @@ img, video, iframe, svg {
     height: 1px;
     white-space: nowrap;
     text-decoration: none;
-}
-
-.focus-hidden {
-    position: fixed;
-    left: -300em;
-    top: .5em;
-    z-index: 3;
-    background-color: global.$secondaryColor;
-    max-width: global.innerDim($padding: .5em + .8em, $fullDim: 100vw);
-}
-
-.focus-hidden:focus {
-    left: .5em;
 }
 
 .mobile {

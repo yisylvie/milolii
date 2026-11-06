@@ -373,12 +373,22 @@ ul {
   border-radius: 0.15rem;
   color: white;
 }
-
-.primary-button {
+.button[data-button=focus-hidden] {
+  position: fixed;
+  left: -300em;
+  top: 0.5em;
+  z-index: 3;
+  background-color: #12488f;
+  max-width: calc(100vw - 2.6em - 0rem);
+}
+.button[data-button=focus-hidden]:focus {
+  left: 0.5em;
+}
+.button[data-button=primary] {
   background-color: #12488f;
   transition: background-color 100ms ease-out;
 }
-.primary-button:hover, .primary-button:focus-visible {
+.button[data-button=primary]:hover, .button[data-button=primary]:focus-visible {
   background-color: #07254b;
 }
 
@@ -415,19 +425,6 @@ img, video, iframe, svg {
   height: 1px;
   white-space: nowrap;
   text-decoration: none;
-}
-
-.focus-hidden {
-  position: fixed;
-  left: -300em;
-  top: 0.5em;
-  z-index: 3;
-  background-color: #12488f;
-  max-width: calc(100vw - 2.6em - 0rem);
-}
-
-.focus-hidden:focus {
-  left: 0.5em;
 }
 
 @media ((width > 700px) and (height > 450px)) {
